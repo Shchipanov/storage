@@ -1,0 +1,52 @@
+-
+  const dataAccordion = [
+    {
+      title: 'Монтаж и пусконаладочные работы',
+      description: 'Правильный выбор места установки и квалифицированное выполнение работ по подключению ИБП позволяет исключить большинство проблем при эксплуатации и обеспечить высокую надежность функционирования системы.',
+      isActive: true,
+    },
+    {
+      title: 'Техническое обслуживание и сервис',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eaque consequatur perspiciatis impedit ab aperiam neque corrupti nisi deleniti optio enim provident molestiae, quidem sint laboriosam reiciendis accusantium iusto distinctio!',
+    },
+    {
+      title: 'Разработка под заказ',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eaque consequatur perspiciatis impedit ab aperiam neque corrupti nisi deleniti optio enim provident molestiae, quidem sint laboriosam reiciendis accusantium iusto distinctio!',
+    }
+  ]
+
+
+mixin support()
+  +page-section(
+          { section: "section",
+            pageGrid: true,
+            modGrid: "col-2"
+          }
+    ).support
+
+    +column({
+          level: "h1",
+          realLevel: "h2",
+          titleGrid: "Обеспечиваем полную техническую поддержку на&nbsp;протяжении всего жизненного цикла изделий",
+    })
+      .accordion(data-accordion="parent", data-single)
+        each item in dataAccordion
+          +accordionItem(
+            {
+              title: item.title,
+              description: item.description,
+              path: '#',
+              isActive: item.isActive,
+            }
+          )
+
+    +column()
+      .support__img
+        +img({
+              path: "content",
+              image: "support",
+              format: "jpg",
+              width: 380,
+              height: 772,
+              altText: "техническая поддержка"
+            })

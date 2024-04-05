@@ -1,0 +1,21 @@
+mixin gradient-link(options = {})
+  - const tag = options.href ? "a" : "button"
+  - const classMods = options.classMods?.map((mod) => `gradient-link--${mod}`) || false
+  - const href = options.href || false
+  - const text = options.text || ""
+  - const type = options.type || tag === "button" ? options.type || "button" : false
+  - const target = options.isExternal ? "_blank" : false
+  - const rel = options.isExternal ? "nofollow noopener noreferrer" : false
+  - const icon = options.icon || false
+  - const {name, width, height, isRight} = icon || false
+
+  #{tag}.gradient-link(class=classMods, href=href, target=target, rel=rel, type=type)&attributes(attributes)
+    if (icon && !isRight)
+      +gradient-icon(name, width, height).gradient-link__icon
+
+    span.gradient-link__text-wrapper
+      span.gradient-link__text.gradient-link__text--default !{text}
+      span.gradient-link__text.gradient-link__text--gradient(aria-hidden="true") !{text}
+
+    if (icon && isRight)
+      +gradient-icon(name, width, height).gradient-link__icon

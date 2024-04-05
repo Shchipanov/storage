@@ -1,0 +1,140 @@
+.custom-input {
+  margin-bottom: size(27px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.is-valid {
+    input {
+      color: $color-black-russian27;
+
+      ~ {
+        .custom-input__indicator {
+          background-color: $color-malachite;
+        }
+      }
+    }
+  }
+
+  &.is-invalid {
+    input {
+      color: $color-black-russian27;
+
+      ~ {
+        .custom-input__indicator {
+          background-color: $color-alizarin;
+        }
+
+        .custom-input__error {
+          display: inline;
+        }
+
+        .custom-input__error--empty-field {
+          display: none;
+        }
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    color: $color-black-russian27;
+    font-family: $ff-manrope;
+    font-size: size(16px);
+    line-height: size(20px);
+    font-weight: 400;
+    background-color: $color-default-white;
+    border: none;
+    border-bottom: 1px solid $color-echo-blue;
+    padding-top: size(3px);
+    padding-right: size(14px);
+    padding-bottom: size(19px);
+    padding-left: size(14px);
+    outline: none;
+    transition: border-color $trans-default;
+    text-align: left;
+
+    &::placeholder {
+      color: $color-ship-cove;
+    }
+
+    @include hover {
+      border-color: $color-ship-cove;
+
+      ~ {
+        .custom-input__indicator {
+          background-color: $color-ship-cove;
+        }
+      }
+    }
+
+    @include active {
+      border-color: $color-ship-cove;
+
+      ~ {
+        .custom-input__indicator {
+          background-color: $color-ship-cove;
+        }
+      }
+    }
+  }
+
+  @include vp-1023 {
+    input {
+      padding: size(3px) size(14px) size(24px);
+    }
+  }
+}
+
+.custom-input__container {
+  display: block;
+  position: relative;
+}
+
+.custom-input__indicator {
+  width: size(6px);
+  height: size(6px);
+  background-color: $color-mischka-2;
+  border-radius: 50%;
+  position: absolute;
+  top: size(12px);
+  left: 0;
+  transition: background-color $trans-default;
+}
+
+.custom-input__error {
+  color: $color-alizarin;
+  font-size: size(14px);
+  line-height: size(18px);
+
+  display: none;
+  position: absolute;
+  bottom: size(-26px);
+  left: 0;
+}
+
+.custom-input--no-indicator {
+  margin-bottom: 0;
+
+  .custom-input__indicator {
+    display: none;
+  }
+
+  input {
+    padding-top: size(3px);
+    padding-right: size(15px);
+    padding-bottom: size(17px);
+    padding-left: 0;
+    text-align: left;
+
+    @include vp-1023 {
+      padding-left: 0;
+      padding-bottom: size(15px);
+    }
+
+    @include vp-767 {
+      padding-bottom: size(16px);
+    }
+  }
+}

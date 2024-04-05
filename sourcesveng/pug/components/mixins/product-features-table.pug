@@ -1,0 +1,15 @@
+mixin product-features-table(data = {})
+  - const {list} = data
+
+  .product-features-table&attributes(attributes)
+    ul.product-features-table__list
+      each item in list
+        - const {title, features} = item
+        li.product-features-table__item
+          h3.title.title--h3!=title
+          table
+            tbody
+              each feature in features
+                tr
+                  th!=feature.name
+                  td!=feature.value

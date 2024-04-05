@@ -1,0 +1,26 @@
+extends ../components/base/layout
+
+
+
+block variables
+  - const title = "Каталог - Связь инжиниринг" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = " " //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+block main
+  main
+    .page-content.page-content--catalog
+      h1.visually-hidden= "Каталог оборудования Связь инжиниринг"
+      +catalog-intro()
+      +catalog-content()
+
+
+
+block modals
+
+  +modal("modal--filters modal--no-scale")(data-modal="filters")
+    +modal-filters()

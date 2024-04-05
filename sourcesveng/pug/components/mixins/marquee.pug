@@ -1,0 +1,91 @@
+-
+  const marqueeList = [
+    {
+      image: "logo-cyek",
+      width: 226,
+      height: 93,
+    },
+    {
+      name: "icon-rostelecom",
+      width: 342,
+      height: 87,
+    },
+    {
+      name: "icon-vtb",
+      width: 195,
+      height: 70,
+    },
+    {
+      name: "icon-transneft",
+      width: 102,
+      height: 87,
+    },
+    {
+      name: "icon-rzd",
+      width: 440,
+      height: 70,
+    },
+    {
+      name: "icon-rtrs",
+      width: 235,
+      height: 70,
+    },
+    {
+      image: "logo-rosneft",
+      width: 225,
+      height: 116,
+    },
+    {
+      name: "icon-metro",
+      width: 93,
+      height: 64,
+    },
+    {
+      name: "icon-lukoil",
+      width: 253,
+      height: 82,
+    },
+    {
+      name: "icon-gaz",
+      width: 187,
+      height: 92,
+    },
+    {
+      name: "icon-gazprombank",
+      width: 349,
+      height: 74,
+    },
+    {
+      image: "logo-alfa",
+      width: 270,
+      height: 82,
+    },
+    {
+      name: "icon-ros",
+      width: 255,
+      height: 74,
+    },
+    {
+      image: "logo-rushydro",
+      width: 216,
+      height: 74,
+    },
+  ]
+
+mixin marquee(data)
+  .marquee&attributes(attributes)
+    .marquee__line(data-marquee)
+      ul.marquee__list(data-marquee-container)
+        each item in marqueeList
+          li.marquee__item(data-marquee-part)
+            if item.image
+                +img({
+                    path: "content/clients",
+                    image: item.image,
+                    format: "png",
+                    width: item.width,
+                    height: item.height,
+                    altText: "лого"
+                  })
+            else
+                +icon(item.name, item.width, item.height)

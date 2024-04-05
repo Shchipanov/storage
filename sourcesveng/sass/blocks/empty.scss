@@ -1,0 +1,63 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: size(40px);
+
+  @include vp-767 {
+    padding-bottom: size(16px);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include vp-1023 {
+      flex-grow: 0.86;
+    }
+
+    @include vp-767 {
+      flex-grow: 0.77;
+    }
+  }
+
+  .empty-icon {
+    margin-bottom: size(45px);
+  }
+
+  &__text {
+    margin-bottom: size(56px);
+
+    @include vp-1023 {
+      margin-bottom: size(16px);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+
+    @include vp-1023 {
+      width: 100%;
+      margin-top: auto;
+    }
+  }
+
+  &__button {
+    &:not(:first-child) {
+      margin-top: size(10px);
+
+      @include vp-1023 {
+        margin-top: size(5px);
+      }
+    }
+
+    @include vp-767 {
+      padding-left: size(20px);
+      padding-right: size(20px);
+    }
+  }
+}

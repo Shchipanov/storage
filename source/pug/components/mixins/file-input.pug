@@ -1,0 +1,6 @@
+mixin file-input()
+  .file-input(data-upload="file")&attributes(attributes)
+    label.file-input__container
+      input(type="file", name="upload-file")
+      span.file-input__placeholder Прикрепить файл
+      +icon("clip", 24, 24)

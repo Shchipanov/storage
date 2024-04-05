@@ -1,0 +1,19 @@
+.socials {
+  --item-margin: #{size(20px)};
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    margin-top: calc(var(--item-margin) * -1);
+    margin-left: calc(var(--item-margin) * -1);
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__item {
+    margin-top: var(--item-margin);
+    margin-left: var(--item-margin);
+  }
+}

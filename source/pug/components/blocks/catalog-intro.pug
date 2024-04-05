@@ -1,0 +1,39 @@
+-
+  const introDataCatalog =  {
+    title: 'Инверторы и блоки питания',
+    quantity: '650 товаров',
+  }
+
+mixin catalog-intro()
+  -const {title, quantity} = introDataCatalog
+  .catalog-intro
+    .container
+      +breadcrumbs([{
+          text: 'Главная',
+          href: 'index.html',
+        }, {
+          text: 'Каталог',
+          href: 'catalog.html',
+        }, {
+          text: 'Инверторы и блоки питания',
+          href: '#',
+        }])
+      .catalog-intro__description
+        h2.title.title--h1!= title
+        p.catalog-intro__quantity!= quantity
+        .catalog-intro__button-wrap
+          +btn(
+            {
+              text: "Фильтр",
+              classMods: ["secondary"],
+              icon: {
+                name: "icon-filter",
+                width: "24",
+                height: "24",
+              },
+            }
+          ).catalog-intro__filter-button(data-open-modal="filters")
+          button.catalog-intro__button.catalog-intro__button--horiz(aria-label="Перестроение")
+            +icon("icon-filter-block", 27, 27)
+          button.catalog-intro__button.catalog-intro__button--grid.is-active(aria-label="Перестроение")
+            +icon("icon-filter-grid", 27, 27)

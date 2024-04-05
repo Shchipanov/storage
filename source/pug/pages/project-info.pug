@@ -1,0 +1,176 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Карточка проекта - Связь инжиниринг"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "project-info.html"
+
+  -
+    const projectInfo = {
+      breadcrumbs: [
+        {
+          text: 'Главная',
+          href: 'index.html',
+        },
+        {
+          text: 'Реализованные проекты',
+          href: 'сompleted-projects.html',
+        },
+        {
+          text: 'Выставка &laquo;Энергетика Урала&raquo; в&nbsp;Уфе',
+          href: '#',
+        },
+      ],
+      content: {
+        bookButtons: [
+          {
+            text: "Заказать проект",
+            href: '#',
+            classMods: ["primary", "equal"],
+          },
+          {
+            text: "Следующий проект",
+            href: '#',
+            classMods: ["secondary", "equal"],
+          },
+        ],
+        sectionBook: {
+          section: "div",
+          pageGrid: false,
+        },
+        description: {
+          heading: 'Выставка «Энергетика Урала» в Уфе',
+          text: 'Здесь несколько слов оо&nbsp;проекте. Российский лидер в&nbsp;разработке и производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.',
+        },
+        tableData: [
+          {
+            name: 'Заказчик',
+            text: 'СИПБ 1-3 кВА Rack/Tower',
+          },
+          {
+            name: 'Отрасль',
+            text: 'Online ИБП',
+          },
+          {
+            name: 'Регион',
+            text: 'Башкортостан',
+          },
+          {
+            name: 'Суммарная мощность в КВА',
+            text: '3000 в',
+          },
+        ],
+        buttonsGroup: {
+          heading: 'Используемое оборудование',
+          buttons: [
+            {
+              text: 'ИБП 1',
+              href: '#1.html',
+            },
+            {
+              text: 'ИБП 2',
+              href: '#2.html',
+            },
+            {
+              text: 'ИБП 3',
+              href: '#3.html',
+            },
+            {
+              text: 'ИБП 4',
+              href: '#4.html',
+            },
+          ],
+        },
+        slider: {
+          imgMod: 'cover',
+          content: {
+            pagination: true,
+            slides: [
+              {
+                image: 'project-slides/main-1',
+                format: 'jpg',
+                width: '740',
+                height: '534',
+                altText: 'Description',
+              },
+              {
+                image: 'project-slides/main-2',
+                format: 'jpg',
+                width: '740',
+                height: '534',
+                altText: 'Description',
+              },
+              {
+                image: 'project-slides/main-3',
+                format: 'jpg',
+                width: '740',
+                height: '534',
+                altText: 'Description',
+              },
+              {
+                image: 'project-slides/main-4',
+                format: 'jpg',
+                width: '740',
+                height: '534',
+                altText: 'Description',
+              },
+              {
+                image: 'project-slides/main-5',
+                format: 'jpg',
+                width: '740',
+                height: '534',
+                altText: 'Description',
+              },
+            ],
+          },
+          contentThumb: [
+            {
+              image: 'project-slides/mini-1',
+              format: 'jpg',
+              width: '132',
+              height: '102',
+              altText: 'Description',
+            },
+            {
+              image: 'project-slides/mini-2',
+              format: 'jpg',
+              width: '132',
+              height: '102',
+              altText: 'Description',
+            },
+            {
+              image: 'project-slides/mini-3',
+              format: 'jpg',
+              width: '132',
+              height: '102',
+              altText: 'Description',
+            },
+            {
+              image: 'project-slides/mini-4',
+              format: 'jpg',
+              width: '132',
+              height: '102',
+              altText: 'Description',
+            },
+            {
+              image: 'project-slides/mini-5',
+              format: 'jpg',
+              width: '132',
+              height: '102',
+              altText: 'Description',
+            },
+          ],
+        },
+      },
+    }
+
+block main
+  main
+    .page-content.page-content--project
+      +breadcrumbs(projectInfo.breadcrumbs)
+      +project-information(projectInfo.content)
+block modals

@@ -1,0 +1,12 @@
+mixin marquee-block(options = {})
+  - const title = options.title || false;
+
+  +page-section(
+    {
+      section: "section",
+      level: "h1",
+      realLevel: "h2",
+      title: title,
+      marquee: true,
+    }
+  ).marquee-block

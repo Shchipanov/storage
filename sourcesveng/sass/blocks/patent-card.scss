@@ -1,0 +1,73 @@
+.patent-card {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  padding: size(20px);
+
+  background: $color-solitude;
+  border-radius: size(18px);
+  transform: translateZ(0);
+
+  &__img {
+    margin: 0 auto;
+    width: 100%;
+    height: size(250px);
+    margin-bottom: size(44px);
+    transform: translateZ(0);
+
+    cursor: pointer;
+    mix-blend-mode: multiply;
+
+    @include vp-1023 {
+      min-width: size(156px);
+    }
+
+    @include vp-767 {
+      min-width: size(178px);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+    }
+  }
+
+  &--big {
+    min-height: size(664px);
+
+    @include vp-1023 {
+      min-height: size(464px);
+    }
+
+    @include vp-767 {
+      min-height: auto;
+    }
+
+    .patent-card__img {
+      min-width: size(290px);
+      height: size(410px);
+
+      @include vp-1023 {
+        min-width: size(178px);
+        height: size(250px);
+      }
+    }
+  }
+
+  .tags {
+    margin-bottom: size(18px);
+
+    &__item {
+      text-transform: none;
+    }
+  }
+
+  &__text {
+    margin: auto 0 0;
+
+    line-height: size(20px);
+  }
+}

@@ -1,0 +1,10 @@
+mixin empty-product-card(data = {})
+  - const {text, btn, link} = data
+
+  .empty-product-card(data-empty-card)&attributes(attributes)
+    +empty-icon
+    .empty-product-card__text
+      p!=text
+    .empty-product-card__btns
+      +btn(btn)
+      +link(link)

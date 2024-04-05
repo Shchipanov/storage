@@ -1,0 +1,28 @@
+.info {
+  display: flex;
+  flex-direction: column;
+
+  z-index: 1;
+
+  &__name {
+    margin: 0 0 size(8px);
+
+    color: $color-ship-cove;
+  }
+
+  &__data {
+    margin: 0;
+
+    font-family: $ff-oswald;
+    font-size: size(24px);
+    line-height: size(32px);
+  }
+
+  .link {
+    justify-content: flex-start;
+
+    font-family: $ff-oswald;
+    font-size: size(24px);
+    line-height: size(32px);
+  }
+}

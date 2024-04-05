@@ -1,0 +1,11 @@
+mixin patent-card(item)
+  .patent-card&attributes(attributes)
+    +tags([
+        {
+          text: "патент",
+          mod: "bg-green",
+        },
+      ]).tags--size-l
+    .patent-card__img(data-open-modal="picture")
+      +img({path: "slides", image:item.image, format: "png", width: item.width, height: item.height, altText: "патент"})
+    p.patent-card__text!=item.text

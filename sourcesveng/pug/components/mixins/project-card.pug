@@ -1,0 +1,39 @@
+mixin project-card(item = {})
+  -
+    const {link="#", title, text, date, dateFormat, image, isLogo} = item
+
+  a.project-card(href=link)
+    .project-card__img(class=isLogo ? "project-card__img--logo": false)
+      if (isLogo)
+          +img (
+            {
+              path: "content",
+              image: image,
+              format: "png",
+              width: "258",
+              height: "100",
+              altText: "Логотип",
+            }
+          )
+      if (item.image && !isLogo)
+          +img(
+            {
+              path: "content",
+              image: image,
+              format: "jpg",
+              width: "768",
+              height: "290",
+              altText: "Товар",
+            }
+          )
+
+
+
+    .project-card__description
+      +tags([{
+        text: "проект",
+        mod: "bg-green",
+      }]).tags--size-l
+      h2.title.title--h2!= title
+      p.project-card__text!= text
+      time.project-card__date(datetime=dateFormat)!= date

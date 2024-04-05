@@ -1,0 +1,13 @@
+mixin tabs(data = {})
+
+  - const {content, controlBtns} = data
+
+  .tabs.no-transition-global(data-tabs='parent' data-delay='300')
+
+    .tabs__controls(data-tabs='controls')
+      .tabs__inner-line
+        each controlBtn in controlBtns
+          button.tabs__control(type="button", data-tabs='control')!=controlBtn
+
+    .tabs__content.content-tab(data-tabs='content')
+      block

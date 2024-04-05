@@ -1,0 +1,9 @@
+mixin banner(data = {})
+  - const {title, image, layoutWidth, btn} = data
+
+  .banner(class= layoutWidth ? `banner--${layoutWidth}` : false)&attributes(attributes)
+    p.title.title--h2!=title
+    +btn(btn)
+
+    .banner__image
+      +img(image)

@@ -1,0 +1,50 @@
+mixin product-information(data = {})
+  -
+    const {
+      slider,
+      about,
+      table,
+      features,
+      componentDocumentation
+    } = data;
+
+  +page-section({
+    section: 'section',
+    pageGrid: true,
+    modGrid: 'col-2-no-equal',
+  }).page-section--no-pt.product-information
+    +slider-product(slider)
+    +product-about(about)
+    +product-table(table).product-information__table
+    .product-buttons
+      +btn({
+        text: "Запросить КП",
+        classMods: ["primary"],
+      })(data-open-modal="request-quote")
+      +btn({
+        text: "Добавить в сравнение",
+        classMods: ["secondary"],
+        icon: {
+          name: "icon-comparison",
+          width: "24",
+          height: "24",
+        },
+      })
+    +tabs(
+      {
+        controlBtns: [
+          "Описание",
+          "Характеристики",
+          "Документы",
+          "Где купить",
+        ],
+      }
+    )
+      .tabs__element.content-tab-element(data-tabs='element')
+        +product-description-card().tabs__card
+      .tabs__element.content-tab-element(data-tabs='element')
+        +product-features-table(features).tabs__card
+      .tabs__element.content-tab-element(data-tabs='element')
+        +documentation(componentDocumentation)
+      .tabs__element.content-tab-element(data-tabs='element')
+        +product-information-location()

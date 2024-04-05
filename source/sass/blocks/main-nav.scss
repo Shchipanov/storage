@@ -1,0 +1,175 @@
+.main-nav {
+  --item-margin-left: #{size(28px)};
+
+  @include vp-1439 {
+    padding: size(72px) var(--container-offset) size(65px);
+
+    background-color: $color-default-white;
+  }
+
+  @include vp-767 {
+    padding-top: size(57px);
+    padding-bottom: size(65px);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 0;
+    margin-left: calc(var(--item-margin-left) * -1);
+    padding: 0;
+
+    list-style: none;
+
+    @include vp-1439 {
+      display: grid;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: inline-flex;
+    margin-left: var(--item-margin-left);
+    padding-bottom: calc(var(--header-padding) - 0.22rem);
+
+    border-bottom: 0.22rem solid $color-transparent;
+
+    &.has-hover {
+      border-bottom-color: $color-dodger-blue;
+
+      transition: border-bottom-color $trans-default;
+    }
+
+    @include vp-1439 {
+      display: grid;
+      padding-bottom: 0;
+
+      border-bottom: none;
+
+      &:not(:first-child) {
+        margin-top: size(18px);
+      }
+
+      &.is-active {
+        .main-nav__content-wrapper {
+          visibility: visible;
+        }
+      }
+    }
+
+    &[data-main-nav] .main-nav__link {
+      cursor: default;
+
+      @include vp-1439 {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    align-self: center;
+
+    svg {
+      display: none;
+    }
+
+    &:not(:only-child) {
+      @include hover-focus {
+        color: currentColor;
+      }
+    }
+
+    @include vp-1439 {
+      justify-self: start;
+
+      svg {
+        display: block;
+        transform: translate3d(#{size(2px)}, #{size(5px)}, 0);
+      }
+
+      // Усиление селектора, т.к. desktop-стили перебивают tablet-mobile
+      &:not(:only-child).link {
+        @include hover-focus {
+          color: $color-dodger-blue;
+        }
+      }
+    }
+  }
+
+  .toggle {
+    display: none;
+
+    @include vp-1439 {
+      display: inline-flex;
+      justify-self: start;
+      align-self: center;
+
+      height: calc(var(--header-line-height) + #{size(2px)}); // Для ровного outline
+      padding-right: size(10px); // Для ровного outline при клике
+
+      &__icon {
+        margin-top: size(4px);
+      }
+    }
+  }
+
+  &__content-wrapper {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba($color-black-russian27, 0.5);
+
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+      max-height $trans-default,
+      opacity $trans-default,
+      visibility $trans-default,
+      height $trans-600;
+
+    @include vp-1439 {
+      position: relative;
+      z-index: auto;
+      top: size(4px); // Для outline
+
+      background-color: $color-transparent;
+      border-top: none;
+
+      opacity: 1;
+    }
+
+    &.is-active {
+      display: block;
+    }
+
+    &.is-shown {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .container {
+      @include vp-1439 {
+        padding: 0;
+      }
+    }
+  }
+
+  .nav-board {
+    padding-top: calc(size(43px) + var(--header-height));
+
+    @include vp-1439 {
+      padding-top: size(30px);
+    }
+
+    @include vp-767 {
+      padding-top: size(22px);
+    }
+  }
+}

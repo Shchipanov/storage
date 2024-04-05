@@ -1,0 +1,17 @@
+mixin countNumber(data)
+  .count-number(data-count=data)&attributes(attributes)
+    +btn({
+      classMods: [
+        "size-s",
+        "secondary",
+      ],
+    }).count-number__minus(data-count="button-minus")
+    .count-number__result(data-count="count-result")
+      label(for="count-result")
+        input(type="number", value="1", id="count-result")
+    +btn({
+      classMods: [
+        "size-s",
+        "secondary",
+      ],
+    }).count-number__plus(data-count="button-plus")

@@ -1,0 +1,24 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Связь инжиниринг" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "index.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+block main
+  main
+    h1.visually-hidden Связь инжиниринг - источник бесперебойного питания
+    .page-content.page-content--main
+      +main-intro()
+      +features()
+      +all-series()
+      +marquee-block({title:"Нас выбирают:"})
+      +category-block()
+      +support()
+
+
+block modals

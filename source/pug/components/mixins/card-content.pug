@@ -1,0 +1,20 @@
+mixin card-content()
+  section.card__content
+    +card-about()
+    .card__tabs
+      +tabs({
+        controlBtns: [
+          "Описание",
+          "Характеристики",
+          "Документы",
+          "Где купить",
+        ],
+      })
+        .tabs__element.content-tab-element(data-tabs='element')
+          +product-description-card().tabs__card
+        .tabs__element.content-tab-element(data-tabs='element')
+          +product-features-card().tabs__card
+        .tabs__element.content-tab-element(data-tabs='element')
+
+        .tabs__element.content-tab-element(data-tabs='element')
+          +card-location()

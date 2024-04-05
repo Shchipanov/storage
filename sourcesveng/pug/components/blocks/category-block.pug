@@ -1,0 +1,51 @@
+-
+  const categoryCards = [
+    {
+      iconName: "icon-factory",
+      text: "Промышленность"
+    },
+    {
+      iconName: "icon-desktoptower",
+      text: "Телеком и связь"
+    },
+    {
+      iconName: "icon-harddrives",
+      text: "IT"
+    },
+    {
+      iconName: "icon-firstaid",
+      text: "Медицина"
+    },
+    {
+      iconName: "icon-laptop",
+      text: "Офис"
+    },
+    {
+      iconName: "icon-bank",
+      text: "Банк"
+    },
+    {
+      iconName: "icon-airplane",
+      text: "Аэропорт"
+    },
+    {
+      iconName: "icon-gearsix",
+      text: "Другое"
+    }
+  ]
+
+
+mixin category-block()
+  +page-section(
+          { section: "section",
+            level: "h1",
+            realLevel: "h2",
+            title: "Поможем подобрать ИБП, который подойдет именно вам",
+            textTitleBlock: [
+              "От&nbsp;правильного выбора системы бесперебойного питания зависит дальнейшая надежная работа защищаемого оборудования и&nbsp;окупаемость вложений в&nbsp;ИБП."
+            ],
+            mod: "text",
+          }
+        ).category-block
+
+    +grid-columns({mod: "content", content: categoryCards, gridMod: "cards"}).grid-columns--col-4

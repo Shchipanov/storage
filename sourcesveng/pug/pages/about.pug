@@ -1,0 +1,34 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "О компании - Связь инжиниринг" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+block main
+  main
+    .page-content
+      +breadcrumbs([{
+          text: 'Главная',
+          href: 'index.html'
+        },
+        {
+          text: 'О компании',
+        }])
+
+      +about()
+      +company()
+      +our-mission()
+      +marquee-block({title:"Наши клиенты и&nbsp;партнеры"})
+      +patent()
+      +account()
+
+
+block modals
+  +modal("modal--picture")(data-modal="picture")
+    .modal__img-container
+      img(src="#", alt="")

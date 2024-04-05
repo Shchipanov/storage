@@ -1,0 +1,15 @@
+mixin buttons-block(data = {})
+  - const {products} = data
+
+  .buttons-block&attributes(attributes)
+    .swiper.buttons-block__swiper(data-compare-slider, data-space-between="20")
+      .swiper-wrapper
+        each product in products
+          .swiper-slide.buttons-block__slide
+            .swiper-slide.buttons-block__slide-inner-wrapper
+              span.buttons-block__title!=product.card.title
+              +btn({
+                text: "Запросить КП",
+                classMods: ["secondary"],
+              })(data-open-modal="request-quote")
+      +controls()(data-compare-controls).buttons-block__controls

@@ -1,0 +1,11 @@
+mixin user-links(data = {})
+  - const {links} = data;
+
+  ul.user-links&attributes(attributes)
+    each link in links
+      - const isActive = currentUrl === link.href ? "is-active" : false
+      li.user-links__item
+        if link.isGradient
+          +gradient-link(link)(class=isActive)
+        else
+          +link(link)(class=isActive)

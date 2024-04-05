@@ -1,0 +1,86 @@
+.burger {
+  position: relative;
+
+  display: grid;
+  place-content: center;
+  padding: 0;
+
+  color: $color-vulcan;
+  background-color: $color-transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+
+  transition: color $trans-default;
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @include hover-focus {
+    color: $color-dodger-blue;
+  }
+
+  &::after,
+  span {
+    margin-top: size(4px);
+  }
+
+  &::before,
+  &::after,
+  span {
+    width: size(20px);
+    height: size(2px);
+    content: "";
+
+    background-color: currentColor;
+    border-radius: size(2px);
+
+    transform: translateZ(0);
+
+    transition:
+      transform $trans-default,
+      opacity $trans-default;
+  }
+
+  &::before {
+    transform-origin: 13% 220%;
+  }
+
+  &::after {
+    transform-origin: 16% -100%;
+  }
+
+  span {
+    position: relative;
+
+    // Для увеличения области клика
+    &::before {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+
+      width: size(40px);
+      height: size(40px);
+      content: "";
+
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  &.is-active {
+    span {
+      opacity: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

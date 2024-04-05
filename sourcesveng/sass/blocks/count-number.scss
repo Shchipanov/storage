@@ -1,0 +1,165 @@
+.count-number {
+  padding: size(9px) size(9px) size(11px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: $ff-manrope;
+  font-size: size(16px);
+  line-height: size(21px);
+  color: $color-black-russian27;
+  border-bottom: 1px solid $color-echo-blue;
+
+  @include vp-1023 {
+    padding: size(13px) size(6px) size(11px);
+    border-bottom: none;
+  }
+
+  @include vp-767 {
+    padding: size(8px) size(8px) size(5px);
+  }
+
+  &__minus,
+  &__plus {
+    padding: size(22px);
+
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color $trans-default;
+
+    @include hover {
+      background-color: inherit;
+
+      &::before {
+        opacity: 0.95;
+        background-color: $color-dodger-blue;
+      }
+
+      &::after {
+        opacity: 0.95;
+        background-color: $color-dodger-blue;
+      }
+    }
+
+    @include active {
+      background-color: inherit;
+
+      &::before {
+        opacity: 0.95;
+        background-color: $color-dodger-blue;
+      }
+
+      &::after {
+        opacity: 0.95;
+        background-color: $color-dodger-blue;
+      }
+    }
+
+    @include focus {
+      background-color: inherit;
+
+      &::before {
+        opacity: 0.95;
+        background-color: $color-dodger-blue;
+      }
+
+      &::after {
+        opacity: 0.95;
+        background-color: $color-dodger-blue;
+      }
+    }
+  }
+
+  &__minus {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: size(16px);
+      height: 1px;
+      top: 50%;
+      left: 32%;
+      background-color: $color-black-russian27;
+      transition: background-color $trans-default;
+    }
+  }
+
+  &__plus {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: size(16px);
+      height: size(1px);
+      top: 50%;
+      left: 32%;
+      background-color: $color-black-russian27;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: size(16px);
+      height: size(1px);
+      top: 50%;
+      left: 32%;
+      transform: rotate(90deg);
+      background-color: $color-black-russian27;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 0;
+
+    border: none;
+    text-align: center;
+    color: $color-black-russian27;
+    transition: color $trans-default;
+    font-family: $ff-manrope;
+    font-size: size(16px);
+    line-height: size(20px);
+    font-weight: 400;
+    background-color: $color-default-white;
+    outline: none;
+
+    @include vp-1023 {
+      padding: 0;
+    }
+  }
+}
+
+.count-number__result--disabled {
+  input {
+    color: $color-pattens-blue;
+    pointer-events: none;
+  }
+}
+
+.count-number__minus--disabled {
+  transition: background-color $trans-default;
+  cursor: default;
+  pointer-events: none;
+
+  &::before {
+    background-color: $color-pattens-blue;
+  }
+
+  @include hover {
+    background-color: inherit;
+
+    &::before {
+      background-color: $color-pattens-blue;
+    }
+
+    &::after {
+      background-color: $color-pattens-blue;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mixin product-about(data = {})
+  - const {code, heading, text} = data;
+
+  .product-about&attributes(attributes)
+    if code
+      span.product-about__code!= code
+    h1.title.title--h1.product-about__heading!= heading
+    h2.visually-hidden О&nbsp;продукте
+    p.product-about__text!= text

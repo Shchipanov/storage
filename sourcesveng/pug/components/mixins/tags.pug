@@ -1,0 +1,10 @@
+mixin tags(data)
+  .tags&attributes(attributes)
+    ul.tags__list
+      each item in data
+        if item.icon
+          li.tags__item(class = item.mod ? `tags__item--${item.mod}` : null)
+            +icon(item.icon.name, item.icon.width, item.icon.height)
+            |!{item.text}
+        else
+          li.tags__item(class = item.mod ? `tags__item--${item.mod}` : null)!=item.text

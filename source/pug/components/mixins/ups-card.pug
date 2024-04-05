@@ -1,0 +1,90 @@
+mixin upsCard()
+  -
+    const upsCard = [
+      {
+        description: [
+          "Модели этой серии выполнены в&nbsp;универсальном корпусе для&nbsp;установки, как на&nbsp;пол, так и&nbsp;в&nbsp;стандартную&nbsp;19&Prime; телекоммуникационную стойку. ИБП выпускаются в&nbsp;исполнениях с&nbsp;различной глубиной и&nbsp;высотой корпуса от&nbsp;2U&nbsp;до&nbsp;3U.",
+
+          "Модели этой серии представляют собой универсальный серверный ИБП для&nbsp;монтажа в&nbsp;19-ти дюймовом конструктиве рядом с&nbsp;защищаемым оборудованием."
+        ],
+        pictureMain: {
+          title: "СИПБ1КА.10-11",
+          image: {
+            path: "content",
+            image: "ups-main-image",
+            format: "png",
+            width: 530,
+            height: 541,
+            altText: "Универсальный серверный ИБП СИПБ1КА.10-11.",
+            lazyLoading: true,
+          }
+        },
+        moreImages: {
+          image1: {
+          path: "content",
+          image: "ups-more-image-1",
+          format: "png",
+          width: 359,
+          height: 212,
+          altText: "Составной компонент ИБП.",
+          lazyLoading: true,
+          },
+          image2: {
+          path: "content",
+          image: "ups-more-image-2",
+          format: "png",
+          width: 305,
+          height: 272,
+          altText: "Составной компонент ИБП.",
+          lazyLoading: true,
+          },
+        },
+        upsFeatures: [
+          {
+            description: "<span class='ups-features__accent'>Полное цифровое управление</span> для надежной работы"
+          },
+          {
+            description: "Корректор коэффициента мощности <span class='ups-features__accent'>снижает нагрузку на&nbsp;входную электросеть</span>"
+          },
+          {
+            description: "<span class='ups-features__accent'>Широкий диапазон</span> входных напряжений и&nbsp;частот"
+          },
+        ],
+        btn: {
+          text: "Перейти в&nbsp;каталог",
+          href: "#",
+          classMods: ["primary"],
+        },
+      },
+    ]
+  each element in upsCard
+    - const {description, pictureMain, moreImages, upsFeatures, btn} = element
+    .ups-card
+      .text-content
+        each text in description
+          p!=text
+
+      +btn(btn)
+
+      .ups-card__wrapper
+        .ups-card__image-wrapper
+          h3.title.title--h3!=pictureMain.title
+          .ups-card__image
+            +img(pictureMain.image)
+
+        .ups-card__more.ups-features
+
+          .ups-card__more-images
+
+            .ups-card__images.ups-card__images--one
+              .ups-card__images-wrapper.ups-card__images-wrapper--one
+                +img(moreImages.image1)
+
+            .ups-card__images.ups-card__images--two
+              .ups-card__images-wrapper.ups-card__images-wrapper--two
+                +img(moreImages.image2)
+
+          .ups-features__list
+            each element in upsFeatures
+              .ups-features__item
+                p!=element.description

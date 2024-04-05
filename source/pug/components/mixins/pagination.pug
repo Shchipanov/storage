@@ -1,0 +1,22 @@
+mixin pagination(pages={count: number})
+  .pagination
+    ol.pagination__list
+      li.pagination__item.is-active
+        a.pagination__link(href="#")='1'
+      li.pagination__item
+        a.pagination__link(href="#")='2'
+      if pages.count > 2
+        li.pagination__item
+          a.pagination__link(href="#")='3'
+        if pages.count === 4
+          li.pagination__item
+            a.pagination__link(href="#")='4'
+        if pages.count > 4
+          li.pagination__item.pagination__item--dots
+            span.pagination__link='...'
+          li.pagination__item
+            a.pagination__link(href="#")=pages.count
+    +link({
+      text: "Показать еще 10 товаров",
+      href: "#"
+    })

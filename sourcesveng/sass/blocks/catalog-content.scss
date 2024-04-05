@@ -1,0 +1,39 @@
+.catalog-content {
+  padding-top: size(21px);
+
+  @include vp-1023 {
+    padding-top: 0;
+  }
+}
+
+.catalog-content .container {
+  display: flex;
+}
+
+.product-block .pagination {
+  margin-top: size(48px);
+}
+
+.product-block {
+  flex-grow: 1;
+}
+
+.is-open {
+  @include vp-1023 {
+    .catalog-intro {
+      display: none;
+    }
+
+    .product-block {
+      display: none;
+    }
+
+    .site-search {
+      display: none;
+    }
+
+    .header__burger {
+      display: none;
+    }
+  }
+}

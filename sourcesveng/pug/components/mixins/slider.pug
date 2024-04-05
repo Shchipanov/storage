@@ -1,0 +1,21 @@
+mixin slider(data = {})
+  - const {content, contentThumb, imgMod} = data
+
+  .slider&attributes(attributes)
+    .swiper.slider__container(data-slider)
+      .swiper-wrapper.slider__wrapper
+        each item in content.slides
+          .swiper-slide.slider__slide
+            .slider__img(class= imgMod ? `slider__img--${imgMod}` : false)
+              +img({path: "slides", image:item.image, format: item.format, width: item.width, height: item.height, altText: item.altText})
+
+      if(content.pagination)
+        +slider-pagination()
+      +controls().slider__controls
+
+    .slider__thumbs
+      .swiper-wrapper.slider__thumbs-wrapper
+        each item in contentThumb
+          .swiper-slide.slider__thumbs-item
+            .slider__thumbs-img(class= imgMod ? `slider__thumbs-img--${imgMod}` : false)
+              +img({path: "slides", image:item.image, format: item.format, width: item.width, height: item.height, altText: item.altText})

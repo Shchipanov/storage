@@ -1,0 +1,85 @@
+-
+  const introData =  {
+    title: ['Надежность', 'Инновационность', 'Безотказность'],
+    description: 'ИБП компании СИ&nbsp;&mdash; это новый уровень безопасности вашего оборудования<br> в&nbsp;любой сфере.',
+  }
+
+-
+  const introImages = [
+    {
+      image: 'main-intro-img-1',
+      width: 1040,
+      height: 436,
+      format: 'png',
+      altText: 'Демонстрационная модель ИБП.',
+      tooltips: {
+        1: {
+            text: '«Горячая» замена аккумуляторов через переднюю панель без отключения нагрузки',
+            customName: "leftOne",
+            },
+        2: {
+            text: 'Технология двойного преобразования исключает проблемы входной электросети',
+            customName: "centerOne",
+            },
+        3: {
+            text: 'Выходная розетка IEC-320-C19 повышенной мощности, внутренний слот для установки мини-карт SNMP и порт аварийного отключения',
+            customName: "rightOne",
+            },
+      },
+    },
+    {
+      image: 'main-intro-img-2',
+      width: 1040,
+      height: 436,
+      format: 'png',
+      altText: 'Демонстрационная модель ИБП 2.',
+      tooltips: {
+        1: {
+            text:'Цветной поворотный ЖК-дисплей с отображением мнемосхемы работы',
+            customName: "leftTwo",
+            },
+        2: {
+            text: 'Подключение внешних батарейных блоков большой емкости для длительного времени автономной работы',
+            customName: "centerTwo",
+            },
+        3: {
+            text: 'Коммуникационные порты RS232, RS485 и USB',
+            customName: "rightTwo",
+            },
+      },
+    },
+    {
+      image: 'main-intro-img-3',
+      width: 1040,
+      height: 436,
+      format: 'png',
+      altText: 'Демонстрационная модель ИБП 3.',
+      tooltips: {
+        1: {
+            text: 'Модули управления с резервированием и «горячей» заменой',
+            customName: "leftThree",
+            },
+        2: {
+            text: 'Выходной коэффициент мощности 1.0 обеспечивает высокую плотность мощности',
+            customName: "centerThree",
+            },
+        3: {
+            text:'Контакт управления от внешнего блока байпас для защиты ИБП',
+            customName: "rightThree",
+            },
+      },
+      classMode: "intro-slider__img-wrapper--tall",
+    },
+  ]
+
+mixin main-intro()
+  -const {title, description} = introData
+  .main-intro
+    .main-intro__text
+      .container
+        div.main-intro__title.js-intro-pagination
+          each item in title
+            button.js-intro-title(type="button")
+              span!= item
+        p.main-intro__description!= description
+    +intro-slider(introImages).main-intro__slider

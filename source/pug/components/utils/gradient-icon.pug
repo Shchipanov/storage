@@ -1,0 +1,9 @@
+mixin gradient-icon(name, width, height)
+
+  span.gradient-icon&attributes(attributes)
+    span.gradient-icon__svg.gradient-icon__svg--default
+      svg(width=width, height=height, aria-hidden="true")
+        use(xlink:href="#" + name)
+    span.gradient-icon__svg.gradient-icon__svg--gradient
+      svg(width=width, height=height, aria-hidden="true")
+        use(xlink:href="#" + name + "-gradient")

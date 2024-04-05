@@ -1,0 +1,50 @@
+mixin patent-slider(mod = {})
+  .patent-slider.swiper(data-patent)&attributes(attributes)
+    if mod === "default"
+      .swiper-wrapper.patent-slider__wrapper
+        each item in patentList
+          .swiper-slide.patent-slider__slide.patent-slider__slide--row-mix
+            +patent-card(item).patent-card--big
+            +patent-card(item)
+            +patent-card(item)
+            .patent-slider__cards
+              +documentation-card(item.doc)
+              +documentation-card(item.doc)
+
+          .swiper-slide.patent-slider__slide.patent-slider__slide--col-4
+            +patent-card(item)
+            +patent-card(item)
+            +patent-card(item)
+            +patent-card(item)
+            .patent-slider__cards.patent-slider__cards--col-2
+              +documentation-card(item.doc)
+              +documentation-card(item.doc)
+
+          .swiper-slide.patent-slider__slide.patent-slider__slide--col-4
+            +patent-card(item)
+            +patent-card(item)
+            +patent-card(item)
+            +patent-card(item)
+            .patent-slider__cards
+              +documentation-card(item.doc).documentation-card--row
+
+          .swiper-slide.patent-slider__slide.patent-slider__slide--col-2
+            +patent-card(item).patent-card--big
+            +patent-card(item).patent-card--big
+            .patent-slider__cards
+              +documentation-card(item.doc)
+              +documentation-card(item.doc)
+
+          .swiper-slide.patent-slider__slide.patent-slider__slide--col-3
+            +patent-card(item).patent-card--big
+            +patent-card(item)
+            +patent-card(item)
+
+          .swiper-slide.patent-slider__slide
+            +patent-card(item).patent-card--big
+            +patent-card(item).patent-card--big
+
+          .swiper-slide.patent-slider__slide
+            +patent-card(item).patent-card--big
+
+      +slider-pagination()

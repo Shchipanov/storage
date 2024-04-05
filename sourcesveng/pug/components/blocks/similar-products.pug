@@ -1,0 +1,10 @@
+mixin similar-products(data = {})
+  - const {section, products} = data
+
+  +page-section(section).similar-products
+    .swiper.similar-products__gallery(data-similar-products-slider, data-space-between="20")&attributes(attributes)
+      .swiper-wrapper.grid-columns.grid-columns--col-4
+        each product in products
+          .swiper-slide.similar-products__product
+            +product-card(product)
+      +slider-pagination().swiper-pagination

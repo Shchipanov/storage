@@ -1,0 +1,51 @@
+mixin compare-content(data = {})
+  - const {headings, products, control, link, emptyCard} = data
+  - const buttons = {products}
+
+  .compare-content(data-compare-container)
+    +gradient-link(link).compare-content__delete-ctrl
+    .compare-content__gallery-wrapper.has-only-child(data-compare-gallery)
+      .swiper.compare-content__gallery(data-compare-slider, data-space-between="20")&attributes(attributes)
+        +controls()(data-compare-controls).compare-content__controls
+        .swiper-wrapper
+          each product in products
+            .swiper-slide.compare-content__gallery-slide
+              +product-card(product.card).product-card--min
+        +slider-pagination()
+      +empty-product-card(emptyCard)
+
+    .compare-content__table(data-accordion="parent")
+      +gradient-link(control)(data-accordion-ctrl).compare-content__close-content-control
+
+      each heading, headingIndex in headings
+        .compare-content__table-section(class=heading.isActive && "is-active", data-compare-table-section, data-accordion="element")
+          button.title.title--h4(data-accordion="button")
+            span.title__text!=heading.name
+
+          .swiper.compare-content__table-swiper(data-compare-slider, data-space-between="20", data-accordion="content")
+            .swiper-wrapper.compare-content__table-swiper-wrapper
+              each product, productIndex in products
+                - const isFirstProduct = productIndex === 0 || false
+                .swiper-slide.compare-content__table-slide(data-compare-table-first-slide=isFirstProduct)
+                  table
+                    tbody
+                      each featureBlock, featureBlockIndex in product.features
+                        if featureBlockIndex === headingIndex
+                          each feature in featureBlock
+                            - const {name, value, hasDifferences = false} = feature
+                            tr(class=hasDifferences)
+                              th!=name
+                              td!=value
+
+    .swiper.compare-content__buttons(data-compare-slider, data-space-between="20", data-compare-buttons)
+      .swiper-wrapper
+        each product in products
+          .swiper-slide.compare-content__buttons-slide
+            .compare-content__buttons-slide-inner-wrapper
+              span.compare-content__button-title!=product.card.title
+              +btn({
+                text: "Запросить КП",
+                classMods: ["secondary"],
+              })(data-open-modal="request-quote")
+
+    +buttons-block(buttons)(data-compare-fixed)

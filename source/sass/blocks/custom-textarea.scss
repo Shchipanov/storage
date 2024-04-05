@@ -1,0 +1,48 @@
+.custom-textarea {
+  margin-bottom: size(48px);
+
+  @include vp-1023 {
+    margin-bottom: size(50px);
+  }
+
+  @include vp-767 {
+    margin-bottom: size(44px);
+  }
+
+  textarea {
+    width: 100%;
+
+    font-family: $ff-manrope;
+    font-size: size(16px);
+    line-height: size(20px);
+    font-weight: 400;
+    background-color: $color-default-white;
+    color: $color-black-russian27;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $color-echo-blue;
+    outline: none;
+    transition: border-color $trans-default;
+
+    @include vp-1023 {
+      padding-bottom: size(19px);
+    }
+
+    &::placeholder {
+      color: $color-ship-cove;
+
+      @include vp-1023 {
+        max-width: size(280px);
+      }
+    }
+
+    @include hover {
+      border-color: $color-ship-cove;
+    }
+
+    @include active {
+      border-color: $color-ship-cove;
+    }
+  }
+}

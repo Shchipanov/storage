@@ -1,0 +1,110 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Список страниц"
+
+block main
+  style.
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    a {
+      color: rgb(10, 10, 175);
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 7px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      ol {
+        padding-left: 20px;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+    }
+
+  -
+    const pages = [
+      {
+        name: "UI-kit — ui-kit.html",
+        src: "ui-kit.html"
+      },
+      {
+        name: "Главная — index.html",
+        src: "index.html"
+      },
+      {
+        name: "Карточка товара — product-info.html",
+        src: "product-info.html"
+      },
+      {
+        name: "Карточка проекта — project-info.html",
+        src: "project-info.html"
+      },
+      {
+        name: "Каталог — catalog.html",
+        src: "catalog.html"
+      },
+      {
+        name: "О компании — about.html",
+        src: "about.html"
+      },
+      {
+        name: "Реализованные проекты — сompleted-projects.html",
+        src: "сompleted-projects.html"
+      },
+      {
+        name: "Рекламные материалы — promo-materials.html",
+        src: "promo-materials.html"
+      },
+      {
+        name: "Сравнение — compare.html",
+        src: "compare.html"
+      },
+      {
+        name: "Сравнение — 2 товара — compare-two-products.html",
+        src: "compare-two-products.html"
+      },
+      {
+        name: "Сравнение — 1 товар — compare-one-product.html",
+        src: "compare-one-product.html"
+      },
+      {
+        name: "Сравнение - пустое — compare-empty.html",
+        src: "compare-empty.html"
+      },
+    ]
+
+  main
+    .container
+      +icon("logo", "233", "40")
+      h1 Список страниц
+      ol
+        each page in pages
+          li
+            a(href= page.src)= page.name

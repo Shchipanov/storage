@@ -1,0 +1,26 @@
+mixin about()
+  +page-section(
+          { section: "section",
+            pageGrid: true,
+            modGrid: "col-2"
+          }
+    ).page-section--no-pt.about
+
+    +column({
+          level: "h1",
+          realLevel: "h1",
+          titleGrid: "О компании",
+    })
+      .text-content.text-content--big
+        p &laquo;Связь инжиниринг&raquo;&nbsp;&mdash; российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.
+        p Сильная инженерная команда и&nbsp;постоянное обновление технологий позволяют нам выпускать кастомизированные комплексные решения.
+    +column().grid-columns__item--center
+      .about__img
+        +img({
+              path: "content",
+              image: "about",
+              format: "jpg",
+              width: 780,
+              height: 480,
+              altText: "наша компания"
+            })

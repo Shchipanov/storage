@@ -1,0 +1,188 @@
+.btn {
+  --icon-margin: #{size(10px)};
+  --border-width: #{size(2px)};
+  --border-radius: #{size(10px)};
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: size(12px) size(54px) size(16px);
+
+  font-family: $ff-oswald;
+  font-weight: inherit;
+  font-size: size(20px);
+  line-height: 1.4;
+  color: $color-dodger-blue;
+
+  background-color: $color-default-white;
+  border: var(--border-width) solid $color-default-white;
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color $trans-default,
+    border-color $trans-default,
+    background-color $trans-default,
+    box-shadow $trans-default;
+
+  &.disabled,
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: size(24px);
+    width: auto;
+
+    color: $color-dodger-blue;
+
+    transform: translateZ(0);
+    transition: color $trans-default;
+  }
+
+  svg + &__text {
+    margin-left: var(--icon-margin);
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  @include hover-focus {
+    box-shadow: $shadow-cornflower-blue;
+
+    svg {
+      color: $color-dodger-blue-2;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-transparent;
+    border-color: $color-dodger-blue;
+
+    @include hover-focus {
+      color: $color-default-white;
+      background-color: $color-dodger-blue;
+      box-shadow: none;
+
+      svg:only-child {
+        color: $color-light-sky-blue;
+      }
+
+      svg:not(:only-child) {
+        color: $color-default-white;
+      }
+    }
+  }
+
+  &--secondary-white {
+    color: $color-default-white;
+    background-color: $color-navy-blue;
+
+    svg {
+      color: $color-light-sky-blue;
+    }
+
+    @include hover-focus {
+      color: $color-dodger-blue-2;
+      background-color: $color-default-white;
+      box-shadow: none;
+
+      svg {
+        color: $color-dodger-blue;
+      }
+    }
+  }
+
+  &--primary {
+    position: relative;
+
+    color: $color-default-white;
+    background-color: $color-dodger-blue;
+    border-color: $color-dodger-blue;
+
+    &::before {
+      position: absolute;
+      top: calc(var(--border-width) * -1);
+      right: calc(var(--border-width) * -1);
+      bottom: calc(var(--border-width) * -1);
+      left: calc(var(--border-width) * -1);
+      content: "";
+
+      background-image: $navy-to-dodger;
+      border-radius: var(--border-radius);
+
+      opacity: 0;
+      transition: opacity $trans-default;
+    }
+
+    svg {
+      color: $color-light-sky-blue;
+    }
+
+    .btn__text,
+    svg {
+      z-index: 1;
+    }
+
+    @include hover-focus {
+      svg {
+        color: $color-light-sky-blue;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--size-s {
+    padding: size(16px);
+
+    @include vp-374 {
+      padding: size(14px);
+    }
+  }
+
+  &--active-gradient {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: calc(var(--border-width) * -1);
+      right: calc(var(--border-width) * -1);
+      bottom: calc(var(--border-width) * -1);
+      left: calc(var(--border-width) * -1);
+      content: "";
+
+      background-image: $navy-to-dodger;
+      border-radius: var(--border-radius);
+
+      opacity: 0;
+      transition: opacity $trans-default;
+    }
+
+    .btn__text,
+    svg {
+      z-index: 1;
+    }
+
+    @include hover-focus {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--narrow {
+    padding: size(9px) size(19px);
+  }
+
+  &--equal {
+    padding: size(12px) size(12px) size(16px) size(12px);
+  }
+}

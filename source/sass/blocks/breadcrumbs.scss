@@ -1,0 +1,29 @@
+.breadcrumbs__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs__item {
+  margin-right: size(8px);
+  font-size: size(12px);
+  line-height: size(18px);
+  color: $color-black-russian27;
+
+  &::after {
+    content: "/";
+    margin-left: size(8px);
+    opacity: 0.9;
+  }
+
+  &:last-child::after {
+    content: "";
+  }
+
+  &:last-child {
+    pointer-events: none;
+    color: $color-ship-cove;
+  }
+}

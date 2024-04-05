@@ -1,0 +1,33 @@
+mixin all-series()
+  +page-section(
+          {section: "section",
+            level: "h1",
+            realLevel: "h2",
+            title: "Все серии ИБП",
+          }
+        ).all-series
+    +tabs({
+      controlBtns: [
+        "СИПБ RT 1~3 кВА",
+        "СИПБ 1~3 кВА",
+        "СИПБ RT 6~20 кВА",
+        "СИПБ 6~20 кВА",
+        "СИП380А 10~500 кВА",
+        "СИП380А МД 10~1560 кВА",
+        "СИП380Б 10~800 кВА",
+      ],
+    })
+      .tabs__element(data-tabs='element')
+        +upsCard
+      .tabs__element(data-tabs='element')
+        +upsCard
+      .tabs__element(data-tabs='element')
+        +upsCard
+      .tabs__element(data-tabs='element')
+        +upsCard
+      .tabs__element(data-tabs='element')
+        +upsCard
+      .tabs__element(data-tabs='element')
+        +upsCard
+      .tabs__element(data-tabs='element')
+        +upsCard

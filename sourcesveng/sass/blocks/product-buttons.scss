@@ -1,0 +1,32 @@
+.product-buttons {
+  margin: 0;
+  margin-bottom: size(33px);
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: size(20px);
+  grid-area: buttons;
+
+  .btn {
+    width: 100%;
+    padding: size(12px) size(5px);
+  }
+
+  @include vp-1023 {
+    display: block;
+
+    .btn {
+      margin-bottom: size(16px);
+      padding: size(14px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include vp-767 {
+    margin-bottom: size(25px);
+  }
+}

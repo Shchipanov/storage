@@ -1,0 +1,115 @@
+-
+  const projectElements = [
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      image: "suek",
+      isLogo: true,
+    },
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      image: 'ural'
+    },
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      image: "azimut",
+      isLogo: true,
+    },
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      image: "kret",
+      isLogo: true,
+    },
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      image: "work",
+    },
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      image: "motherboard",
+    },
+    {
+      title: "Выставка «Энергетика Урала» в Уфе",
+      text: "Здесь несколько слов о&nbsp;проекте. Российский лидер в&nbsp;разработке и&nbsp;производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+      image: "logo-project",
+      date: "24 октября 2023",
+      dateFormat: "2023-10-24",
+      isLogo: true,
+    }
+  ]
+
+mixin info-project ()
+
+  +page-section(
+    {
+      section: 'section',
+      level: 'h1',
+      title: 'Реализованные проекты',
+    }
+    ).completed-projects
+    +tabs(
+      {
+        controlBtns: [
+          'Промышленность',
+          'Телеком и связь',
+          'IT',
+          'Медицина',
+          'ОФис',
+          'Банки',
+          'Аэропорты',
+        ]
+      }
+      )
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+      .tabs__element(data-tabs='element')
+        .project-group
+          each element in projectElements
+            +project-card(element)
+
+    +pagination({count: 10})

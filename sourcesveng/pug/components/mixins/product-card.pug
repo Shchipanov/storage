@@ -1,0 +1,49 @@
+mixin product-card(item)
+  .product-card&attributes(attributes)
+    if item.tags
+      +tags(item.tags)
+    - const imageSizeMod = item.imageMod?.map((mod) => `product-card__img--${mod}`) || false
+    .product-card__img(class=imageSizeMod)
+      +img({
+        path: "content/products",
+        image: item.image,
+        format: "png",
+        width: item.width,
+        height: item.height,
+        altText:"товар"})
+    .product-card__info-block
+      if item.code
+        span.product-card__code!=item.code
+      if item.title
+        a(href="product-info.html").product-card__link.title.title--h4!=item.title
+      if item.text
+        p.product-card__text!=item.text
+      if item.table
+        +product-table(item.table)
+    if item.countMod
+      .product-card__counter
+        p.product-card__counter-text!=item.countText
+        +countNumber(item.countMod)
+    if item.btns
+      .product-card__btns
+        +btn({text: "Запросить КП", classMods: ["secondary"]})(data-open-modal="request-quote")
+        if item.compare
+          +link({
+            text: "Убрать из сравнения",
+            classMods: ["underlined"],
+            icon: {
+              name: "icon-comparison",
+              width: 24,
+              height: 24,
+            },
+          })
+        else
+          +link({
+            text: "Добавить в сравнение",
+            classMods: ["underlined"],
+            icon: {
+              name: "icon-comparison",
+              width: 24,
+              height: 24,
+            },
+          })

@@ -1,0 +1,8 @@
+mixin compare(data = {})
+  - const {section, content} = data
+
+  +page-section(section).page-section--no-pt.compare
+    if content
+      +compare-content(content)
+    else
+      +empty()

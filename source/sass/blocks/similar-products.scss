@@ -1,0 +1,88 @@
+.similar-products {
+  --box-shadow-margin: #{size(60px)};
+  padding-top: size(100px);
+
+  @include vp-1023 {
+    padding-top: size(100px);
+  }
+
+  .page-section__heading {
+    @include vp-1023 {
+      margin-bottom: size(55px);
+    }
+
+    @include vp-767 {
+      margin-bottom: size(35px);
+    }
+  }
+
+  &__gallery {
+    margin-top: calc(var(--box-shadow-margin) * -1);
+    margin-right: calc(var(--container-offset) * -1);
+    margin-bottom: calc(var(--box-shadow-margin) * -1);
+    margin-left: calc(var(--container-offset) * -1);
+    padding-top: var(--box-shadow-margin); // для box-shadow карточек
+    padding-right: var(--container-offset);
+    padding-bottom: var(--box-shadow-margin); // для box-shadow карточек
+    padding-left: var(--container-offset);
+
+    @include vp-1023 {
+      margin-bottom: calc(var(--box-shadow-margin) * -1 + size(30px)); // 30px - компенсация pagination
+    }
+
+    @include vp-767 {
+      margin-bottom: calc(var(--box-shadow-margin) * -1 + size(25px)); // 25px - компенсация pagination
+    }
+  }
+
+  .grid-columns {
+    @include vp-1023 {
+      display: flex;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+    }
+  }
+
+  &__product {
+    @include vp-1023 {
+      width: size(334px);
+
+      &:not(:last-child) {
+        margin-right: size(20px);
+      }
+    }
+
+    @include vp-767 {
+      width: size(343px);
+    }
+
+    @include vp-374 {
+      width: calc(max(100vw, #{size(320px)}) - var(--container-offset) * 2);
+    }
+  }
+
+  .tags {
+    @include vp-1023 {
+      margin-top: size(-5px);
+      margin-left: size(-8px);
+    }
+
+    @include vp-767 {
+      margin-left: size(-5px);
+    }
+  }
+
+  .slider-pagination {
+    visibility: hidden;
+
+    @include vp-1023 {
+      bottom: size(23px);
+      justify-self: center;
+      visibility: visible;
+    }
+
+    @include vp-767 {
+      bottom: size(30px);
+    }
+  }
+}

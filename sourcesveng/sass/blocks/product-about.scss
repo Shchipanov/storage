@@ -1,0 +1,61 @@
+.product-about {
+  grid-area: about;
+
+  @include vp-1023 {
+    display: flex;
+    flex-direction: column;
+    order: -1;
+    margin-top: size(2px);
+  }
+
+  @include vp-767 {
+    margin-bottom: size(28px);
+  }
+}
+
+.product-about__code {
+  display: block;
+  color: $color-ship-cove;
+  font-size: size(16px);
+  line-height: size(20px);
+  margin-bottom: size(12px);
+
+  @include vp-1023 {
+    margin-bottom: size(27px);
+  }
+
+  @include vp-767 {
+    margin-bottom: size(12px);
+  }
+}
+
+.product-about__heading {
+  color: $color-black-russian27;
+  margin-bottom: size(28px);
+
+  @include vp-1023 {
+    order: -1;
+    margin-bottom: size(10px);
+  }
+
+  @include vp-767 {
+    order: 0;
+    margin-bottom: size(25px);
+  }
+}
+
+.product-about__text {
+  color: $color-black-russian27;
+  font-size: size(16px);
+  line-height: size(24px);
+  margin: 0;
+  margin-bottom: size(54px);
+
+  @include vp-1023 {
+    margin-bottom: size(40px);
+  }
+
+  @include vp-767 {
+    margin-bottom: 0;
+  }
+}

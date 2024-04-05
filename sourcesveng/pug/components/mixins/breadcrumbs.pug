@@ -1,0 +1,14 @@
+mixin breadcrumbs(list=[])
+  .breadcrumbs
+    .container
+      ol.breadcrumbs__list
+        each element, index in list
+          li.breadcrumbs__item
+            if index !== list.length - 1
+              +link({
+                text: element.text,
+                href: element.href,
+                classMods: ["opacity-90"]
+              })
+            else
+              span.link!=element.text

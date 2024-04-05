@@ -1,0 +1,59 @@
+.compare {
+  overflow: hidden;
+
+  color: $color-black-russian27;
+
+  .page-section__heading {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: size(302px);
+
+    .switch {
+      align-self: flex-end;
+      margin-left: size(71px);
+      transform: translateY(size(-6px));
+    }
+
+    @include vp-1023 {
+      padding-right: 0;
+    }
+  }
+
+  @include vp-1023 {
+    .page-section__heading {
+      display: grid;
+
+      .switch {
+        justify-self: start;
+        margin-top: size(36px);
+        margin-left: 0;
+      }
+
+      .gradient-link {
+        position: absolute;
+      }
+    }
+  }
+
+  .quantity-output {
+    align-self: flex-end;
+    margin-left: size(20px);
+    margin-right: auto;
+
+    font-size: size(14px);
+    line-height: 1.57;
+    color: $color-ship-cove;
+
+    @include vp-1023 {
+      margin-top: size(10px);
+      margin-left: 0;
+
+      font-size: size(16px);
+      line-height: 1.25;
+    }
+  }
+
+  .compare-content__slider {
+    padding-bottom: size(64px); // Отступ через padding, чтобы не обрезался box-shadow карточки при отсутствии контента снизу из-за  overflow: hidden;
+  }
+}

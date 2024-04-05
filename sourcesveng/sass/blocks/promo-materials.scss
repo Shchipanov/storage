@@ -1,0 +1,86 @@
+.promo-materials {
+  @include vp-767 {
+    .page-section__heading {
+      margin-bottom: size(48px);
+    }
+  }
+
+  .title {
+    color: $color-black-russian27;
+  }
+}
+
+.promo-materials__list {
+  grid-template-columns: 2.05fr 1fr 1fr;
+  grid-template-areas:
+    "a b c"
+    "a b c"
+    "a b c"
+    "a b c"
+    "a b c"
+    "a e f"
+    "a e f"
+    "a e f"
+    "a e f"
+    "d e f";
+
+  @include vp-1439 {
+    grid-template-areas:
+      "a b c"
+      "a b c"
+      "a b c"
+      "a b c"
+      "a b c"
+      "a e f"
+      "d e f"
+      "d e f"
+      "d e f"
+      "d e f"
+      "d e f"
+      "d e f";
+  }
+
+  @include vp-1279 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: none;
+  }
+
+  @include vp-1023 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: none;
+  }
+
+  .grid-columns__item {
+    &--presentation {
+      grid-area: a;
+    }
+
+    &--brochures {
+      grid-area: b;
+    }
+
+    &--ups {
+      grid-area: c;
+    }
+
+    &--switchboard {
+      grid-area: d;
+    }
+
+    &--climate {
+      grid-area: e;
+    }
+
+    &--chip-factory {
+      grid-area: f;
+    }
+
+    @include vp-1279 {
+      grid-area: initial;
+    }
+
+    @include vp-1023 {
+      grid-area: initial;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+mixin page-section(data = {})
+  - const {section, div, level, realLevel, titleMod, title, textTitleBlock, text, mod, catalog, compare, marquee, pageGrid, modGrid, controls, projectBtns} = data;
+  - const tag = section || div;
+  - const tagTitle = realLevel || level;
+
+  #{tag}.page-section&attributes(attributes)
+    .container
+      if pageGrid
+        +grid-columns({mod: "pageGrid"})(class= modGrid ? `grid-columns--${modGrid}` : false)
+          if pageGrid && block
+            block
+
+      if title
+        .page-section__heading(class= mod ? `page-section__heading--${mod}` : false)
+          #{tagTitle}(class=[`title title--${level}`, titleMod && `title--${titleMod}`])!=title
+
+          if textTitleBlock
+            .text-content
+              each item in textTitleBlock
+                p!= textTitleBlock
+
+          if compare
+            span.quantity-output(data-quantity-output) 8 товаров
+            +switch(compare.switch)(data-differences-ctrl)
+
+          if controls
+            +controls().controls--patent
+
+      if text
+        .text-content
+          each item in text
+            p!= item
+
+      if projectBtns
+        .project-information__book
+          each button in projectBtns
+            +btn(button)
+
+      if !pageGrid && block
+        block
+
+    if marquee
+      +marquee(marqueeList)

@@ -1,0 +1,51 @@
+.toggle {
+  position: relative;
+  display: inline-flex;
+  place-items: center;
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+  background-color: $color-transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+
+  transition: color $trans-default;
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @include hover-focus {
+    color: $color-dodger-blue;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+
+    width: size(24px);
+    height: size(24px);
+    margin-left: size(13px);
+
+    svg {
+      width: 100%;
+      height: 100%;
+
+      transform: translateZ(0);
+      transition: transform $trans-default;
+    }
+  }
+
+  &.is-active {
+    .toggle__icon {
+      svg {
+        transform: translateZ(0) rotate(-180deg);
+      }
+    }
+  }
+}

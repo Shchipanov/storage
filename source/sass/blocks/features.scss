@@ -1,0 +1,24 @@
+.features {
+  .grid-columns {
+    @include vp-767 {
+      grid-row-gap: size(32px);
+    }
+  }
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title {
+    color: $color-black-russian27;
+  }
+
+  .grid-columns {
+    @include vp-1023 {
+      &__item:first-child {
+        order: 2;
+      }
+    }
+  }
+}

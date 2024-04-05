@@ -1,0 +1,39 @@
+.search-form {
+  background-color: $color-default-white;
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr size(220px);
+    gap: size(20px);
+    height: 100%;
+
+    @include vp-1439 {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+    }
+  }
+
+  .search-input {
+    align-self: center;
+    width: 100%;
+
+    @include vp-1439 {
+      input {
+        padding-left: size(20px);
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  &__submit {
+    align-self: center;
+
+    @include vp-1439 {
+      align-self: end;
+      width: 100%;
+    }
+  }
+}

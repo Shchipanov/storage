@@ -1,0 +1,17 @@
+mixin site-search(data = {})
+  - const {link, form} = data
+
+  .site-search(data-site-search="parent")&attributes(attributes)
+    +link({
+      text: link.text,
+      icon: {
+        name: "icon-search",
+        width: 24,
+        height: 24,
+      },
+    })(data-site-search="open-control").site-search__open-control
+    .site-search__inner-wrapper.no-scrollbar(data-site-search="content", hidden)
+      +search-form(form)(data-site-search="form")
+      +btn({
+        text: "Закрыть",
+      })(data-site-search="close-control").site-search__close-control

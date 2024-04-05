@@ -1,0 +1,73 @@
+.page-content {
+  padding-top: calc(#{size(24px)} + var(--header-height));
+  padding-bottom: size(160px);
+
+  @include vp-1439 {
+    padding-top: calc(#{size(24px)} + var(--header-height));
+  }
+
+  @include vp-1023 {
+    padding-top: calc(#{size(16px)} + var(--header-height));
+    padding-bottom: size(130px);
+  }
+
+  @include vp-767 {
+    padding-top: calc(#{size(32px)} + var(--header-height));
+    padding-bottom: size(100px);
+  }
+
+  &--main {
+    padding-top: calc(#{size(71px)} + var(--header-height));
+
+    @include vp-1023 {
+      padding-top: calc(#{size(47px)} + var(--header-height));
+    }
+  }
+
+  &--100-vh {
+    min-height: var(--screen-height);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+
+    @include vp-1023 {
+      padding-bottom: 0;
+
+      & .page-section__heading {
+        margin-bottom: size(16px);
+      }
+    }
+
+    @include vp-767 {
+      padding-bottom: 0;
+    }
+
+    & .page-section,
+    & .container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    & .empty {
+      flex-grow: 0.45;
+      justify-content: center;
+
+      @include vp-1023 {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .breadcrumbs {
+    margin-bottom: size(40px);
+
+    @include vp-1023 {
+      margin-bottom: size(6px);
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+}

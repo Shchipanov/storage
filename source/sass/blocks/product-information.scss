@@ -1,0 +1,156 @@
+.product-information {
+  color: $color-black-russian27;
+
+  .grid-columns--col-2-no-equal {
+    grid-row-gap: 0;
+    grid-template-areas:
+      "slider about"
+      "slider table"
+      "slider buttons"
+      "slider tabs";
+
+    @include vp-1023 {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .breadcrumbs {
+    grid-column: 1 / -1;
+  }
+
+  .product-about {
+    grid-area: about;
+  }
+
+  .slider-product {
+    position: sticky;
+    top: size(128px);
+    align-self: start;
+    grid-area: slider;
+
+    @include vp-1023 {
+      position: relative;
+      top: auto;
+      align-self: initial;
+      margin-bottom: size(38px);
+    }
+
+    @include vp-767 {
+      margin-bottom: size(27px);
+    }
+  }
+
+  .tags {
+    position: absolute;
+    top: size(20px);
+    left: size(20px);
+    max-width: size(300px);
+
+    @include vp-767 {
+      position: static;
+      margin-bottom: size(28px);
+    }
+  }
+
+  .slider__slide {
+    padding-top: size(50px);
+
+    @include vp-767 {
+      padding-top: 0;
+    }
+  }
+
+  .tabs {
+    grid-area: tabs;
+  }
+
+  .tabs__control {
+    @include vp-1023 {
+      margin-left: size(80px);
+    }
+
+    @include vp-767 {
+      margin-left: size(57px);
+    }
+
+    &.is-active {
+      border-color: $color-dodger-blue;
+    }
+  }
+
+  .tabs__controls .tabs__control:nth-child(2) {
+    margin-right: 0;
+  }
+
+  .tabs__controls .tabs__control:nth-child(3) {
+    margin-right: 0;
+  }
+
+  .product-buttons {
+    grid-area: buttons;
+  }
+}
+
+.product-information__table {
+  grid-area: table;
+  grid-row-gap: size(29px);
+  grid-column-gap: size(20px);
+  margin-bottom: size(62px);
+
+  @include vp-767 {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "batch"
+      "capacity"
+      "mass"
+      "technology"
+      "input-voltage"
+      "dimension";
+    grid-row-gap: size(27px);
+    margin-bottom: size(47px);
+  }
+
+  .info__name {
+    font-size: size(14px);
+    line-height: size(22px);
+    color: $color-black-russian27;
+    margin-bottom: size(5px);
+  }
+
+  .info__data {
+    font-family: $ff-oswald;
+    font-size: size(20px);
+    line-height: size(28px);
+    color: $color-black-russian27;
+    margin: 0;
+  }
+}
+
+.product-table__item {
+  @include vp-767 {
+    &--batch {
+      grid-area: batch;
+    }
+
+    &--capacity {
+      grid-area: capacity;
+    }
+
+    &--mass {
+      grid-area: mass;
+    }
+
+    &--technology {
+      grid-area: technology;
+    }
+
+    &--input-voltage {
+      grid-area: input-voltage;
+    }
+
+    &--dimension {
+      grid-area: dimension;
+    }
+  }
+}

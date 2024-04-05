@@ -1,0 +1,147 @@
+.project-card {
+  display: flex;
+  background-color: $color-default-white;
+  border: 1px solid $color-echo-blue;
+  border-radius: size(18px);
+  cursor: pointer;
+  transition: box-shadow $trans-default, border-color $trans-default;
+  margin-bottom: size(32px);
+
+  @include vp-1023 {
+    flex-direction: column;
+    margin-bottom: size(17px);
+  }
+
+  @include hover-focus {
+    box-shadow: $shadow-2;
+    border: 1px solid $color-solitude;
+    border-radius: size(18px);
+  }
+
+  @include vp-767 {
+    margin-bottom: size(12px);
+  }
+}
+
+.project-card:last-of-type {
+  @include vp-1023 {
+    margin-bottom: 0;
+  }
+}
+
+.project-card__img {
+  flex: 0 0 48.7%;
+  background-color: $color-solitude;
+  border-radius: size(18px);
+  position: relative;
+  user-select: none;
+
+  @include vp-1023 {
+    margin-right: 0;
+    flex-basis: 100%;
+    padding-top: calc(290 / 688 * 100%);
+  }
+
+  @include vp-767 {
+    padding-top: calc(290 / 343 * 100%);
+  }
+
+  img {
+    border-radius: size(18px);
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-position: center center;
+  }
+}
+
+.project-card__icon {
+  position: absolute;
+  top: size(20px);
+  left: size(20px);
+
+  @include vp-1023 {
+    display: none;
+  }
+}
+
+.project-card__description {
+  padding-right: size(32px);
+  padding-top: size(20px);
+  padding-bottom: size(20px);
+  padding-left: size(30px);
+  display: flex;
+  flex-direction: column;
+  border-radius: size(18px);
+
+  .title--h2 {
+    margin-bottom: size(20px);
+
+    @include vp-767 {
+      margin-bottom: size(17px);
+    }
+  }
+
+  @include vp-1023 {
+    padding-left: size(40px);
+    padding-right: size(40px);
+    padding-bottom: size(24px);
+    padding-top: size(32px);
+  }
+
+  @include vp-767 {
+    padding-left: size(16px);
+    padding-right: size(16px);
+  }
+}
+
+.project-card__date {
+  margin: 0;
+  font-family: $ff-oswald;
+  font-style: normal;
+  font-weight: 400;
+  font-size: size(16px);
+  line-height: 1.25;
+  text-transform: lowercase;
+  color: $color-echo-blue;
+}
+
+.project-card__text {
+  font-family: $ff-manrope;
+  font-style: normal;
+  font-weight: 400;
+  font-size: size(16px);
+  line-height: 1.5;
+  color: $color-black-russian27;
+  margin: 0;
+  margin-bottom: size(24px);
+}
+
+.project-card__img--logo {
+  @include vp-1023 {
+    min-height: size(290px);
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.project-card .tags {
+  margin-bottom: size(37px);
+
+  @include vp-1023 {
+    margin-bottom: size(33px);
+  }
+
+  @include vp-767 {
+    margin-bottom: size(18px);
+  }
+}

@@ -1,0 +1,8 @@
+mixin modal-success(data)
+  .modal-success
+    .modal-success__logo-container
+      +logo(data.logo)
+
+    h2.title.title--h1!=data.title
+    p.modal-success__content!=data.content
+    +btn({text: "Вернуться в&nbsp;каталог продукции", href: "catalog.html", classMods: ["primary"]})(data-return="catalog", data-close-modal)

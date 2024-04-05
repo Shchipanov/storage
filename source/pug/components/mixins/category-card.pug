@@ -1,0 +1,16 @@
+mixin categoryCard (item = {})
+  - const {iconName="#", text, path="#", isAll=false} = item
+  - const classMods = item.classMods?.map((mod) => `category-card--${mod}`) || false
+
+  if !isAll
+    a.category-card(href=path, class=classMods)
+      span.category-card__icon
+        +icon(iconName, 48, 48)
+      p.title.title--h4!=text
+      p.category-card__link Смотреть подобнее
+        +icon("icon-forward", 24, 24)
+
+  else
+    a.category-card.category-card--all(href=path, class=classMods)
+      p.title.title--h3!=text
+        +icon("icon-forward", 24, 24)

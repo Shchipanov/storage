@@ -1,0 +1,58 @@
+.product-information-location {
+  display: flex;
+  flex-direction: column;
+  padding-top: size(56px);
+
+  @include vp-767 {
+    padding-top: size(42px);
+  }
+
+  &__form {
+    margin-top: size(29px);
+
+    @include vp-767 {
+      margin-top: size(27px);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: size(19px);
+
+      @include vp-1919 {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+      }
+    }
+
+    .custom-select {
+      @include vp-1919 {
+        &:not(:first-child) {
+          margin-top: size(13px);
+        }
+      }
+    }
+  }
+
+  &__submit {
+    grid-column: span 3;
+    justify-self: center;
+    margin-top: size(24px);
+
+    font-family: $ff-oswald;
+    font-size: size(20px);
+    line-height: 1.4;
+
+    @include vp-1919 {
+      grid-column: auto;
+    }
+  }
+
+  .search-distributor {
+    margin-top: size(55px);
+
+    @include vp-767 {
+      margin-top: size(39px);
+    }
+  }
+}

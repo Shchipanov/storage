@@ -1,0 +1,6 @@
+mixin slider-product(data = {})
+  - const {gallery, tags} = data
+
+  .slider-product
+    +tags(tags).tags--size-l
+    +slider(gallery)

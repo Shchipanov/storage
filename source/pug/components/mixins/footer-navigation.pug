@@ -1,0 +1,80 @@
+mixin footer-navigation()
+  -
+    const navigations = [
+      [
+        {
+          text: 'Каталог ИБП',
+          href: '#',
+          isBold: true,
+        },
+      ],
+      [
+        {
+          text: 'Партнерам',
+          href: '#',
+          isBold: true,
+        },
+      ],
+      [
+        {
+          text: 'Услуги',
+          href: '#',
+          isBold: true,
+        },
+        {
+          text: 'Монтаж и пусконаладка',
+          href: '#',
+        },
+        {
+          text: 'Техобслуживание и сервис',
+          href: '#',
+        },
+      ],
+      [
+        {
+          text: 'Компания',
+          href: '#',
+          isBold: true,
+        },
+        {
+          text: 'Контакты',
+          href: '#',
+        },
+        {
+          text: 'Портфолио',
+          href: '#',
+        },
+        {
+          text: 'Реквизиты компании',
+          href: '#',
+        },
+        {
+          text: 'Новости',
+          href: '#',
+        },
+        {
+          text: 'Клиенты и партнеры',
+          href: '#',
+        },
+        {
+          text: 'Сертификаты',
+          href: '#',
+        },
+      ],
+      [
+        {
+          text: 'Разработка проекта',
+          href: '#',
+          isBold: true,
+        },
+      ],
+    ];
+
+  .footer__navigation
+    - let i = 1;
+    each list in navigations
+      ul.footer__navigation-list(class= `footer__navigation-list--masonry-element-${i++}`)
+        each element in list
+          li.footer__navigation-element
+            - const isBold = element.isBold ? 'title title--h4' : ''
+            +link(element)(class= isBold)

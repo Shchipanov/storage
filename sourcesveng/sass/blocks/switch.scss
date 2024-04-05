@@ -1,0 +1,152 @@
+.switch {
+  --thumb-size: #{size(16px)};
+  --track-size: calc(var(--thumb-size) * 2);
+  --track-padding: #{size(4px)};
+  --border-width: 0.08rem;
+
+  cursor: pointer;
+  user-select: none;
+
+  label,
+  input {
+    cursor: inherit;
+  }
+
+  label {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: size(10px);
+    align-items: center;
+
+    @include hover-focus {
+      input {
+        border-color: $color-ship-cove;
+
+        &::before {
+          background-color: $color-ship-cove;
+        }
+      }
+
+      input:checked {
+        border-color: $color-transparent;
+
+        &::before {
+          background-color: $color-default-white;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  input {
+    --thumb-position: 0%;
+
+    position: relative;
+
+    display: grid;
+    align-items: center;
+    width: var(--track-size);
+    height: var(--thumb-size);
+    padding: calc(var(--track-padding) - var(--border-width));
+    box-sizing: content-box;
+
+    background-color: $color-transparent;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: $color-mischka;
+    border-radius: var(--track-size);
+
+    appearance: none;
+    transition:
+      background-color $trans-default,
+      border-color $trans-default;
+
+    &::before {
+      z-index: 1;
+
+      width: var(--thumb-size);
+      height: var(--thumb-size);
+      content: "";
+
+      background-color: $color-mischka;
+      border-radius: 50%;
+
+      transform: translateX(var(--thumb-position));
+      transition:
+        background-color $trans-default,
+        transform $trans-default;
+    }
+
+    &::after {
+      position: absolute;
+      top: calc(var(--border-width) * -0.6); // 0.6 вместо 1 из-за некорректной отработки в windows
+      right: calc(var(--border-width) * -0.6);
+      bottom: calc(var(--border-width) * -0.6);
+      left: calc(var(--border-width) * -0.6);
+
+      content: "";
+
+      background-image: $navy-to-dodger;
+      border-radius: var(--track-size);
+
+      opacity: 0;
+      transition: opacity $trans-default;
+    }
+
+    &:checked {
+      --thumb-position: calc(var(--track-size) - 100%);
+
+      background-color: $color-dodger-blue;
+      border-color: $color-dodger-blue;
+
+      &::before {
+        background-color: $color-default-white;
+      }
+    }
+
+    @include hover-focus {
+      border-color: $color-ship-cove;
+
+      &::before {
+        background-color: $color-ship-cove;
+      }
+
+      &:checked {
+        border-color: $color-transparent;
+
+        &::before {
+          background-color: $color-default-white;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+
+    label,
+    input {
+      pointer-events: none;
+    }
+
+    input {
+      background-color: $color-transparent;
+      border-color: $color-echo-blue;
+
+      &::before {
+        background-color: $color-link-water;
+      }
+    }
+
+    .switch__label {
+      color: $color-mischka;
+    }
+  }
+}

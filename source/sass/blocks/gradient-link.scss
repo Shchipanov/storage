@@ -1,0 +1,138 @@
+.gradient-link {
+  --icon-margin: #{size(10px)};
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+
+  background-color: $color-transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+
+  transition: color $trans-default;
+
+  &.is-active {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color-ship-cove;
+
+    pointer-events: none;
+  }
+
+  &__icon {
+    display: grid;
+  }
+
+  .gradient-icon__svg {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    transition: opacity $trans-default;
+  }
+
+  .gradient-icon__svg--gradient {
+    opacity: 0;
+  }
+
+  &__text-wrapper {
+    flex-shrink: 1;
+    display: grid;
+  }
+
+  &__text {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+
+    background-clip: text;
+    -webkit-text-fill-color: $color-transparent;
+    mix-blend-mode: normal;
+
+    transition: opacity $trans-default, text-decoration-color $trans-default;
+    transform: translate3d(0); // translateZ в Safari недостаточно
+
+    &--default {
+      background-color: currentColor;
+    }
+
+    &--gradient {
+      background-image: $navy-to-dodger;
+      opacity: 0;
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: size(24px);
+    width: size(24px);
+
+    fill: currentColor;
+
+    transform: translateZ(0);
+    transition: transform $trans-default;
+  }
+
+  &__icon + &__text-wrapper,
+  &__text-wrapper + &__icon {
+    margin-left: var(--icon-margin);
+  }
+
+  @include hover-focus {
+    .gradient-link__text {
+      &--gradient {
+        opacity: 1;
+      }
+    }
+
+    .gradient-icon {
+      &__svg--gradient {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--dodger-blue {
+    color: $color-dodger-blue;
+  }
+
+  &--dodger-blue-2 {
+    color: $color-dodger-blue-2;
+
+    .gradient-icon__svg {
+      color: $color-dodger-blue;
+    }
+  }
+
+  &--mischka {
+    color: $color-mischka;
+
+    .gradient-link__text {
+      text-decoration-color: $color-mischka;
+    }
+  }
+
+  &--underlined {
+    .gradient-link__text {
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.06em;
+      text-underline-offset: 0.21em;
+      text-decoration-skip-ink: none;
+      text-decoration-skip: none; // для safari до 15.3 версии
+    }
+
+    @include hover-focus {
+      .gradient-link__text {
+        text-decoration-color: $color-transparent;
+      }
+    }
+  }
+}

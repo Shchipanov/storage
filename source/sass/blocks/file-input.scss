@@ -1,0 +1,79 @@
+.file-input {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.file-input input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.file-input__container {
+  padding: size(1px) 0 size(15px) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  cursor: pointer;
+  user-select: none;
+  font-family: $ff-manrope;
+  font-size: size(16px);
+  line-height: size(20px);
+  color: $color-ship-cove;
+  background-color: $color-default-white;
+  border-bottom: 1px solid $color-echo-blue;
+  transition: border-color $trans-default;
+
+  @include hover {
+    border-color: $color-ship-cove;
+  }
+
+  @include active {
+    border-color: $color-ship-cove;
+  }
+
+  svg {
+    width: size(24px);
+    height: size(24px);
+  }
+}
+
+.file-input__placeholder {
+  font-family: $ff-manrope;
+  font-size: size(16px);
+  line-height: size(20px);
+  font-weight: 400;
+  color: $color-ship-cove;
+}
+
+.file-input__preview .file-input__preview-item-remove {
+  display: none;
+}
+
+.file-input__preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.file-input__preview-file-name {
+  font-family: $ff-manrope;
+  color: $color-black-russian27;
+  font-size: $fz-default;
+  line-height: size(20px);
+  font-weight: 400;
+}

@@ -1,0 +1,126 @@
+.accordion {
+  margin: 0;
+
+  @include vp-767 {
+    width: 100%;
+  }
+
+  & & {
+    margin: 0 auto;
+  }
+
+  &__element:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.accordion__element {
+  position: relative;
+  border-bottom: 1px solid $color-echo-blue;
+  padding-top: size(30px);
+  padding-bottom: size(30px);
+  padding-left: 0;
+
+  &:first-of-type {
+    padding-top: size(10px);
+  }
+
+  &.is-active {
+    padding-bottom: 0;
+
+    .accordion__button {
+      opacity: 1;
+    }
+  }
+}
+
+.accordion__button {
+  width: 100%;
+  padding: size(10px);
+  padding-left: 0;
+  cursor: pointer;
+  border: none;
+  font-family: $ff-oswald;
+  font-style: normal;
+  font-weight: 400;
+  font-size: size(32px);
+  line-height: 1.3;
+  background-color: $color-transparent;
+  text-align: left;
+  opacity: 0.5;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  will-change: opacity;
+  color: $color-black-russian27;
+
+  @include vp-767 {
+    padding-right: 0;
+  }
+
+  @include hover-focus {
+    background-color: $color-default-white;
+    opacity: 1;
+  }
+}
+
+.accordion__wrapper {
+  margin-top: size(14px);
+
+  @include vp-1023 {
+    margin-top: size(10px);
+  }
+}
+
+.accordion__link {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  margin-top: size(23px);
+
+  @include vp-767 {
+    margin-top: size(27px);
+  }
+}
+
+.accordion__link-txt {
+  font-family: $ff-oswald;
+  font-style: normal;
+  font-weight: 400;
+  font-size: size(20px);
+  line-height: 1.4;
+  color: $color-dodger-blue;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: size(40px);
+}
+
+.accordion__link-arrow {
+  width: size(24px);
+  height: size(24px);
+  margin-left: size(14px);
+}
+
+.accordion__link-txt::after {
+  content: "";
+  width: 100%;
+  height: size(2px);
+  position: absolute;
+  background-color: $color-dodger-blue;
+  opacity: 0;
+  pointer-events: none;
+  bottom: size(-40px);
+  transition-property: opacity;
+  transition-duration: 0.3s;
+}
+
+.accordion__link:hover,
+.accordion__link:active {
+  .accordion__link-txt::after {
+    opacity: 1;
+  }
+}
+
+.accordion__element .accordion__button:active {
+  background-color: $color-default-white;
+}

@@ -1,0 +1,92 @@
+.contacts-list {
+  display: grid;
+  grid-template-columns: 40% minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  column-gap: size(20px);
+  align-items: center;
+  padding-top: size(58px);
+  padding-right: size(44px);
+  padding-bottom: size(48px);
+  padding-left: size(30px);
+
+  color: $color-default-white;
+
+  background-color: $color-dodger-blue;
+  border-radius: size(18px);
+
+  @include vp-1439 {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: size(20px);
+
+    padding: size(30px) size(32px);
+  }
+
+  @include vp-767 {
+    row-gap: size(15px);
+
+    padding-top: size(26px);
+    padding-bottom: size(26px);
+  }
+
+  &__title {
+    margin: 0;
+
+    font-size: size(24px);
+    line-height: 1.33;
+
+    @include vp-767 {
+      font-size: size(20px);
+      line-height: 1.4;
+      color: $color-default-white;
+    }
+  }
+
+  &__list {
+    --item-margin-left: #{size(40px)};
+    --item-margin-top: #{size(10px)};
+
+    justify-self: end;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 0;
+    margin-top: calc(var(--item-margin-top) * -1);
+    margin-left: calc(var(--item-margin-left) * -1);
+    padding: 0;
+    padding-top: size(8px);
+    padding-left: size(33px);
+
+    font-family: $ff-manrope;
+    line-height: 1.5;
+
+    @include vp-1439 {
+      --item-margin-left: #{size(44px)};
+
+      justify-self: auto;
+
+      padding-top: 0;
+      padding-left: 0;
+
+      font-size: size(16px);
+    }
+
+    @include vp-767 {
+      --item-margin-top: #{size(8px)};
+    }
+  }
+
+  &__item {
+    margin-top: var(--item-margin-top);
+    margin-left: var(--item-margin-left);
+
+    list-style-type: none;
+  }
+
+  &__link {
+    @include hover-focus {
+      color: currentColor;
+
+      opacity: 0.5;
+    }
+  }
+}

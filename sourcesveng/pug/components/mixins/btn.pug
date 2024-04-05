@@ -1,0 +1,19 @@
+mixin btn(options = {})
+  - const tag = options.href ? "a" : "button";
+  - const href = options.href || false;
+  - const text = options.text || "";
+  - const type = options.type || tag === "button" ? options.type || "button" : false;
+  - const target = options.isExternal ? "_blank" : false;
+  - const rel = options.isExternal ? "nofollow noopener noreferrer" : false;
+  - const icon = options.icon || false
+  - const {name, width, height} = icon || false
+  - const classMods = options.classMods?.map((mod) => `btn--${mod}`) || false
+
+  #{tag}.btn(class= classMods, href= href, target= target, rel= rel, type= type)&attributes(attributes)
+    if icon && text
+      +icon(name, width, height)
+      span.btn__text!= text
+    if icon && !text
+      +icon(name, width, height)
+    if !icon && text
+      span.btn__text!= text

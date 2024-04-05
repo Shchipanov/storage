@@ -1,0 +1,30 @@
+mixin promo-card (item={})
+  - const {title, description, email, icon} = item
+
+  .promo-card
+    h2.title.title--h2=title
+    .promo-card__icon
+      +icon(icon.name, icon.width, icon.height)
+
+    - const itemMod = item.email ? 'promo-card__description--with-email' : ''
+
+    if !email
+      .promo-card__link-wrapper
+        +gradient-link({
+          text: "Скачать",
+          href: "#",
+          classMods: ["dodger-blue"],
+          icon: {
+            name: "icon-download",
+            width: 24,
+            height: 24,
+          },
+        })(download)
+        span.promo-card__doc-size!='100&nbsp;кб .pdf'
+    p.promo-card__description(class=itemMod)!=description
+      if email
+        +link({
+          text: email,
+          classMods: ["dodger-blue"],
+          href: `mailto:${email}`,
+        })

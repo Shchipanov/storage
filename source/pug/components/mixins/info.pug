@@ -1,0 +1,7 @@
+mixin info(data={})
+  .info&attributes(attributes)
+    p.info__name!=data.name
+    if(data.href)
+      +link({href:data.href, text:data.text})
+    else
+      p.info__data!=data.text

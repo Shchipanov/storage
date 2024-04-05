@@ -1,0 +1,10 @@
+mixin switch(data = {})
+  - const label = data.label || ''
+  - const isChecked = data.isChecked || false
+  - const isDisabled = data.isDisabled || false
+  - const disabledClass = isDisabled ? "disabled" : false
+
+  .switch(class=disabledClass)&attributes(attributes)
+    label
+      input(type="checkbox", role="switch", checked=isChecked, disabled=isDisabled)
+      span.switch__label!=label

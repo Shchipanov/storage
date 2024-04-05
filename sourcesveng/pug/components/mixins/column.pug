@@ -1,0 +1,16 @@
+mixin column(data={})
+  - const {level, realLevel, text, textTitleBlockGrid, mod, titleGrid} = data;
+  - const tagTitle = realLevel || level;
+
+  .grid-columns__item&attributes(attributes)
+    if titleGrid
+      .page-section__heading(class= mod ? `page-section__heading--${mod}` : false)
+        #{tagTitle}(class=`title title--${level}`)!=titleGrid
+
+        if textTitleBlockGrid
+          .text-content
+            each item in textTitleBlockGrid
+              p!= item
+
+    if block
+      block

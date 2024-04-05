@@ -1,0 +1,175 @@
+.buttons-block {
+  --fixed-block-padding: #{size(20px)};
+  --slide-width: #{size(280px)};
+  --slide-margin: #{size(20px)};
+  --slides-gap: #{size(20px)};
+  --border-radius: #{size(18px)};
+  --box-shadow-height: #{size(30px)};
+
+  padding-top: var(--fixed-block-padding);
+  padding-right: var(--compare-offset);
+  padding-bottom: var(--fixed-block-padding);
+  padding-left: var(--compare-offset);
+
+  background-color: $color-default-white;
+  box-shadow: $shadow-black-pearl;
+
+  visibility: hidden;
+  transition:
+    visibility $trans-600,
+    transform $trans-600;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: calc(var(--compare-offset) * -1);
+    right: calc(var(--compare-offset) * -1);
+    bottom: 0;
+    content: "";
+    background-color: $color-default-white;
+    box-shadow: $shadow-black-pearl;
+  }
+
+  @include vp-1023 {
+    --slide-width: #{size(334px)};
+
+    top: calc(100% + var(--box-shadow-height));
+    bottom: auto;
+  }
+
+  @include vp-767 {
+    --slide-width: #{size(343px)};
+  }
+
+  @include vp-374 {
+    --slide-width: calc(max(100vw, #{size(320px)}) - var(--container-offset) * 2);
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: size(16px);
+
+    @include vp-1023 {
+      padding-right: size(10px);
+      padding-left: size(10px);
+    }
+
+    @include vp-767 {
+      width: initial;
+      margin-top: size(5px);
+      padding: 0;
+      background-color: $color-transparent;
+      border: none;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+      }
+
+      @include hover-focus {
+        background-color: $color-transparent;
+        color: $color-dodger-blue;
+      }
+    }
+  }
+
+  &__swiper {
+    overflow: visible;
+
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: 2;
+      top: size(-20px);
+      bottom: size(-20px);
+      width: var(--compare-offset);
+      content: "";
+      background-color: $color-default-white;
+    }
+
+    &::before {
+      width: var(--compare-offset);
+      right: 100%;
+      background: linear-gradient(90deg, $color-default-white 92%, rgba($color-default-white, 0) 100%);
+    }
+
+    &::after {
+      width: calc(var(--compare-offset) + size(60px));
+      left: calc(100% - size(60px));
+      background: linear-gradient(-90deg, $color-default-white 80%, rgba($color-default-white, 0) 100%);
+    }
+
+    @include vp-1023 {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__slide {
+    width: var(--slide-width);
+
+    &:not(:last-child) {
+      margin-right: var(--slide-margin);
+    }
+  }
+
+  &__slide-inner-wrapper {
+    padding: size(16px) size(19px);
+    border: 1px solid $color-echo-blue;
+    border-radius: var(--border-radius);
+    transition:
+      box-shadow $trans-default,
+      border-color $trans-default;
+
+    @include hover-focus {
+      box-shadow: $shadow;
+      border-color: $color-transparent;
+    }
+
+    @include vp-767 {
+      padding: size(16px) size(10px);
+      text-align: center;
+      transition:
+        box-shadow $trans-default,
+        border-color $trans-default;
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 100%;
+
+    font-family: $ff-oswald;
+    font-size: size(20px);
+    line-height: 1.4;
+
+    @include vp-767 {
+      font-size: size(16px);
+      line-height: 1.38;
+    }
+  }
+
+  &__controls {
+    position: fixed;
+    z-index: 2;
+    top: size(25px);
+    left: calc(var(--compare-offset) - size(90px));
+    display: grid;
+    row-gap: size(10px);
+
+    .controls__button {
+      border-width: 1px;
+      background-color: $color-default-white;
+    }
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+}

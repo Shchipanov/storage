@@ -1,0 +1,133 @@
+.catalog-intro {
+  padding-bottom: size(20px);
+
+  @include vp-1099 {
+    padding-bottom: size(40px);
+  }
+
+  @include vp-767 {
+    padding-bottom: 0;
+  }
+}
+
+.catalog-intro__quantity {
+  font-family: $ff-manrope;
+  font-style: normal;
+  font-weight: 400;
+  font-size: size(16px);
+  line-height: 1.25;
+  color: $color-ship-cove;
+  padding: 0;
+  margin: 0;
+  margin-left: size(20px);
+  align-self: flex-end;
+  padding-bottom: size(5px);
+
+  @include vp-1099 {
+    align-self: flex-start;
+    margin-left: 0;
+    margin-top: size(10px);
+    padding-bottom: 0;
+    margin-bottom: size(31px);
+  }
+
+  @include vp-767 {
+    margin-top: size(11px);
+    margin-bottom: size(23px);
+  }
+}
+
+.catalog-intro__description {
+  padding-top: size(8px);
+  display: flex;
+  align-items: flex-end;
+
+  @include vp-1099 {
+    padding-top: 1px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.catalog-intro__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  padding: size(3px);
+  margin-left: 10px;
+  flex: 0 0 24px;
+  color: $color-echo-blue;
+
+  svg {
+    stroke: currentColor;
+    transition: stroke $trans-default;
+  }
+
+  @include hover-focus {
+    svg {
+      stroke: $color-dodger-blue;
+    }
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.catalog-intro__button.is-active {
+  cursor: default;
+  color: $color-vulcan;
+
+  svg {
+    stroke: currentColor;
+  }
+
+  @include hover-focus {
+    svg {
+      stroke: currentColor;
+    }
+  }
+}
+
+.catalog-intro__button-wrap {
+  margin-left: auto;
+  display: flex;
+  padding-top: size(9px);
+
+  @include vp-1099 {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.catalog-intro__filter-button {
+  display: none;
+
+  @include vp-1099 {
+    display: flex;
+  }
+
+  svg {
+    transition: stroke $trans-default;
+  }
+
+  @include vp-1099 {
+    margin-left: auto;
+    width: 100%;
+    margin-right: size(33px);
+    padding-bottom: size(9px);
+    padding-top: size(8px);
+  }
+
+  @include vp-767 {
+    margin: 0;
+    margin-bottom: size(23px);
+  }
+}
+
+.catalog-intro .breadcrumbs .container {
+  padding-left: 0;
+}

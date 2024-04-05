@@ -1,0 +1,186 @@
+mixin catalog-filter
+  .filter(data-da=".modal-filters, 1099, 1")
+
+    form(data-accordion="parent")
+      h2.title.title--h1 Фильтр
+      .filter__wrap
+          +filter-item(
+            {
+              title: "Область&nbsp;применения",
+              list: [
+                "Промышленность",
+                "Телеком и связь",
+                "IT",
+                "Медицина",
+                "Банки",
+                "Аэропорт",
+                "Офис",
+                ],
+              isActive: true,
+            }
+          )
+          +filter-item(
+            {
+              title: "Используется&nbsp;для",
+              list: [
+                "ЦОДа",
+                "Сервера",
+                "Томографа",
+                "Станка",
+                "Насоса",
+                "Другое"
+                ],
+              isActive: true,
+            }
+          )
+          +filter-item(
+          {
+            title: "Тип&nbsp;ИБП",
+            list: [
+              "Off-line",
+              "line-interactive",
+              "on-line"
+              ],
+            isActive: true,
+          }
+          )
+          +filter-item(
+            {
+            title: "Серия",
+            list: [
+              "СИПБ RT 1~3 кВА",
+              "СИПБ 1~3 кВА",
+              "СИПБ RT 6~20 кВА",
+              "СИПБ 6~20 кВА",
+              "СИП380А 10~500 кВА",
+              "СИП380А МД 10~1560 кВА",
+              "СИП380Б 10~800 кВА"
+              ],
+            isActive: true,
+            }
+          )
+          +custom-range(
+            {
+              title: "Mощность,&nbsp;вт",
+              min: 0,
+              max: 30,
+              step: 1,
+              handle: 30,
+            }
+          )
+          +filter-item(
+            {
+              title: "Фазность&nbsp;вход:выход",
+              list: [
+                "3:3",
+                "3:1",
+                "1:3"
+                ],
+              isActive: true,
+            }
+          )
+      .filter__more(data-accordion="parent")
+        .filter__more-wrap(data-accordion="element")
+          .filter__more-content(data-accordion="content")
+            +filter-item(
+              {
+                title: "Конструктивное&nbsp;исполнение",
+                list: [
+                    "Модульный",
+                    "Напольный",
+                    "Стоечный",
+                    "Стоечный / Напольный"
+                  ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Тип&nbsp;батерей",
+                list: [
+                  "Ni-Cd (никель-кадмиевая)",
+                  "Внешняя батарейная система",
+                  "Внутренняя модульная батарея",
+                  "Свинцово-кислотная батарея",
+                  "Свинцово-кислотные с регулирующими клапанами (VRLA)"
+                ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Габариты",
+                list: [
+                  "220 Х 260 Х 250",
+                  "400 Х 500 Х 550",
+                  "300 Х 300 Х 290",
+                  "400 Х 450 Х 2490",
+                  "500 Х 520 Х 540",
+                ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Длина&nbsp;кабеля",
+                list: [
+                  "1,00 мм",
+                  "1,16 мм",
+                  "1,22 мм",
+                  "1,50 мм",
+                  "1,52 мм",
+                  "1,83 мм ",
+                ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Наличие&nbsp;встроенных&nbsp;АКБ",
+                list: [
+                  "Да",
+                  "Нет"
+                ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Возможность&nbsp;подключения&nbsp;внешних&nbsp;батарей",
+                list: [
+                  "Да",
+                  "Нет"
+                ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Время&nbsp;автономной&nbsp;работы ",
+                list: [
+                  "Да",
+                  "Нет"
+                ],
+                isActive: true,
+              }
+              )
+            +filter-item(
+              {
+                title: "Наличие&nbsp;мониторинга&nbsp;и&nbsp;поддерживаемые протоколы&nbsp;связи",
+                list: [
+                  "Да",
+                  "Нет"
+                ],
+                isActive: true,
+              }
+              )
+          +link(
+            {
+              text: "Дополнительные фильтры",
+              icon: {
+                name: "control-left",
+                width: 16,
+                height: 16,
+              }
+            }
+          ).filter__link(data-accordion="button")

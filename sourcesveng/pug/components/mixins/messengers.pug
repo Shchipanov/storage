@@ -1,0 +1,27 @@
+mixin messengers()
+  -
+    const links = [
+      {
+        isMail: true,
+        address: 'info@sipower.com',
+        description: 'Напишите нам',
+      },
+      {
+        path: '+74955189299',
+        number: '+7 (495) 518-92-99',
+        description: 'Позвоните нам',
+      },
+      {
+        path: '+88003509096',
+        number: '8 (800) 350-90-96',
+        description: 'Позвоните нам',
+      },
+    ];
+
+  ul.footer__messengers
+    each link in links
+      li.footer__messenger
+        - const isMailClass = link.isMail ? 'footer__messenger-link--post' : '';
+        - const isMailPath = link.isMail ? `mailto:${link.address}` : `tel:${link.path}`;
+        - const isMailAddress = link.isMail ? link.address : link.number;
+        a.footer__messenger-link(class= isMailClass, href= isMailPath, title= link.description)= isMailAddress

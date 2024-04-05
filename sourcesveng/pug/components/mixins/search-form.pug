@@ -1,0 +1,12 @@
+mixin search-form(data= {})
+  - const {input, btn} = data
+
+  .search-form&attributes(attributes)
+    form(action="#" method="get")
+      +search-input(input)
+      if btn
+        +btn({
+          text: btn.text,
+          classMods: btn.classMods,
+          type: "submit",
+        }).search-form__submit

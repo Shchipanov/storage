@@ -1,0 +1,24 @@
+mixin grid-columns(data = {})
+  - const {mod, content, gridMod} = data
+
+  if mod === "content"
+    ul.grid-columns&attributes(attributes)
+      each item in content
+        - const itemMod = item.layout?.map((mod) => `grid-columns__item--${mod}`) || false
+
+        li.grid-columns__item(class=itemMod)
+          if gridMod === "catalog"
+            +product-card(item)
+
+          else if gridMod === "cards"
+            +categoryCard(item)
+
+          else if gridMod === "promo-cards"
+            +promo-card(item)
+
+          else if gridMod === "document"
+            +documentation-card(item)
+
+  else if mod === "pageGrid"
+    .grid-columns&attributes(attributes)
+      block

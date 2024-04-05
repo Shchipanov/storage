@@ -1,0 +1,115 @@
+.completed-projects {
+  padding-top: size(4px);
+
+  .page-section__heading {
+    margin-bottom: size(27px);
+    margin-left: size(40px);
+    margin-right: size(40px);
+
+    @include vp-1023 {
+      margin-bottom: size(22px);
+    }
+
+    @include vp-767 {
+      margin-bottom: size(15px);
+      margin-left: size(16px);
+      margin-right: size(16px);
+    }
+  }
+
+  .title {
+    color: $color-black-russian27;
+  }
+
+  @include vp-1023 {
+    padding-top: 0;
+  }
+
+  @include vp-767 {
+    padding-top: 0;
+  }
+}
+
+.completed-projects [data-tabs="parent"] {
+  overflow: hidden;
+}
+
+.completed-projects .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.completed-projects .tabs__element {
+  padding-left: size(40px);
+  padding-right: size(40px);
+
+  @include vp-767 {
+    padding-left: size(16px);
+    padding-right: size(16px);
+  }
+}
+
+.completed-projects .tabs__control {
+  color: $color-echo-blue;
+
+  &.is-active {
+    color: $color-black-russian27;
+    border-color: $color-dodger-blue;
+  }
+}
+
+.completed-projects .tabs__inner-line {
+  &::before {
+    background-color: $color-echo-blue;
+    width: 100%;
+  }
+
+  @include vp-1023 {
+    //width: 100%;
+    padding-right: 0;
+    margin-left: 0;
+  }
+}
+
+.completed-projects .pagination {
+  padding-left: size(40px);
+  padding-right: size(40px);
+}
+
+.completed-projects .tabs__control {
+  @include vp-1023 {
+    margin-left: size(69px);
+    margin-right: 0;
+  }
+
+  @include vp-767 {
+    margin-left: size(56px);
+  }
+}
+
+.completed-projects .tabs__controls {
+  width: inherit;
+  margin-left: size(40px);
+  margin-right: size(40px);
+
+  @include vp-1023 {
+    width: calc(var(--controls-width) + var(--container-offset) * 2);
+    margin-right: calc(var(--container-offset) * -1);
+    margin-left: calc(var(--container-offset) * -1);
+    padding-right: calc(var(--container-offset) * 2);
+    padding-left: calc(var(--container-offset) * 2);
+    //margin-left: calc(var(--container-offset)*1);
+  }
+}
+
+.completed-projects .tabs__control:nth-child(2) {
+  @include vp-1023 {
+    margin-right: 0;
+  }
+}
+
+.completed-projects .tabs__control:nth-child(3) {
+  @include vp-1023 {
+    margin-right: 0;
+  }
+}

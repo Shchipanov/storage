@@ -1,0 +1,14 @@
+.slider-pagination {
+  .swiper-pagination-bullet {
+    width: size(24px);
+    height: 1px;
+
+    color: $color-echo-blue;
+    transition: color $trans-default;
+    border-radius: 0;
+  }
+
+  .swiper-pagination-bullet-active {
+    color: $color-dodger-blue;
+  }
+}

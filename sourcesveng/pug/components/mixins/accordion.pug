@@ -1,0 +1,12 @@
+mixin accordionItem(accordionData = {})
+  - const {title, description, path, isActive=false} = accordionData
+
+  .accordion__element(class=isActive ? "is-active": false, data-accordion="element")
+      button.accordion__button(type="button", data-accordion="button")= title
+      .accordion__content(data-accordion="content")
+        .accordion__wrapper
+          .text-content
+            p= description
+          a.accordion__link(href=path)
+              span.accordion__link-txt Подробнее
+                +icon("icon-forward", 24, 24).accordion__link-arrow

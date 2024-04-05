@@ -1,0 +1,11 @@
+mixin empty()
+  .empty
+    .empty__wrapper
+      +empty-icon()
+      p.title.title--h2.empty__text Вы&nbsp;пока ничего не&nbsp;добавили в&nbsp;сравнение
+    .empty__buttons
+      +btn({
+        text: "Вернуться в каталог продукции",
+        classMods: ["primary"],
+        href: "catalog.html",
+      }).empty__button

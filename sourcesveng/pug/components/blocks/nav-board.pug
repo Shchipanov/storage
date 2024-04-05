@@ -1,0 +1,12 @@
+mixin nav-board(data = {})
+  - const {section, cards, banner, contacts} = data
+
+  .nav-board&attributes(attributes)
+    +page-section(section).page-section--no-pt
+      .nav-board__content
+        +grid-columns(cards.list)(class=cards.columns ? `grid-columns--${cards.columns}` : false)
+
+        if contacts
+          +contacts-list(contacts)
+
+        +banner(banner)

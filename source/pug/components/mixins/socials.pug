@@ -1,0 +1,20 @@
+mixin socials(data = {})
+  - const {list} = data
+
+  .socials&attributes(attributes)
+    ul.socials__list
+      each element in list
+        li.socials__item
+          +btn({
+            href: element.path,
+            classMods: [
+              "size-s",
+              "secondary",
+              "active-gradient"
+            ],
+            icon: {
+              name: element.icon,
+              width: 24,
+              height: 24,
+            }
+          })(aria-label=`Мы в ${element.ariaLabel}` target="_blank" rel="nofollow noopener noreferrer")

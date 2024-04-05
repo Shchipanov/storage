@@ -1,0 +1,101 @@
+.text-content {
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+
+    font-weight: 400;
+    font-family: $ff-oswald;
+
+    &:not(:first-child) {
+      margin-top: size(56px);
+    }
+
+    @include vp-767 {
+      &:not(:first-child) {
+        margin-top: size(32px);
+      }
+    }
+  }
+
+  h3 {
+    font-size: size(24px);
+    line-height: size(32px);
+  }
+
+  h4 {
+    font-size: size(16px);
+    line-height: size(22px);
+  }
+
+  h5 {
+    font-size: size(14px);
+    line-height: size(20px);
+  }
+
+  h6 {
+    font-size: size(12px);
+    line-height: size(16px);
+  }
+
+  ul,
+  ol {
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-top: size(24px);
+    }
+
+    li {
+      padding-left: size(18px);
+
+      font-size: size(16px);
+      line-height: size(24px);
+
+      &:not(:first-child) {
+        margin-top: size(8px);
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: size(5px);
+        left: 0;
+
+        height: size(14px);
+        content: "";
+
+        border-left: 1px solid $color-vulcan;
+      }
+    }
+  }
+
+  p {
+    margin: size(24px) 0 0 0;
+
+    font-size: size(16px);
+    line-height: size(24px);
+
+    color: inherit;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &--big {
+    p {
+      font-size: size(20px);
+      line-height: size(32px);
+    }
+  }
+}

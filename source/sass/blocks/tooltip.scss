@@ -1,0 +1,281 @@
+.tooltip {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  width: size(28px);
+  height: size(28px);
+  background-color: $color-international-orange;
+  transition: scale $trans-default;
+  cursor: pointer;
+
+  @include vp-1023 {
+    width: size(28px);
+    height: size(28px);
+  }
+
+  @include vp-767 {
+    width: size(18px);
+    height: size(18px);
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: size(45px);
+    height: size(45px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px dashed $color-default-white;
+    border-radius: 50%;
+
+    @include vp-1023 {
+      width: size(45px);
+      height: size(45px);
+    }
+
+    @include vp-767 {
+      width: size(28px);
+      height: size(28px);
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    font-size: 0;
+    width: size(7px);
+    height: size(7px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-default-white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include vp-1023 {
+      width: size(7px);
+      height: size(7px);
+    }
+
+    @include vp-767 {
+      width: size(4px);
+      height: size(4px);
+    }
+  }
+
+  &[aria-describedby] {
+    scale: 1.34;
+
+    @include vp-767 {
+      scale: 1.64;
+    }
+
+    &::before {
+      scale: 1;
+      width: fit-content;
+      height: fit-content;
+      font-family: $ff-oswald;
+      font-size: size(11px);
+      line-height: size(11px);
+      color: $color-default-white;
+      background: none;
+      text-align: center;
+
+      @include vp-767 {
+        font-size: size(10px);
+        line-height: size(10px);
+      }
+    }
+  }
+}
+
+.tooltip-1 {
+  &[aria-describedby] {
+    &::before {
+      content: "01";
+    }
+  }
+}
+
+.tooltip-2 {
+  &[aria-describedby] {
+    &::before {
+      content: "02";
+    }
+  }
+}
+
+.tooltip-3 {
+  &[aria-describedby] {
+    &::before {
+      content: "03";
+    }
+  }
+}
+
+.tooltip-img-1.tooltip-1 {
+  left: 12%;
+  top: 36%;
+
+  @include vp-1023 {
+    left: 13.5%;
+    top: 36.5%;
+  }
+
+  @include vp-767 {
+    top: 37%;
+    left: 14%;
+  }
+}
+
+.tooltip-img-1.tooltip-2 {
+  left: 35%;
+  top: 14%;
+
+  @include vp-1023 {
+    left: 43%;
+    top: 13%;
+  }
+
+  @include vp-767 {
+    left: 55%;
+    top: 17%;
+  }
+}
+
+.tooltip-img-1.tooltip-3 {
+  left: 76%;
+  top: 12%;
+
+  @include vp-1023 {
+    left: 64%;
+    top: 12%;
+  }
+
+  @include vp-767 {
+    left: 87%;
+    top: 30%;
+  }
+}
+
+.tooltip-img-2.tooltip-1 {
+  left: 20%;
+  top: 35%;
+
+  @include vp-1023 {
+    left: 23.5%;
+    top: 38%;
+  }
+
+  @include vp-767 {
+    left: 26%;
+    top: 46%;
+  }
+}
+
+.tooltip-img-2.tooltip-2 {
+  left: 36%;
+  top: 18%;
+
+  @include vp-1023 {
+    left: 38%;
+    top: 18%;
+  }
+
+  @include vp-767 {
+    left: 62.5%;
+    top: 17%;
+  }
+}
+
+.tooltip-img-2.tooltip-3 {
+  left: 78%;
+  top: 14%;
+
+  @include vp-1023 {
+    left: 76.5%;
+    top: 13%;
+  }
+
+  @include vp-767 {
+    left: 87%;
+    top: 30%;
+  }
+}
+
+.tooltip-img-3.tooltip-1 {
+  left: 42.6%;
+  top: 68%;
+
+  @include vp-1023 {
+    left: 41.5%;
+    top: 65.5%;
+  }
+
+  @include vp-767 {
+    top: 67%;
+  }
+}
+
+.tooltip-img-3.tooltip-2 {
+  left: 70.5%;
+  top: 20%;
+
+  @include vp-1023 {
+    left: 71.5%;
+    top: 17%;
+  }
+
+  @include vp-767 {
+    left: 70.5%;
+    top: 21%;
+  }
+}
+
+.tooltip-img-3.tooltip-3 {
+  left: 91.5%;
+  top: 29%;
+
+  @include vp-1023 {
+    left: 90%;
+    top: 42%;
+  }
+
+  @include vp-767 {
+    top: 31%;
+  }
+}
+
+.tippy-box[data-theme~="default"] {
+  background-color: $color-default-white;
+  border-radius: size(8px);
+  color: $color-black-russian;
+  box-shadow: size(-10px) size(20px) size(40px) rgba($color-default-black, 0.07),
+    size(-5px) size(15px) size(30px) rgba($color-default-black, 0.05),
+    size(-2.5px) size(10px) size(20px) rgba($color-default-black, 0.03),
+    size(-1px) size(5px) size(10px) rgba($color-default-black, 0.02);
+
+  .tippy-content {
+    font: inherit;
+    font-size: size(14px);
+    line-height: size(18px);
+    padding: size(20px);
+
+    @include vp-1023 {
+      font-size: size(14px);
+      line-height: size(18px);
+    }
+
+    @include vp-767 {
+      font-size: size(14px);
+      line-height: size(18px);
+    }
+  }
+
+  & .tooltip-text {
+    margin: 0;
+  }
+}

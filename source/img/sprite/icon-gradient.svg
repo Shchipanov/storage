@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="icon-gradient-1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(17.0426 23.1417) rotate(-172.06) scale(10.3157 10.8773)">
+<stop offset="0" stop-color="#0047ff"/>
+<stop offset="1" stop-color="#007ff"/>
+</radialGradient>
+<radialGradient id="icon-gradient-2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20.2516 8.9489) rotate(143.145) scale(10.8397 40.0944)">
+<stop offset="0" stop-color="#0047ff"/>
+<stop offset="1" stop-color="#007Aff"/>
+</radialGradient>
+<radialGradient id="icon-gradient-3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(8.52457 20.8613) rotate(-97.8619) scale(23.7655 24.8187)">
+<stop offset="0" stop-color="#0047FF"/>
+<stop offset="1" stop-color="#007AFF"/>
+</radialGradient>
+</defs>
+</svg>

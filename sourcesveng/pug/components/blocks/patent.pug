@@ -1,0 +1,29 @@
+-
+  const patentList = [
+    {
+      image: "patent",
+      width: 290,
+      height: 410,
+      text: "Способ и система управления безмостовым корректором коэффициента мощности с помощью цифрового сигнального процессора",
+      doc:
+        {
+          cardMod: ["size-patent"],
+          text: "ISO 9001:2008 сертификат системы менеджмента качества",
+          icon: "soft",
+          width: 24,
+          height: 24,
+          textSeemMore: "Смотреть подробнее",
+          hrefSeemMore: "#",
+        },
+    },
+  ]
+
+mixin patent()
+  +page-section({
+            section: 'section',
+            level: 'h1',
+            realLevel: 'h2',
+            title: 'Сертификаты и&nbsp;патенты',
+            controls: true,
+          }).patent
+    +patent-slider("default")

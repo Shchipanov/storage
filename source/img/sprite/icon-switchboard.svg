@@ -1,0 +1,26 @@
+<svg width="259" height="74" viewBox="0 0 259 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1206_26289)">
+<rect x="2" y="2" width="255" height="70" rx="3" stroke="#006BE0" stroke-width="4" stroke-linejoin="round"/>
+<ellipse cx="14" cy="14.4136" rx="4.5" ry="4.54645" fill="#006BE0"/>
+<ellipse cx="245" cy="14.4136" rx="4.5" ry="4.54645" fill="#006BE0"/>
+<ellipse cx="14" cy="59.8746" rx="4.5" ry="4.54645" fill="#006BE0"/>
+<ellipse cx="245" cy="59.8746" rx="4.5" ry="4.54645" fill="#006BE0"/>
+<mask id="path-6-inside-1_1206_26289" fill="white">
+<rect x="64" y="24" width="131" height="27" rx="3"/>
+</mask>
+<rect x="64" y="24" width="131" height="27" rx="3" stroke="#006BE0" stroke-width="8" stroke-linejoin="round" mask="url(#path-6-inside-1_1206_26289)"/>
+<line x1="84" y1="32" x2="84" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="97" y1="32" x2="97" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="110" y1="32" x2="110" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="123" y1="32" x2="123" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="136" y1="32" x2="136" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="162" y1="32" x2="162" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="149" y1="32" x2="149" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+<line x1="175" y1="32" x2="175" y2="42" stroke="#006BE0" stroke-width="4" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1206_26289">
+<rect width="259" height="74" fill="white"/>
+</clipPath>
+</defs>
+</svg>

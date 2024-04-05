@@ -1,0 +1,355 @@
+.header {
+  --header-padding: #{size(24px)};
+  --logo-width: #{size(233px)};
+  --header-gap: #{size(40px)};
+  --main-nav-offset: #{size(27px)};
+  --header-btn-width: #{size(220px)};
+  --header-line-height: 1.4;
+  --header-offset: 0;
+
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  padding: var(--header-padding) 0;
+
+  font-family: $ff-oswald;
+  line-height: var(--header-line-height);
+  color: $color-black-russian27;
+
+  background-color: $color-default-white;
+  transition: background-color $trans-default;
+
+  &::before,
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 0;
+    background-color: $color-default-white;
+
+    transition: box-shadow $trans-default;
+  }
+
+  &::after {
+    z-index: 1;
+    border-bottom: 0.09rem solid $color-transparent;
+
+    transition: border-bottom-color $trans-default;
+  }
+
+  &.is-scrolled:not(.has-border):not(.is-active) {
+    &::before {
+      box-shadow: $shadow-black-pearl;
+    }
+  }
+
+  &.has-border {
+    &::after {
+      border-bottom-color: $color-echo-blue;
+    }
+  }
+
+  @include vp-1439 {
+    --header-padding: #{size(16px)};
+    --header-line-height: #{size(42px)};
+
+    font-size: size(32px);
+
+    background-color: $color-transparent;
+  }
+
+  @include vp-767 {
+    --icon-top: #{size(7px)};
+  }
+
+  @include vp-374 {
+    --icon-top: #{size(4px)};
+  }
+
+  &__container {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: var(--logo-width) minmax(0, 1fr) auto auto var(--header-btn-width);
+    column-gap: var(--header-gap);
+    align-items: center;
+
+    @include vp-1439 {
+      --header-gap: clamp(#{size(24px)}, 4.2vw, #{size(32px)});
+
+      grid-template-columns: auto minmax(0, 1fr) auto auto;
+    }
+
+    @include vp-767 {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+  }
+
+  // Фон с декоративной линией для первого ряда элементов на tablet-mobile
+  &__background {
+    display: none;
+
+    @include vp-1439 {
+      position: sticky;
+      z-index: 2;
+      top: calc(var(--header-padding) * -1);
+
+      grid-column: 1 / -1;
+      grid-row: 1;
+
+      display: block;
+      width: 100vw;
+      height: calc(100% + var(--header-padding) * 2);
+      margin-left: calc((var(--container-offset) + var(--header-offset)) * -1);
+      content: "";
+
+      background-color: $color-default-white;
+      border-bottom: 1px solid $color-transparent;
+
+      transition: border-bottom-color $trans-default;
+    }
+  }
+
+  &__logo {
+    width: var(--logo-width);
+    height: 100%;
+
+    @include vp-1439 {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    @include vp-767 {
+      --logo-width: #{size(223px)};
+
+      height: size(38px);
+    }
+
+    @include vp-374 {
+      --logo-width: #{size(180px)};
+
+      height: size(32px);
+    }
+  }
+
+  .main-nav {
+    justify-self: start;
+    height: calc(100% + var(--header-padding));
+    margin-left: var(--main-nav-offset);
+    margin-bottom: calc(var(--header-padding) * -1);
+
+    @include vp-1439 {
+      position: relative;
+      grid-column: 1 / -1;
+      grid-row: 2;
+      justify-self: initial;
+      display: none;
+
+      margin-top: size(15px);
+      margin-right: calc(var(--container-offset) * -1);
+      margin-left: calc(var(--container-offset) * -1);
+      margin-bottom: 0;
+
+      opacity: 0;
+      transition: opacity $trans-default;
+
+      &.is-shown {
+        opacity: 1;
+      }
+    }
+  }
+
+  .site-search {
+    display: inline-flex;
+
+    @include vp-1439 {
+      position: sticky;
+      top: 0;
+      z-index: 2; // Не 3, чтобы .site-search__inner-wrapper не перекрывал верхние элементы при перестроении на брейках
+
+      justify-self: end;
+      grid-column: 3;
+      grid-row: 1;
+
+      width: size(24px);
+      height: 100%;
+    }
+
+    @include vp-767 {
+      grid-column: 2;
+    }
+  }
+
+  .site-search__inner-wrapper {
+    right: var(--container-offset);
+    left: calc(
+      var(--container-offset) + var(--logo-width) + var(--header-gap) +
+        var(--main-nav-offset)
+    );
+    height: 100%;
+
+    transition: opacity $trans-default;
+
+    @include vp-1439 {
+      top: var(--header-height);
+      right: 0;
+      left: 0;
+      height: calc(100% - var(--header-height));
+    }
+  }
+
+  .search-form__submit {
+    width: var(--header-btn-width);
+
+    @include vp-1439 {
+      width: 100%;
+    }
+  }
+
+  .user-links {
+    max-width: size(340px);
+
+    @include vp-1439 {
+      position: relative;
+      align-self: start;
+      grid-column: 1 / -1;
+      grid-row: 3;
+      display: none;
+      align-content: start;
+
+      max-width: none;
+      height: 100%;
+      margin-right: calc(var(--container-offset) * -1);
+      margin-left: calc(var(--container-offset) * -1);
+      padding: size(59px) var(--container-offset);
+
+      background-color: $color-default-white;
+      opacity: 0;
+      transition: opacity $trans-default;
+
+      // Декоративная линия на мобилке
+      &::after {
+        position: absolute;
+        top: 0;
+        right: var(--container-offset);
+        left: var(--container-offset);
+        content: "";
+        border-bottom: 1px solid $color-echo-blue;
+      }
+
+      &.is-shown {
+        opacity: 1;
+      }
+    }
+
+    @include vp-767 {
+      padding-bottom: size(54px);
+    }
+  }
+
+  &__btn {
+    @include vp-1439 {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+
+      justify-self: end;
+      grid-column: 2;
+      grid-row: 1;
+
+      padding: size(7px) size(30px) size(9px);
+    }
+
+    @include vp-767 {
+      position: relative;
+      top: auto;
+      z-index: auto;
+
+      align-self: end;
+      grid-column: 1 / -1;
+      grid-row: 4;
+
+      display: none;
+      width: 100%;
+      padding: size(14px) size(30px);
+
+      opacity: 0;
+      transition: opacity $trans-default;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include vp-1439 {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+
+      display: grid;
+      grid-column: 4;
+      grid-row: 1;
+      width: size(24px);
+      height: 100%;
+    }
+
+    @include vp-767 {
+      grid-column: 3;
+    }
+  }
+
+  &.is-shown {
+    @include vp-1439 {
+      height: 100%;
+      overflow-y: auto;
+
+      background-color: $color-default-white;
+
+      .header__background {
+        border-bottom-color: $color-echo-blue;
+      }
+
+      .header__btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-active {
+    @include vp-1439 {
+      .header__container {
+        grid-template-rows: auto auto 1fr;
+
+        min-height: 100%;
+      }
+
+      .main-nav,
+      .user-links {
+        display: grid;
+      }
+    }
+
+    @include vp-767 {
+      .header__container {
+        grid-template-rows: auto auto 1fr auto;
+      }
+
+      .header__btn {
+        display: inline-flex;
+      }
+    }
+  }
+}

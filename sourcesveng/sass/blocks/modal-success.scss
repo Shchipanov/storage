@@ -1,0 +1,119 @@
+.modal-success {
+  padding: size(100px) size(236px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include vp-1023 {
+    margin-top: size(-48px);
+    padding: 0 0 size(40px);
+    justify-content: flex-start;
+  }
+
+  @include vp-767 {
+    padding-bottom: size(16px);
+  }
+
+  &__logo-container {
+    width: 100%;
+    display: none;
+    padding: size(15px) size(21px) size(20px);
+    border-bottom: 1px solid $color-echo-blue;
+
+    @include vp-1023 {
+      padding: size(15px) size(26px) size(20px);
+      display: flex;
+      margin-bottom: size(369px);
+
+      position: sticky;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 5;
+      max-width: 100%;
+      background-color: $color-default-white;
+    }
+
+    @include vp-767 {
+      padding: size(17px) size(4px);
+      margin-bottom: size(250px);
+    }
+  }
+
+  .logo {
+    @include vp-1023 {
+      display: flex;
+      max-width: size(262px);
+      max-height: size(38px);
+      width: 100%;
+      height: 100%;
+    }
+
+    @include vp-767 {
+      max-width: size(246px);
+    }
+  }
+
+  + .modal__close-btn {
+    @include vp-1023 {
+      position: sticky;
+      z-index: 6;
+      order: -1;
+      margin-left: auto;
+      padding-bottom: size(11px);
+    }
+
+    @include vp-767 {
+      padding-bottom: size(5px);
+    }
+  }
+}
+
+.modal-success .title {
+  margin-bottom: size(24px);
+  text-align: center;
+  color: $color-black-russian27;
+
+  @include vp-1023 {
+    margin-top: auto;
+  }
+}
+
+.modal-success .modal-success__content {
+  margin: 0;
+  margin-bottom: size(57px);
+  text-align: center;
+
+  font-family: $ff-oswald;
+  font-weight: 400;
+  font-size: size(20px);
+  line-height: size(28px);
+  color: $color-black-russian27;
+
+  @include vp-1023 {
+    margin-bottom: size(341px);
+    max-width: size(250px);
+  }
+
+  @include vp-767 {
+    margin-bottom: size(239px);
+  }
+}
+
+.modal-success .btn {
+  text-align: center;
+  margin-bottom: size(10px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include vp-1023 {
+    margin-top: auto;
+    width: 90%;
+  }
+
+  @include vp-767 {
+    padding: size(12px) size(40px) size(16px);
+  }
+}

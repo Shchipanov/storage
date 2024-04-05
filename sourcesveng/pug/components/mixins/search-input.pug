@@ -1,0 +1,10 @@
+mixin search-input(options = {})
+  - const inputLabel = options.inputLabel || false
+  - const inputId = options.inputId || false
+  - const inputName = options.inputName || false
+  - const classMods = options.classMods?.map((mod) => `search-input--${mod}`) || false
+
+  .search-input(class=classMods)&attributes(attributes)
+    label(for=inputId)!=inputLabel
+    input(type="search", id=inputId, name=inputName, autocomplete="off")
+    +icon("icon-search", 24, 24)

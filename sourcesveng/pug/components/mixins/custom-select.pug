@@ -1,0 +1,30 @@
+mixin custom-select(options = {})
+  - const selectLabel = options.label || false
+  - const selectPlaceholder = options.placeholder || false
+  - const buttonAriaLabel = options.buttonAriaLabel ? options.buttonAriaLabel : "Выберите одну из опций"
+  -
+    const defaultIcon = {
+      name: "icon-arrow-small",
+      width: 14,
+      height: 14,
+    }
+  - const icon = options.icon || defaultIcon
+  - const search = options.search || false
+
+  .custom-select&attributes(attributes)
+    if selectLabel
+      span.custom-select__label=selectLabel
+    if selectPlaceholder
+      span.custom-select__placeholder=selectPlaceholder
+    button.custom-select__button(type="button", aria-label=buttonAriaLabel)
+      span.custom-select__text
+      span.custom-select__icon
+        if icon
+          +icon(icon.name, icon.width, icon.height)
+    .custom-select__list-wrapper
+      if search
+        +search-input(search)
+      ul.custom-select__list.no-scrollbar(role="listbox")
+        each item in options.optionsList
+          - const ariaSelected = item.isActive || "false"
+          li.custom-select__item(class=itemClass, tabindex="0", data-select-value=item.value, aria-selected=ariaSelected, role="option")=item.text

@@ -1,0 +1,55 @@
+-
+  const companyList = [
+    {
+      data: "150",
+      text: "дилеров"
+    },
+    {
+      data: "458",
+      text: "партнеров"
+    },
+    {
+      data: "200+",
+      text: "сотрудников"
+    },
+    {
+      data: "30+",
+      text: "сервисных центров по России"
+    },
+    {
+      data: "ICO 9001",
+      text: "международные сертификаты"
+    },
+    {
+      data: "4&nbsp;200&nbsp;м<sup>2</sup>",
+      text: "производственные площади"
+    },
+  ]
+
+mixin company()
+  +page-section(
+          { section: "section",
+            pageGrid: true,
+            modGrid: "col-2"
+          }
+    ).company
+
+    +column({
+          level: "h1",
+          realLevel: "h2",
+          titleGrid: "Компания сегодня",
+    })
+      ul.company__list.grid-columns.grid-columns--col-2
+        each item in companyList
+          +info-card(item)
+
+    +column()
+      .company__img
+        +img({
+              path: "content",
+              image: "about-2",
+              format: "jpg",
+              width: 380,
+              height: 546,
+              altText: "наша компания"
+            })

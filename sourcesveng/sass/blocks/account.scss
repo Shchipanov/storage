@@ -1,0 +1,91 @@
+.account {
+  color: $color-black-russian27;
+
+  .page-section__heading {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 0;
+
+    user-select: none;
+  }
+
+  .grid-columns {
+    position: relative;
+    padding: size(40px) size(30px);
+    background: $color-solitude;
+    border-radius: size(18px);
+
+    overflow: hidden;
+
+    @include vp-1023 {
+      grid-row-gap: size(37px);
+      padding: size(40px) size(16px);
+    }
+
+    @include vp-767 {
+      grid-row-gap: size(32px);
+      padding-top: size(32px);
+      padding-bottom: size(32px);
+    }
+  }
+
+  &__data {
+    display: grid;
+    grid-template-columns: minmax(size(300px), size(396px)) auto;
+    grid-row-gap: size(40px);
+
+    :first-child {
+      grid-area: 1/1/1/3;
+
+      @include vp-767 {
+        grid-area: 1/1/1/2;
+      }
+    }
+
+    :nth-child(2) {
+      grid-area: 2/1/2/3;
+
+      @include vp-767 {
+        grid-area: 2/1/2/2;
+      }
+    }
+
+    @include vp-1023 {
+      grid-template-columns: minmax(size(300px), size(336px)) auto;
+    }
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      grid-row-gap: size(24px);
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    left: size(-714px);
+    bottom: size(-987px);
+    width: size(1635px);
+    height: size(1588px);
+
+    @include vp-1023 {
+      transform: scaleX(-1);
+      bottom: size(-774px);
+      left: auto;
+      right: size(-1029px);
+    }
+
+    @include vp-767 {
+      bottom: size(-910px);
+      left: size(-170px);
+      right: size(-991px);
+    }
+
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

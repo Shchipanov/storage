@@ -1,0 +1,39 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Сравнение — Связь инжиниринг" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = false
+  - const footerMods = ""
+  - const currentUrl = "compare.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+  -
+    const compare = {
+      breadcrumbs: [
+        {
+          text: 'Главная',
+          href: 'index.html'
+        },
+        {
+          text: 'Сравнение',
+        },
+      ],
+      page: {
+        section: {
+          section: "section",
+          level: "h1",
+          realLevel: "h1",
+          title: "Сравнение",
+        },
+      },
+    }
+
+block main
+  main
+    .page-content.page-content--100-vh
+      +breadcrumbs(compare.breadcrumbs)
+      +compare(compare.page)
+
+block modals

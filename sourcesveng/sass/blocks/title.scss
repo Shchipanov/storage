@@ -1,0 +1,47 @@
+.title {
+  margin: 0;
+
+  font-weight: 400;
+  font-family: $ff-oswald;
+
+  color: inherit;
+
+  &--h1 {
+    font-size: size(48px);
+    line-height: size(54px);
+
+    @include vp-767 {
+      font-size: size(40px);
+      line-height: size(48px);
+    }
+
+    @include vp-374 {
+      font-size: size(32px);
+      line-height: size(40px);
+    }
+  }
+
+  &--h2 {
+    font-size: size(32px);
+    line-height: size(42px);
+  }
+
+  &--h3 {
+    font-size: size(24px);
+    line-height: size(32px);
+  }
+
+  &--h4 {
+    font-size: size(20px);
+    line-height: size(28px);
+  }
+
+  &--h5 {
+    font-size: size(16px);
+    line-height: size(20px);
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}

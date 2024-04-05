@@ -1,0 +1,12 @@
+mixin contacts-list(data = {})
+  - const title = data.title || false
+  - const list = data.list || false
+
+  .contacts-list&attributes(attributes)
+    if title
+      p.contacts-list__title!=title
+
+    ul.contacts-list__list
+      each item in list
+        li.contacts-list__item
+          +link(item).contacts-list__link

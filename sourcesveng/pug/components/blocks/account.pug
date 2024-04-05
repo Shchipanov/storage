@@ -1,0 +1,25 @@
+mixin account()
+  +page-section(
+          { section: "section",
+            pageGrid: true,
+            modGrid: "col-2"
+          }
+    ).account
+
+    +column({
+          level: "h1",
+          realLevel: "h2",
+          titleGrid: "Наши реквизиты",
+    })
+
+      .account__bg
+        img(src="img/svg/grid.svg" width="1635" height="1588" alt="фон")
+
+    +column()
+      .account__data
+        +info({name: "Наименование", text: "ООО «Связь инжиниринг»"})
+        +info({name: "Адрес", href: "#", text: "115404, Россия, г. Москва, ул.&nbsp;6&#8209;я&nbsp;Радиальная,&nbsp;д.&nbsp;9"})
+        +info({name: "Телефон", href: "tel:+74955442190", text: "+7 (495) 544-21-90"})
+        +info({name: "Email", href: "mailto:info@groupexampele.ru", text: "info@groupexampele.ru"})
+        +info({name: "ОГРН", text: "5177746103717"})
+        +info({name: "ИНН", text: "7726414607"})

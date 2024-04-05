@@ -1,0 +1,4 @@
+mixin features-list(featuresList = [])
+  ul.features-list&attributes(attributes)
+    each element in featuresList
+        +info-card({data: element.title, text: element.description})(class="info-card--wide")

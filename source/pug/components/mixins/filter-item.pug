@@ -1,0 +1,16 @@
+mixin filter-item(filterData={})
+  - const {title, list: [ ], isActive=false} = filterData
+
+  fieldset.filter__field(class=isActive ? "is-active" : false, data-accordion="element")
+      legend.title.title--h5.filter__title(data-accordion="button")
+        span.filter__title-txt!= title
+          span.filter__icon
+            +icon('control-left', 16, 16)
+      .filter__wrapper(data-accordion="content")
+        each element in filterData.list
+          +custom-toggle({
+            inputLabel: element,
+            inputName: element,
+            inputValue: element,
+            inputChecked: false
+          })(data-validate-type="checkbox").custom-toggle--checkbox

@@ -1,0 +1,56 @@
+[data-tabs="parent"] {
+  overflow: inherit;
+
+  @include vp-1023 {
+    overflow: inherit;
+  }
+
+  &.no-transition {
+    > [data-tabs="control"],
+    > [data-tabs="content"],
+    > [data-tabs="element"] {
+      transition: none;
+    }
+  }
+
+  &.no-transition-global {
+    [data-tabs="control"],
+    [data-tabs="content"],
+    [data-tabs="element"] {
+      transition: none;
+    }
+  }
+}
+
+[data-tabs="parent"] [data-tabs="content"] {
+  position: relative;
+}
+
+[data-tabs="element"] {
+  position: absolute;
+
+  visibility: collapse;
+  opacity: 0;
+
+  transition: opacity $trans-default, visibility $trans-default, max-height $trans-default;
+}
+
+[data-tabs="element"].for-load {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+
+  transition: none;
+}
+
+[data-tabs="element"].is-active {
+  z-index: 1;
+
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-tabs="element"]:not(.is-active):not(.for-load) {
+  max-height: 100vh;
+  overflow: hidden;
+}

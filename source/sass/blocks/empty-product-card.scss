@@ -1,0 +1,63 @@
+.empty-product-card {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  grid-row-gap: size(24px);
+  padding: size(20px);
+
+  background: $color-default-white;
+  color: $color-black-russian27;
+
+  border: 1px solid $color-echo-blue;
+  border-radius: size(18px);
+
+  @include vp-1023 {
+    grid-row-gap: size(23px);
+  }
+
+  @include vp-767 {
+    padding: size(16px);
+  }
+
+  .empty-icon {
+    place-self: center;
+    margin-bottom: size(30px);
+
+    @include vp-1023 {
+      margin-bottom: size(65px);
+    }
+
+    @include vp-767 {
+      margin-bottom: size(25px);
+    }
+  }
+
+  &__text {
+    font-size: size(12px);
+    line-height: 1.5;
+    color: $color-mischka;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__btns {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-row-gap: size(17px);
+
+    font-family: $ff-oswald;
+
+    .btn {
+      padding-right: size(20px);
+      padding-left: size(20px);
+    }
+
+    .link {
+      justify-self: center;
+      color: $color-black-russian27;
+    }
+  }
+}

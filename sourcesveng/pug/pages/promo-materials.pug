@@ -1,0 +1,27 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Рекламные материалы — Связь Инжиниринг"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "promo-materials.html"
+
+block main
+  main
+    .page-content
+      +breadcrumbs([
+          {
+            text: 'Главная',
+            href: 'index.html'
+          }, {
+            text: 'Маркетинговые материалы',
+            href: 'promo-materials.html'
+          }
+        ])
+      +promo-materials()
+
+
+block modals

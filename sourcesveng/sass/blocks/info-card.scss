@@ -1,0 +1,53 @@
+.info-card {
+  display: grid;
+  grid-row-gap: size(16px);
+  padding: size(40px) 0;
+
+  border-bottom: 1px solid $color-echo-blue;
+
+  &:first-child {
+    border-top: 1px solid $color-echo-blue;
+  }
+
+  font-family: $ff-oswald;
+
+  &__data {
+    margin: 0;
+    color: $color-dodger-blue;
+
+    font-family: $ff-oswald;
+    font-size: size(52px);
+    line-height: size(58px);
+
+    sup {
+      top: size(-22px);
+      left: size(4px);
+
+      font-size: 64%;
+      font-weight: 600;
+    }
+  }
+
+  &__text {
+    margin: 0;
+
+    font-size: size(20px);
+    line-height: size(28px);
+  }
+
+  &--wide {
+    grid-template-columns: size(300px) 1fr;
+    align-items: center;
+
+    @include vp-767 {
+      grid-template-columns: auto;
+      grid-row-gap: 0;
+    }
+  }
+
+  &--wide &__text {
+    font-family: $ff-manrope;
+    font-size: size(16px);
+    line-height: size(24px);
+  }
+}

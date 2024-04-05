@@ -1,0 +1,46 @@
+.form {
+  h2 {
+    margin-bottom: size(33px);
+  }
+
+  a {
+    color: $color-dodger-blue;
+  }
+
+  @include vp-1023 {
+    h2 {
+      margin-bottom: size(27px);
+    }
+  }
+}
+
+.form__text {
+  margin: 0;
+  margin-bottom: size(33px);
+  font-size: size(16px);
+  line-height: size(20px);
+  max-width: size(580px);
+
+  a {
+    transition: opacity $trans-default;
+
+    @include hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.form__button-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: size(10px);
+
+  .btn {
+    justify-self: start;
+  }
+
+  @include vp-1023 {
+    display: block;
+  }
+}

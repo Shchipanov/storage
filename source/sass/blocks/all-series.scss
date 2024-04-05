@@ -1,0 +1,11 @@
+.all-series {
+  color: $color-black-russian27;
+
+  .page-section__heading {
+    margin-bottom: size(26px);
+  }
+
+  [data-tabs="parent"] {
+    overflow: inherit;
+  }
+}

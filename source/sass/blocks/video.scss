@@ -1,0 +1,27 @@
+.video {
+  overflow: hidden;
+
+  video {
+    position: relative;
+    outline: 3px solid $color-default-white;
+    outline-offset: -3px;
+    top: -1px;
+
+    width: size(670px);
+    height: size(384px);
+
+    object-fit: cover;
+
+    @include vp-1023 {
+      width: size(700px);
+      height: size(432px);
+    }
+
+    @include vp-767 {
+      height: auto;
+      max-height: size(224px);
+
+      object-fit: contain;
+    }
+  }
+}

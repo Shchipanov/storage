@@ -1,0 +1,9 @@
+mixin custom-range(dataAttr={})
+  - const {title, min, max, step, handle=max} = dataAttr
+
+  .custom-range(data-range-slider="data-range-slider")
+    p.title.title--h5.filter__title!=title
+    .custom-range__field(data-rang-slider-inputs="data-rang-slider-inputs")
+      input(type="number").custom-range__value
+      input(type="number").custom-range__value.custom-range__value--upper
+    .custom-range__scale(data-range-slider-element="data-range-slider-element", data-min=dataAttr.min, data-max=dataAttr.max, data-step=dataAttr.step, data-handle=dataAttr.handle)

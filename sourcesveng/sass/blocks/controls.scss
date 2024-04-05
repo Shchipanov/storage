@@ -1,0 +1,58 @@
+.controls {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.controls__button {
+  width: size(60px);
+  height: size(60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-echo-blue;
+  border: size(2px) solid $color-echo-blue;
+  border-radius: 50%;
+  padding: 0;
+  background-color: $color-transparent;
+  position: relative;
+  cursor: pointer;
+  transition: border-color $trans-default, color $trans-default;
+
+  @include hover-focus {
+    color: $color-dodger-blue;
+    border: size(2px) solid $color-dodger-blue;
+
+    .controls__current-icon {
+      display: none;
+    }
+
+    .controls__replaced-icon {
+      stroke-dashoffset: 80.48px;
+    }
+  }
+
+  &.swiper-button-disabled {
+    pointer-events: none;
+    border-color: $color-link-water;
+
+    svg {
+      color: $color-link-water;
+    }
+  }
+}
+
+.controls__current-icon {
+  width: size(9px);
+  height: size(14px);
+}
+
+.controls__replaced-icon {
+  position: absolute;
+  stroke-dashoffset: 40.24px;
+  stroke-dasharray: 40.24px;
+  transition: stroke-dashoffset 0.2s ease-out 0s;
+  width: size(24px);
+  height: size(14px);
+}

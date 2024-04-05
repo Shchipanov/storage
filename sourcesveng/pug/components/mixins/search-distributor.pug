@@ -1,0 +1,69 @@
+mixin search-distributor()
+  -
+    const variants = [
+      {
+        name: 'Аккредитованное представительство &laquo;Связь Инжиниринг&raquo; в&nbsp;РФ',
+        address: '119049, Россия, Москва, ул.Донская д.4, стр.3',
+        number: '+7 (495) 518-92-99',
+        href: 'tel:+74955189299',
+        mail: 'info@sipower.com',
+      },
+      {
+        name: 'Аккредитованное представительство &laquo;Связь Инжиниринг&raquo; в&nbsp;РФ',
+        address: '119049, Россия, Москва, ул.Донская д.4, стр.3',
+        href: 'tel:+74955189299',
+        number: '+7 (495) 518-92-99',
+        mail: 'info@sipower.com',
+      },
+      {
+        name: 'Аккредитованное представительство &laquo;Связь Инжиниринг&raquo; в&nbsp;РФ',
+        address: '119049, Россия, Москва, ул.Донская д.4, стр.3',
+        href: 'tel:+74955189299',
+        number: '+7 (495) 518-92-99',
+        mail: 'info@sipower.com',
+      },
+      {
+        name: 'Аккредитованное представительство &laquo;Связь Инжиниринг&raquo; в&nbsp;РФ',
+        address: '119049, Россия, Москва, ул.Донская д.4, стр.3',
+        href: 'tel:+74955189299',
+        number: '+7 (495) 518-92-99',
+        mail: 'info@sipower.com',
+      },
+      {
+        name: 'Аккредитованное представительство &laquo;Связь Инжиниринг&raquo; в&nbsp;РФ',
+        address: '119049, Россия, Москва, ул.Донская д.4, стр.3',
+        href: 'tel:+74955189299',
+        number: '+7 (495) 518-92-99',
+        mail: 'info@sipower.com',
+      },
+    ];
+
+  ul.search-distributor
+    each variant in variants
+      li.search-distributor__item
+        article
+          h3.title.title--h5!= variant.name
+          address
+            p.search-distributor__address!= variant.address
+            ul.search-distributor__contacts
+              li.search-distributor__contact
+                +link({
+                  text: `${variant.number}`,
+                  href: `${variant.href}`,
+                  icon: {
+                    name: "icon-phone",
+                    width: '24',
+                    height: '26',
+                  },
+                }).search-distributor__link
+              li.search-distributor__contact
+                +gradient-link({
+                  text: `${variant.mail}`,
+                  href: `mailto:${variant.mail}`,
+                  classMods: ["dodger-blue-2"],
+                  icon: {
+                    name: "icon-mail",
+                    width: '25',
+                    height: '24',
+                  },
+                }).search-distributor__link

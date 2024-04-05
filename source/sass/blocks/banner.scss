@@ -1,0 +1,87 @@
+.banner {
+  min-height: size(420px);
+  padding: size(26px) size(29px) size(30px);
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  background-color: $color-solitude-2;
+  border-radius: size(18px);
+  overflow: hidden;
+
+  @include vp-1023 {
+    padding: size(26px) size(29px) size(29px);
+    width: 100%;
+    min-height: size(280px);
+    margin: 0 auto;
+  }
+
+  @include vp-767 {
+    min-height: size(384px);
+  }
+
+  &--layout {
+    max-width: size(380px);
+
+    @include vp-1023 {
+      max-width: 100%;
+    }
+  }
+}
+
+.banner h2 {
+  margin: 0;
+  max-width: size(325px);
+
+  z-index: 1;
+}
+
+.banner__image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: size(320px);
+  max-height: size(325px);
+
+  border-radius: 0 0 size(18px) 0;
+  transform: translate(10%, 0);
+
+  @include vp-1023 {
+    transform: translate(0, 0);
+  }
+
+  @include vp-767 {
+    max-width: size(246px);
+    max-height: size(259px);
+  }
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.banner .btn {
+  margin: auto auto 0 0;
+
+  z-index: 1;
+
+  @include vp-767 {
+    width: 100%;
+    padding: size(12px) 0 size(16px);
+  }
+}
+
+.banner .title {
+  @include vp-1023 {
+    max-width: 45%;
+  }
+
+  @include vp-767 {
+    max-width: none;
+  }
+}

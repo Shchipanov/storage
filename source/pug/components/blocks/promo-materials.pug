@@ -1,0 +1,72 @@
+-
+  promoMaterials = [
+  {
+    title: 'Презентация',
+    description: 'Подробнее о&nbsp;нас, наши заказчики и&nbsp;партнеры, основные направления деятельности, производство электроники и&nbsp;многое другое',
+    layout: ['presentation'],
+    icon: {
+      name: 'icon-presentation',
+      width: 258,
+      height: 268,
+    }
+  },
+  {
+    title: 'Брошюры',
+    description: 'Печатный вариант брошюр можно получить, отправив запрос на<br> e-mail: ',
+    layout: ['brochures'],
+    icon: {
+      name: 'icon-brochures',
+      width: 112,
+      height: 112,
+    },
+    email: 'sales@sipower.ru',
+  },
+  {
+    title: 'ИБП постоянного тока',
+    description: 'Источники бесперебойного электропитания, инвенторы, модули питания, системы мониторинга оборудования',
+    layout: ['ups'],
+    icon: {
+      name: 'icon-ups',
+      width: 128,
+      height: 104,
+    }
+  },
+  {
+    title: 'Щитовая аппаратура',
+    description: 'Источники бесперебойного электропитания, инвенторы, модули питания, системы мониторинга оборудования',
+    layout: ['switchboard'],
+    icon: {
+      name: 'icon-switchboard',
+      width: 259,
+      height: 74,
+    }
+  },
+  {
+    title: 'Климатические антивандальные шкафы',
+    description: 'Особенности и&nbsp;комплектация шкафов серии ШКВ и&nbsp;АРШ, стеллажи для аккумуляторов',
+    layout: ['climate'],
+    icon: {
+      name: 'icon-climate',
+      width: 84,
+      height: 128,
+    }
+  },
+  {
+    title: 'Завод печатных плат',
+    description: 'Источники бесперебойного электропитания, инвенторы, модули питания, системы мониторинга оборудования',
+    layout: ['chip-factory'],
+    icon: {
+      name: 'icon-chip',
+      width: 114,
+      height: 114,
+    }
+  }];
+
+mixin promo-materials()
+  +page-section({
+    section: 'section',
+    level: 'h1',
+    realLevel: 'h1',
+    title: 'Рекламные материалы'
+  }).page-section--no-pt.promo-materials
+    +grid-columns({mod: 'content', content: promoMaterials, gridMod: 'promo-cards'}).promo-materials__list

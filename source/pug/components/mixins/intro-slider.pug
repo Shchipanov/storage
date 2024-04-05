@@ -1,0 +1,18 @@
+mixin intro-slider(data=[])
+  .intro-slider&attributes(attributes)
+    .swiper.intro-slider__container(data-intro-slider)
+      .swiper-wrapper.intro-slider__wrapper
+        each item, index in data
+          .swiper-slide.intro-slider__slide
+            .intro-slider__img-wrapper(class= item.classMode ? item.classMode : "")
+              .intro-slider__img
+                +img({
+                    path: "slides",
+                    image: item.image,
+                    format: item.format,
+                    width: item.width,
+                    height: item.height,
+                    altText: item.altText
+                  })
+                +tooltips(item.tooltips)(class=`tooltip-img-${index+1}`)
+      +controls().intro-slider__controls

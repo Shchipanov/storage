@@ -1,0 +1,31 @@
+-
+  const featuresList = [{
+    title: '85&nbsp;430',
+    description: 'произведено единиц ИБП с&nbsp;2015 года',
+  }, {
+    title: '345&nbsp;МВт',
+    description: 'их суммарная мощность',
+  }]
+
+
+mixin features()
+  +page-section({
+            section: 'section',
+            pageGrid: true,
+            modGrid: "col-2",
+            level: 'h1',
+            realLevel: 'h2',
+          }).features.page-section--no-pt&attributes(attributes)
+    +column()
+      .video
+        video(src="video/gif.mp4" width="686" height="384" preload autoplay loop muted playsinline poster="img/content/poster.png")
+    +column({
+      level: "h1",
+      realLevel: "h2",
+      titleGrid: 'Разработка и&nbsp;производство силовой электроники и&nbsp;преобразовательной техники',
+      textTitleBlockGrid: [
+        'Компетенция в&nbsp;этой области, накопленная коллективом разработчиков с&nbsp;1997&nbsp;года, позволяет создавать конкурентоспособную продукцию для инфраструктурных решений.'
+      ],
+      mod: "text",
+    })
+      +features-list(featuresList)(class="features__list")

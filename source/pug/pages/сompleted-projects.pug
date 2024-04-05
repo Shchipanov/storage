@@ -1,0 +1,28 @@
+extends ../components/base/layout
+
+
+block variables
+  - const title = "Реализованные проекты Связь инжиниринг" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = " " //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+block main
+  main
+    .page-content
+      +breadcrumbs([
+        {
+          text: 'Главная',
+          href: 'index.html',
+        },
+        {
+          text: 'Реализованные проекты',
+          href: '#'
+        }
+      ])
+      +info-project()
+
+block modals

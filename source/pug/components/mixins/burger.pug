@@ -1,0 +1,6 @@
+mixin burger(data = {})
+  - const {dataSet} = data
+  - const ariaLabel = text ? `Открыть ${text}` : "Открыть Меню"
+
+  button(type="button", data-toggle=dataSet || "", aria-pressed="false", aria-label=ariaLabel, data-label-name=text).burger&attributes(attributes)
+    span

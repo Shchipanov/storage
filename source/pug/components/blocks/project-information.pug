@@ -1,0 +1,31 @@
+mixin project-information(data = {})
+  -
+    const {
+      bookButtons,
+      sectionBook,
+      description,
+      tableData,
+      buttonsGroup,
+      slider,
+    } = data
+
+  +page-section({
+    section: "section",
+    pageGrid: true,
+    modGrid: "col-2-no-equal",
+    projectBtns: bookButtons}
+    ).page-section--no-pt.project-information
+      +slider(slider)
+      +product-about(description).project-information__about
+      +product-table(tableData).project-information__table
+      .product-buttons
+        +btn({
+          text: "Заказать проект",
+          classMods: ["primary"],
+        })
+      +project-content().project-information__content
+      .project-information__equipment
+        h3.title.title--h3!= buttonsGroup.heading
+        .project-information__button-container
+          each button in buttonsGroup.buttons
+            +btn(button).btn--narrow

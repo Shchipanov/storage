@@ -1,0 +1,5 @@
+mixin product-table(data = [{}])
+  ul.product-table&attributes(attributes)
+    each item in data
+      li.product-table__item(class= item.mod ? `product-table__item--${item.mod}` : '')
+        +info(item)

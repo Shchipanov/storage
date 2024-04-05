@@ -1,0 +1,837 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Карточка товара - Связь инжиниринг"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "product-info.html"
+
+  -
+    const productInfo = {
+      breadcrumbs: [
+        {
+          text: 'Главная',
+          href: 'index.html',
+        }, {
+          text: 'Каталог',
+          href: 'catalog.html',
+        }, {
+          text: 'Инверторы и блоки питания',
+          href: '#',
+        },
+      ],
+      information: {
+        about: {
+          code: 'АПСМ.435241.026-01',
+          heading: 'СИПБ1КА.10-11 Rack/Tower',
+          text: 'Онлайн ИБП СИПБ2КА.10-11 двойного преобразования 2&nbsp;кВт для 19-ти дюймовой стойки высотой 2U&nbsp;с&nbsp;встроенными аккумуляторами',
+        },
+        table: [
+          {
+            name: 'Серия',
+            text: 'СИПБ 1-3 кВА Rack/Tower',
+            mod: 'batch',
+          },
+          {
+            name: 'Технология',
+            text: 'Online ИБП',
+            mod: 'technology',
+          },
+          {
+            name: 'Мощность',
+            text: '1000&nbsp;вт',
+            mod: 'capacity',
+          },
+          {
+            name: 'Входное напряжение',
+            text: '300&nbsp;в',
+            mod: 'input-voltage',
+          },
+          {
+            name: 'Вес',
+            text: '24.5&nbsp;кг',
+            mod: 'mass',
+          },
+          {
+            name: 'Габаритные размеры',
+            text: '440 х 600 х 86.5&nbsp;мм',
+            mod: 'dimension',
+          },
+        ],
+        features: {
+          list: [
+            {
+              title: "Входные характеристики ИБП",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Выходные характеристики ИБП",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+              ],
+            },
+            {
+              title: "Коммуникации и&nbsp;интерфейсы",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Рабочие условия",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Физические характеристики",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Соответствие стандартам",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Физические характеристики",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Соответствие стандартам",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+          ],
+        },
+        slider: {
+          tags: [
+              {
+                text: "топ продаж",
+                mod: "bg-green",
+              },
+              {
+                text: "реестр роспромторга",
+              },
+              {
+                text: "есть в наличии",
+                mod: "icon",
+                icon: {
+                  name: "icon-check",
+                  width: 16,
+                  height: 16,
+                },
+              },
+            ],
+          gallery: {
+            content: {
+              pagination: true,
+              slides: [
+                {
+                  image: "slide-1",
+                  width: 268,
+                  height: 450,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-2",
+                  width: 268,
+                  height: 450,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-3",
+                  width: 473,
+                  height: 142,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-1",
+                  width: 268,
+                  height: 450,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-3",
+                  width: 473,
+                  height: 142,
+                  format: "png",
+                  altText: "товар",
+                },
+              ],
+            },
+            contentThumb: [
+              {
+                image: "thumb-1",
+                width: 46,
+                height: 80,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-2",
+                width: 38,
+                height: 80,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-3",
+                width: 100,
+                height: 30,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-4",
+                width: 46,
+                height: 80,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-5",
+                width: 100,
+                height: 30,
+                format: "png",
+                altText: "товар",
+              },
+            ],
+          },
+        },
+        componentDocumentation: {
+          firstTitle: {
+            number: "01",
+            title: "Руководства пользователей",
+          },
+          secondTitle: {
+            number: "02",
+            title: "Загрузка программного обеспечения",
+          },
+          userGuides: {
+            mod: "content",
+            gridMod: "document",
+            content: [
+              {
+                cardMod: ["size-user"],
+                layout: ["size-user"],
+                text: "Инструкция по&nbsp;эксплуатации",
+                volume: "4,2&nbsp;мб",
+                icon: "doc",
+                width: 26,
+                height: 16,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+              },
+              {
+                cardMod: ["size-user"],
+                layout: ["size-user"],
+                text: "Инструкция по&nbsp;эксплуатации",
+                volume: "4,2&nbsp;мб",
+                icon: "doc",
+                width: 26,
+                height: 16,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                layout: ["user"],
+              },
+              {
+                cardMod: ["size-user"],
+                layout: ["size-user"],
+                text: "Инструкция по&nbsp;эксплуатации",
+                volume: "4,2&nbsp;мб",
+                icon: "doc",
+                width: 26,
+                height: 16,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+              },
+              {
+                cardMod: ["size-user"],
+                layout: ["size-user"],
+                text: "Инструкция по&nbsp;эксплуатации",
+                volume: "4,2&nbsp;мб",
+                icon: "doc",
+                width: 26,
+                height: 16,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+              },
+              {
+                cardMod: ["size-user"],
+                layout: ["size-user"],
+                text: "Инструкция по&nbsp;эксплуатации",
+                volume: "4,2&nbsp;мб",
+                icon: "doc",
+                width: 26,
+                height: 16,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+              },
+            ],
+          },
+          softwareDownload: {
+            mod: "content",
+            gridMod: "document",
+            content: [
+              {
+                cardMod: ["size-soft"],
+                layout: ["user"],
+                text: "Утилита сетевого питания&nbsp;2",
+                operatingSystem: "Windows",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                textMore: "Узнать больше",
+                hrefMore: "#",
+              },
+              {
+                cardMod: ["size-soft"],
+                text: "Утилита сетевого питания&nbsp;2",
+                operatingSystem: "Mac",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                textMore: "Узнать больше",
+                hrefMore: "#",
+              },
+              {
+                cardMod: ["size-soft"],
+                text: "Утилита сетевого питания&nbsp;2",
+                operatingSystem: "Linux",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                textMore: "Узнать больше",
+                hrefMore: "#",
+              },
+              {
+                cardMod: ["size-soft"],
+                text: "PowerPanel Business",
+                operatingSystem: "Windows",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                textMore: "Узнать больше",
+                hrefMore: "#",
+              },
+              {
+                cardMod: ["size-soft"],
+                text: "PowerPanel Business",
+                operatingSystem: "Windows",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                textMore: "Узнать больше",
+                hrefMore: "#",
+              },
+            ],
+          },
+        },
+      },
+      similarProducts: {
+        section: {
+          section: "section",
+          level: "h1",
+          realLevel: "h2",
+          title: "Похожие ИБП",
+        },
+        products: [
+          {
+            tags: [
+              {
+                text: "топ продаж",
+                mod: "bg-green",
+              },
+              {
+                text: "реестр роспромторга",
+              },
+            ],
+            btns: true,
+            image: "product-1",
+            width: 220,
+            hight: 220,
+            title: "СИПБ1КА.10-11",
+            text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            table: [
+              {
+                name: "Мощность",
+                text: "1000 вт",
+              },
+              {
+                name: "Входное напряжение",
+                text: "300 в",
+              },
+              {
+                name: "Вес",
+                text: "13.8 кг",
+              },
+              {
+                name: "Габариты",
+                text: "440 х 460 х 86.5 мм",
+              },
+            ],
+          },
+          {
+            tags: [
+              {
+                text: "топ продаж",
+                mod: "bg-green",
+              },
+              {
+                text: "реестр роспромторга",
+              },
+            ],
+            btns: true,
+            image: "product-1",
+            width: 220,
+            hight: 220,
+            title: "СИПБ1КА.10-11",
+            text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            table: [
+              {
+                name: "Мощность",
+                text: "1000 вт",
+              },
+              {
+                name: "Входное напряжение",
+                text: "300 в",
+              },
+              {
+                name: "Вес",
+                text: "13.8 кг",
+              },
+              {
+                name: "Габариты",
+                text: "440 х 460 х 86.5 мм",
+              },
+            ],
+          },
+          {
+            tags: [
+              {
+                text: "топ продаж",
+                mod: "bg-green",
+              },
+              {
+                text: "реестр роспромторга",
+              },
+            ],
+            btns: true,
+            image: "product-1",
+            width: 220,
+            hight: 220,
+            title: "СИПБ1КА.10-11",
+            text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            table: [
+              {
+                name: "Мощность",
+                text: "1000 вт",
+              },
+              {
+                name: "Входное напряжение",
+                text: "300 в",
+              },
+              {
+                name: "Вес",
+                text: "13.8 кг",
+              },
+              {
+                name: "Габариты",
+                text: "440 х 460 х 86.5 мм",
+              },
+            ],
+          },
+          {
+            tags: [
+              {
+                text: "топ продаж",
+                mod: "bg-green",
+              },
+              {
+                text: "реестр роспромторга",
+              },
+            ],
+            btns: true,
+            image: "product-1",
+            width: 220,
+            hight: 220,
+            title: "СИПБ1КА.10-11",
+            text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            table: [
+              {
+                name: "Мощность",
+                text: "1000 вт",
+              },
+              {
+                name: "Входное напряжение",
+                text: "300 в",
+              },
+              {
+                name: "Вес",
+                text: "13.8 кг",
+              },
+              {
+                name: "Габариты",
+                text: "440 х 460 х 86.5 мм",
+              },
+            ],
+          },
+        ],
+      }
+    }
+
+block main
+  main
+    .page-content
+      +breadcrumbs(productInfo.breadcrumbs)
+      +product-information(productInfo.information)
+      +similar-products(productInfo.similarProducts)
+
+block modals
+
+  +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
+    +modal-success({
+        title: "Заявка успешно отправлена",
+        content: "Наш менеджер свяжется с&nbsp;вами в&nbsp;ближайшее время",
+      })
+
+  +modal("modal--request-quote modal--no-scale modal--fit-content")(data-modal="request-quote")
+    +request-quote({
+      logo: {
+        icon: {
+        name: "logo",
+        width: 230,
+        height: 36,
+        },
+        isIndex: currentUrl === "index.html",
+      },
+      title: "Запросить коммерческое предложение",
+      subTitle: "СИПБ1КА.10-11 Онлайн ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+      image: "product-1",
+      width: 220,
+      hight: 220,
+      code: "АПСМ.435241.026-01",
+      table: [
+        {
+          name: "Мощность",
+          text: "1000 вт",
+        },
+        {
+          name: "Входное напряжение",
+          text: "300 в",
+        },
+        {
+          name: "Вес",
+          text: "13.8 кг",
+        },
+        {
+          name: "Габариты",
+          text: "440 х 460 х 86.5 мм",
+        },
+      ],
+      countMod: "counter",
+      countText: "Указать количество, шт.",
+      formTitle: "Контактные данные для&nbsp;обратной связи",
+      formInputName: {
+        inputPlaceholder: "Ваше имя",
+        inputType: "text",
+        inputId: "request-name",
+        inputName: "frequest-name",
+      },
+      formInputPhone: {
+        inputPlaceholder: "Номер телефона",
+        inputType: "tel",
+        inputId: "request-number",
+        inputName: 'request-number',
+      },
+      formInputEmail: {
+        inputPlaceholder: "E-mail",
+        inputType: "email",
+        inputId: "request-e-mail",
+        inputName: "request-e-mail",
+      },
+      formInputFile: {
+        inputPlaceholder: "Прикрепить файл",
+        inputType: "file",
+        inputId: "request-file",
+        inputName: "request-file",
+        inputHidden: "visually-hidden",
+        inputLabel: "Прикрепить файл",
+        fileName: "clip",
+        fileWidth: 24,
+        fileHeight: 24,
+      },
+      formInputInfo: {
+        inputPlaceholder: "Здесь можно оставить комментарий к заявке",
+        inputName: "request-info",
+      },
+    }
+  )

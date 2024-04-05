@@ -1,0 +1,36 @@
+mixin documentation-card(item)
+
+  - const cardSizeMod = item.cardMod?.map((mod) => `documentation-card--${mod}`) || false
+  .documentation-card(class=cardSizeMod, tabindex="0")&attributes(attributes)
+    .documentation-card__image-wrapper
+      +icon(`${item.icon}`, `${item.width}`, `${item.height}`)
+    .documentation-card__wrapper
+      .documentation-card__title-wrapper
+        h3.title.title--h5!=item.text
+      .documentation-card__content-wrapper
+        if item.volume
+          p.documentation-card__value!=item.volume
+        if item.operatingSystem
+          p.documentation-card__value!=item.operatingSystem
+        .documentation-card__links-wrapper
+          if item.textMore
+            .documentation-card__link-wrapper
+              +link({
+                text: `${item.textMore}`,
+                href: `${item.hrefMore}`,
+                classMods: ["dodger-blue"],
+              })
+          if item.textDownload
+            .documentation-card__link-wrapper
+              +link({
+                text: `${item.textDownload}`,
+                href: `${item.hrefDownload}`,
+                classMods: ["dodger-blue"],
+              })(download)
+          if item.textSeemMore
+            .documentation-card__link-wrapper
+              +link({
+                text: `${item.textSeemMore}`,
+                href: `${item.hrefSeemMore}`,
+                classMods: ["dodger-blue"],
+              })

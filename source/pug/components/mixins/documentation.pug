@@ -1,0 +1,10 @@
+mixin documentation(data = {})
+  - const {firstTitle, secondTitle, userGuides, softwareDownload} = data
+
+  .documentation&attributes(attributes)
+
+    +documentationTitle(firstTitle)
+    +grid-columns(userGuides).grid-columns--col-2
+
+    +documentationTitle(secondTitle)
+    +grid-columns(softwareDownload).grid-columns--col-1

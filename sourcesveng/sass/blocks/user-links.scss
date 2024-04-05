@@ -1,0 +1,130 @@
+.user-links {
+  --item-margin-top: #{size(5px)};
+  --item-margin-left: #{size(40px)};
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-top: calc(var(--item-margin-top) * -1);
+  margin-left: calc(var(--item-margin-left) * -1);
+  padding: 0;
+
+  list-style-type: none;
+
+  @include vp-1439 {
+    --item-margin-top: 0;
+    --item-margin-left: 0;
+  }
+
+  &__item {
+    display: inline-flex;
+    margin-top: var(--item-margin-top);
+    margin-left: var(--item-margin-left);
+
+    .link,
+    .gradient-link {
+      svg {
+        color: $color-vulcan;
+        transition: color $trans-default;
+      }
+
+      @include hover-focus {
+        svg {
+          color: $color-dodger-blue;
+        }
+      }
+    }
+
+    .link.is-active,
+    .gradient-link.is-active {
+      .link__icon,
+      .gradient-link__icon {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          right: size(-3px);
+
+          width: size(10px);
+          height: size(10px);
+          content: "";
+
+          background-color: $color-international-orange;
+          border-radius: 50%;
+        }
+
+        @include vp-1439 {
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .gradient-link {
+      .gradient-link__text {
+        transition: opacity $trans-default, background-color $trans-default;
+      }
+
+      @include hover-focus {
+        color: $color-dodger-blue;
+
+        .gradient-link__text {
+          &--default {
+            opacity: 1;
+          }
+
+          &--gradient {
+            opacity: 0;
+          }
+        }
+
+        .gradient-icon {
+          &__svg--default {
+            opacity: 1;
+          }
+
+          &__svg--gradient {
+            opacity: 0;
+          }
+        }
+      }
+
+      @include vp-1439 {
+        color: $color-dodger-blue;
+
+        .gradient-link__text-wrapper {
+          margin-left: 0;
+        }
+
+        @include hover-focus {
+          // Усиление селектора, т.к. десктопные стили перебивают медиа-запрос
+          .gradient-link__text.gradient-link__text {
+            &--default {
+              opacity: 0;
+            }
+
+            &--gradient {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    @include vp-1439 {
+      &:not(:first-child) {
+        margin-top: size(28px);
+      }
+
+      svg {
+        display: none;
+      }
+
+      .link__text {
+        margin-left: 0;
+      }
+    }
+  }
+}

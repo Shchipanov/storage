@@ -1,0 +1,12 @@
+mixin toggle(data = {})
+  - const {text, icon, dataSet} = data
+  - const ariaLabel = text ? `Открыть ${text}` : "Открыть Меню"
+
+  button(type="button", data-toggle=dataSet || "", aria-pressed="false", aria-label=ariaLabel, data-label-name=text).toggle&attributes(attributes)
+
+    if text
+      span.toggle__text!=text
+
+    if icon
+      span.toggle__icon(aria-hidden="true")
+        +icon(icon.name, icon.width, icon.height)

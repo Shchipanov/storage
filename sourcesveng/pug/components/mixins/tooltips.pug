@@ -1,0 +1,5 @@
+mixin tooltips(content = {})
+  each value, key in content
+    .tooltip(data-tooltip="parent", data-tooltip-options=value.customName, class=`tooltip-${key}`)&attributes(attributes)
+      span.tooltip-content(data-tooltip="content")
+        span.tooltip-text!=value.text

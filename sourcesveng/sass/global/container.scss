@@ -1,0 +1,12 @@
+.container {
+  --container-offset: #{size(40px)};
+
+  width: 100%;
+  max-width: size(1660px);
+  margin: 0 auto;
+  padding: 0 var(--container-offset);
+
+  @include vp-767 {
+    --container-offset: #{size(16px)};
+  }
+}

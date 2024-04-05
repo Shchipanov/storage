@@ -1,0 +1,219 @@
+.custom-select {
+  --icon-width: #{size(14px)};
+  --icon-margin: #{size(13px)};
+  --font-size: #{size(16px)};
+  --line-height: 1.25;
+
+  position: relative;
+
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    max-height: 100%;
+    width: calc(100% - var(--icon-width) - var(--icon-margin));
+
+    color: $color-ship-cove;
+    overflow: hidden;
+
+    transform: translateY(-55%);
+    transition: transform $trans-default, opacity $trans-default;
+  }
+
+  select {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+  }
+
+  &__button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding: size(21px) 0;
+
+    font: inherit;
+
+    background-color: $color-transparent;
+    border: none;
+    border-bottom: 1px solid $color-echo-blue;
+    cursor: pointer;
+    transition: border-color $trans-default;
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  &__text {
+    flex-shrink: 0;
+
+    width: calc(100% - var(--icon-width) - var(--icon-margin));
+
+    color: $color-black-russian27;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease 0.1s;
+
+    br {
+      display: none;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: var(--icon-width);
+    height: calc(var(--font-size) * var(--line-height));
+    margin-left: var(--icon-margin);
+
+    color: $color-black-russian27;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      transform: translateZ(0);
+      transition: transform $trans-default;
+      opacity: 0.8;
+    }
+  }
+
+  &__list-wrapper {
+    --wrapper-padding: #{size(14px)};
+
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+
+    width: 100%;
+    padding: var(--wrapper-padding);
+
+    background-color: $color-default-white;
+    border-radius: 0 0 size(10px) size(10px);
+    box-shadow: $shadow-black-marlin2;
+    transform: translateY(100%);
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      visibility $trans-default,
+      opacity $trans-default;
+  }
+
+  .search-input:not(:last-child) {
+    margin-bottom: var(--wrapper-padding);
+  }
+
+  &__list {
+    max-height: size(180px);
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    overflow: auto;
+
+    &:first-child {
+      padding-top: size(6px);
+    }
+  }
+
+  &__item {
+    color: $color-ship-cove;
+    outline: none;
+    cursor: pointer;
+    transition: color $trans-default;
+
+    &:not(:first-child) {
+      margin-top: var(--wrapper-padding);
+    }
+
+    &[aria-selected="true"] {
+      color: $color-black-russian27;
+
+      cursor: default;
+    }
+
+    @include hover-focus {
+      color: $color-black-russian27;
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+
+    .custom-select__list-wrapper {
+      display: none;
+    }
+  }
+
+  &.is-open {
+    .custom-select__list-wrapper {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .custom-select__icon {
+      svg {
+        transform: translateZ(0) rotate(-180deg);
+      }
+    }
+
+    .custom-select__label {
+      opacity: 0;
+    }
+  }
+
+  &.open-up {
+    .custom-select__list-wrapper {
+      bottom: auto;
+      top: 0;
+      transform: translateY(calc(-100% + #{size(10px)}));
+    }
+  }
+
+  &.not-empty {
+    .custom-select__text {
+      opacity: 1;
+    }
+
+    .custom-select__label {
+      opacity: 0;
+    }
+
+    .custom-select__placeholder {
+      opacity: 0;
+    }
+  }
+
+  &.slide-up.not-empty,
+  &.slide-up.is-open {
+    .custom-select__label {
+      transform: translateY(calc(-50% - #{size(-40px)}));
+      opacity: 1;
+    }
+
+    .custom-select__text {
+      opacity: 1;
+    }
+  }
+}

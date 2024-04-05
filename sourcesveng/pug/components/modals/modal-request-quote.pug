@@ -1,0 +1,33 @@
+mixin request-quote(data = {})
+  .modal-request
+    .modal-request__logo-container
+      +logo(data.logo)
+    .modal-request__container
+      h2.title.title--h1!=data.title
+      p.title.title--h4!=data.subTitle
+      +product-card({
+        image:data.image,
+        imageMod:data.imageMod,
+        width:data.width,
+        hight:data.height,
+        code:data.code,
+        table:data.table,
+        countMod:data.countMod,
+        countText:data.countText,
+      }).product-card--counter
+      .modal-request__form-container&attributes(attributes)
+        p.title.title--h4!=data.formTitle
+        form(method="post" enctype="multipart/form-data" action="#" novalidate)
+          .modal-request__form-input-wrapper
+            +custom-input(data.formInputName).custom-input--no-indicator.is-valid
+            +custom-input(data.formInputPhone).custom-input--no-indicator.is-valid
+            +custom-input(data.formInputEmail).custom-input--no-indicator.is-valid
+            +file-input()
+          +custom-textarea(data.formInputInfo)
+          .modal-request__button-container
+            .modal-request__button-wrapper
+              +btn({type: "submit", text: "Запросить КП", classMods: ["primary"]})
+            .modal-request__form-text-wrapper
+              p.modal-request__form-text
+                .
+                  Я&nbsp;согласен на&nbsp;обработку моих персональных данных. С&nbsp;политикой в&nbsp;отношении обработки персональных данных ознакомлен и&nbsp; #[a(href="#" target="_blank" rel="nofollow noopener noreferrer") согласен.]

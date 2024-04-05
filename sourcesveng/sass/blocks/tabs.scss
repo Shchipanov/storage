@@ -1,0 +1,191 @@
+.tabs {
+  max-width: 100%;
+
+  position: relative;
+}
+
+.tabs__controls {
+  width: 100%;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  --controls-width: 100%;
+
+  @include vp-1023 {
+    width: calc(var(--controls-width) + var(--container-offset) * 2);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    margin-right: calc(var(--container-offset) * -1);
+    margin-left: calc(var(--container-offset) * -1);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.tabs__control {
+  //padding: size(34px) size(20px) size(34px);
+  padding: size(34px) 0 size(34px);
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+
+  font-family: $ff-oswald;
+  font-weight: 400;
+  font-size: size(16px);
+  line-height: size(20px);
+  color: $color-mischka;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  border-bottom: none;
+  /* stylelint-disable */
+  transition: opacity $trans-default, color $trans-default,
+    border-bottom $trans-default;
+  /* stylelint-enable */
+
+  &.is-active {
+    //padding: size(34px) size(20px) size(31px);
+    padding: size(34px) 0 size(31px);
+    position: relative;
+
+    color: $color-black-russian27;
+    pointer-events: none;
+
+    border-bottom: size(2px) solid $color-dodger-blue;
+
+    @include vp-767 {
+      &::before {
+        width: 11em;
+      }
+    }
+  }
+
+  @include hover-focus {
+    color: $color-black-russian27;
+  }
+
+  @include vp-1023 {
+    min-width: max-content;
+    margin-left: size(121px);
+
+    align-items: center;
+  }
+}
+
+.tabs__controls .tabs__control:first-of-type {
+  padding-left: 0;
+
+  @include vp-1023 {
+    padding-left: calc(var(--container-offset) * -1);
+    margin-left: 0;
+  }
+}
+
+// .tabs__controls .tabs__control:nth-child(2) {
+//   @include vp-1023 {
+//     margin-right: size(3px);
+//   }
+// }
+
+// .tabs__controls .tabs__control:nth-child(3) {
+//   @include vp-1023 {
+//     margin-right: size(2px);
+//   }
+// }
+
+.tabs__controls .tabs__control.is-active:first-of-type {
+  @include vp-1023 {
+    &::before {
+      width: 77%;
+      left: size(41px);
+    }
+  }
+
+  @include vp-767 {
+    &::before {
+      width: 73%;
+      left: size(16px);
+    }
+  }
+}
+
+.tabs__controls .tabs__control:last-of-type {
+  padding-right: 0;
+
+  @include vp-1023 {
+    padding-right: 0;
+  }
+}
+
+.tabs__controls .tabs__control.is-active:last-of-type {
+  @include vp-1023 {
+    &::before {
+      width: 89%;
+      left: size(-17px);
+    }
+  }
+
+  @include vp-767 {
+    &::before {
+      width: 91%;
+      left: 0;
+    }
+  }
+}
+
+.tabs__content {
+  transition: height 0.3s;
+}
+
+.tabs__element {
+  width: 100%;
+}
+
+.tabs__card {
+  padding-top: size(56px);
+
+  @include vp-767 {
+    padding-top: size(40px);
+  }
+}
+
+.tabs__inner-line {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  width: 100%;
+  color: $color-black-russian27;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: size(2px);
+    width: 100%;
+
+    background-color: $color-echo-blue;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @include vp-1023 {
+      width: calc(100% - var(--container-offset));
+    }
+  }
+
+  @include vp-1023 {
+    width: min-content;
+    position: relative;
+    margin-left: calc(var(--container-offset) * 1);
+    padding-right: var(--container-offset);
+  }
+}

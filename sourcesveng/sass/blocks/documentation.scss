@@ -1,0 +1,99 @@
+.documentation {
+  padding-top: size(57px);
+
+  display: flex;
+  flex-direction: column;
+  counter-reset: item;
+
+  @include vp-1023 {
+    padding-top: size(62px);
+  }
+
+  @include vp-767 {
+    padding-top: size(41px);
+  }
+
+  .title--h3 {
+    position: relative;
+
+    padding-left: size(80px);
+    margin-bottom: size(31px);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 49%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 0;
+      content: "";
+      width: size(24px);
+      border-bottom: size(2px) solid currentColor;
+    }
+
+    &::after {
+      left: size(40px);
+      counter-increment: item;
+      content: counter(item, decimal-leading-zero);
+    }
+
+    @include vp-1023 {
+      padding-left: size(78px);
+    }
+
+    @include vp-767 {
+      display: grid;
+      padding-top: size(36px);
+      padding-left: 0;
+
+      &::before,
+      &::after {
+        transform: none;
+      }
+
+      &::before {
+        top: size(15px);
+      }
+
+      &::after {
+        top: 0;
+      }
+    }
+  }
+}
+
+.documentation .grid-columns--col-2 {
+  column-gap: size(18px);
+  row-gap: size(19px);
+
+  margin-bottom: size(57px);
+
+  @include vp-1023 {
+    margin-bottom: size(55px);
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include vp-767 {
+    margin-bottom: size(41px);
+
+    grid-template-columns: auto;
+    row-gap: size(17px);
+  }
+}
+
+.documentation .grid-columns--col-1 {
+  margin-left: inherit;
+
+  grid-row-gap: size(21px);
+
+  @include vp-1023 {
+    grid-row-gap: size(20px);
+  }
+
+  @include vp-767 {
+    gap: size(18px);
+  }
+}

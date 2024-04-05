@@ -1,0 +1,21 @@
+include controls-data
+
+mixin controls()
+  ul.controls&attributes(attributes)
+    each control in controls
+      li.controls__control
+        button.controls__button(class= control.iconName === 'control-left' ? 'controls__button--previous' : 'controls__button--next' type= control.type aria-label= control.description)
+          if control.iconName === 'control-left'
+            <svg class="controls__current-icon" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.72701 13L2.27246 7.18182L7.72701 1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg class="controls__replaced-icon" width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.41577 0.950195L2 6.81686M2 6.81686L7.41577 13.0502M2 6.81686H24" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          else
+            <svg class="controls__current-icon" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.27202 13L6.72656 7.18182L1.27202 1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg class="controls__replaced-icon" width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.5842 0.950195L22 6.81686M22 6.81686L16.5842 13.0502M22 6.81686H3.40001e-07" stroke="currentColor" stroke-width="2"/>
+            </svg>

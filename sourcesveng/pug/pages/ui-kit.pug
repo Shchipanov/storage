@@ -1,0 +1,2517 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "UI-kit"
+
+block main
+  style.
+    main {
+      margin-top: 100px;
+    }
+
+    main > .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .components-backwards {
+      color: #ffffff;
+      display: inline-block;
+    }
+
+    .components-backwards span:first-child {
+      position: relative;
+      top: -3px;
+
+      display: inline-block;
+      margin-right: 15px;
+
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: top;
+
+      transform: scale(2);
+    }
+
+    .components-backwards span:last-child {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .components-backwards + h1 {
+      margin-bottom: 0;
+    }
+
+    .container > section {
+      padding: 70px 0 0 0;
+    }
+
+    section > h2 {
+      margin: 0 0 20px 0;
+      padding: 20px 0;
+      position: relative;
+      color: #ffffff;
+    }
+
+    section > h2::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background-color: #2c39f2;
+      z-index: -1;
+    }
+
+    .header-ui {
+      background-color: #2c39f2;
+      padding: 20px 0;
+      /*position: fixed;*/
+      width: 100vw;
+      z-index: 99;
+      box-shadow: 0 0 3px 1px #000000;
+    }
+
+    .header-ui__nav {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 20px 80px;
+    }
+
+    .header-ui__inner-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 30px;
+    }
+
+    .header-ui__inner-link {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .header-ui__inner-link:hover,
+    .header-ui__inner-link.is-active {
+      color: #ff1553;
+    }
+
+    .header-ui__inner-link.is-inactive {
+      color: #ffffff;
+      pointer-events: none;
+    }
+
+    .wrapper {
+      overflow: hidden;
+    }
+
+    .site-search-container {
+      position: relative;
+    }
+
+    @media (max-width: 1439px) {
+      .site-search-container {
+        position: static;
+      }
+
+      .site-search-container .site-search__inner-wrapper.is-shown {
+        z-index: 100;
+      }
+    }
+
+  header.header-ui
+    nav.header-ui__nav.container
+      a.components-backwards(href="sitemap.html")
+        span &larr;
+        span вернуться на разводящую
+      ul.header-ui__inner-list
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#functions", data-navigation-link) Функции с window
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#modals", data-navigation-link) Modals
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#titles", data-navigation-link) Titles
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#logos", data-navigation-link) Logo
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#buttons", data-navigation-link) Buttons
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#links", data-navigation-link) Links
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#switch", data-navigation-link) Switch (переключатель)
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#form-elements", data-navigation-link) Form elements
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#accordion", data-navigation-link) Accordion
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#socials", data-navigation-link) Socials
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#search-components", data-navigation-link) Search components
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#form", data-navigation-link) Form
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#banner", data-navigation-link) Banner
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#product-card", data-navigation-link) Product-card
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#category-card", data-navigation-link) Сategory-card
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#tabs", data-navigation-link) Tabs
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#breadcrumbs", data-navigation-link) Breadcrumbs
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#page-section", data-navigation-link) Page-section
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#marquee", data-navigation-link) Marquee
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#tags", data-navigation-link) Tags
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#controls", data-navigation-link) Controls
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#filter", data-navigation-link) Фильтры
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#grid-columns", data-navigation-link) Grid-columns
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#slider", data-navigation-link) Слайдер
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#pagination", data-navigation-link) Pagination
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#info-card", data-navigation-link) Info-card
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#card-header", data-navigation-link) Card header
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#product-table", data-navigation-link) Product table
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#product-about", data-navigation-link) Product about
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#info", data-navigation-link) Info
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#text-content", data-navigation-link) Text-content: оформление контентных областей
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#product-features-table", data-navigation-link) Product-features-table
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#documentation-card", data-navigation-link) Documentation-card
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#project-card", data-navigation-link) Карточка проекта(список)
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#promo-card", data-navigation-link) Promo-card
+
+  main
+    .container
+      h1 UI-kit
+      section(id="functions")
+        h2 Функции с window
+        ul
+          li
+            p #[b initHeader] инициализирует шапку проекта и логику открытия/закрытия выпадающего меню в tablet-mobile, появления тени у шапки при скролле
+          li
+            p #[b initMainNav] инициализирует навигацию по сайту, расположенной в шапке проекта, и логику её показа/скрытия на desktop, открытия/закрытия в tablet-mobile
+          li
+            p #[b initSiteSearch] инициализирует логику открытия/закрытия формы поиска по сайту, расположенной в шапке проекта
+          li
+            p #[b initToggleBtns] инициализирует логику переключения состояний toggle-элементов (используется в бургере меню, кнопках навигации по сайту в tablet-mobile)
+          li
+            p #[b initCompareSliders] инициализирует слайдеры на странице Сравнение, настройку и логику входящих в них элементов, синхронизирует прокрутку слайдеров
+          li
+            p #[b initCompareHeader] инициализирует шапку для страницы Сравнение и логику её появления/скрытия
+          li
+            p #[b initDifferencesCtrl] инициализирует подсветку строк с различиями в характеристиках в таблице на странице Сравнение
+          li
+            p #[b initAccordionCtrl] инициализирует логику закрытия/открытия подразделов таблицы на странице Сравнение
+          li
+            p #[b initSimilarProductsSlider] инициализирует слайдер с похожими товарами на странице Карточка товара
+          li
+            p #[b initPatentSlider] инициализирует слайдер с патентами на странице О компании
+          li
+            p #[b initModalPicture] открывает патент в модальном окне на странице О компании
+          li
+            p #[b initModalPicture] инициалиализирует слайдеры с миниатюрами
+          li
+            p #[b initMarquee] инициализирует бесконечной бегущей строки с логотипами
+          li
+            p #[b initScreenHeight] инициализирует запись высоты видимой области экрана в переменную --screen-height, для установки высоты по области видимости главного экрана и сравнение/пустое
+          li
+            p #[b initIntroSlider] инициализирует слайдеры на главной странице в компоненте page-intro и их настройки
+          li
+            p #[b initTooltipsList] инициализирует список тултипов в слайдере на главной странице. Для каждого тултипа установит опции из customOptionsTooltip, иначе возьмет дефотные значения из файла getTooltipsOptions
+          li
+            p #[b initAccordions] инициализирует аккордеон
+          li
+            p #[b initRangeSlider] инициализирует слайдер с ползунками раздел Фильтры
+          li
+            p #[b initTabs] инициализирует табы
+
+      //- все модалки проекта добавляем сюда, для удобства тестирования
+      section(id="modals")
+        h2 Modals
+        p
+          +btn({text: "modal-success"})(data-open-modal="success")
+        p
+          +btn({text: "modal-request"})(data-open-modal="request-quote")
+
+      section(id="titles")
+        h2.ui-title Titels
+        .title.title--h1 Инверторы и блоки питания
+        code
+          pre .title.title--h1
+        .title.title--h2 Инверторы и блоки питания
+        code
+          pre .title.title--h2
+
+        .title.title--h3 Инверторы и блоки питания
+        code
+          pre .title.title--h3
+
+        .title.title--h4 Инверторы и блоки питания
+        code
+          pre .title.title--h4
+
+        .title.title--h5 Инверторы и блоки питания
+        code
+          pre .title.title--h5
+
+        .title.title--h5.title--uppercase Инверторы и блоки питания
+        code
+          pre .title.title--h5.title--uppercase
+
+      section(id="logos")
+        h2 Logo
+        p Размеры логотипа задаются от родителя как .parent__logo
+
+        p Логотип без ссылки (для index.html):
+        div(style="width: 233px; height: 40px;")
+          +logo({
+            icon: {
+              name: "logo",
+              width: 233,
+              height: 40,
+            },
+            isIndex: true,
+          })
+
+        p Логотип с ссылкой (для внутренних страниц):
+        div(style="width: 233px; height: 40px;")
+          +logo({
+            icon: {
+              name: "logo",
+              width: 233,
+              height: 40,
+            },
+            isIndex: currentUrl === "index.html",
+          })
+
+        p Пример вызова логотипа с ссылкой и без неё одинаковый:
+        pre
+          .
+            +logo({
+              icon: {
+                name: "logo",
+                width: 233,
+                height: 40,
+              },
+              isIndex: currentUrl === "index.html",
+            })
+
+        p Логотип-иконка без ссылки (для index.html):
+        div(style="width: 108px; height: 84px;")
+          +logo({
+            icon: {
+              name: "icon-logo",
+              width: 48,
+              height: 37,
+            },
+            isIndex: true,
+          })
+
+        p Логотип-иконка с ссылкой (для внутренних страниц):
+        div(style="width: 108px; height: 84px;")
+          +logo({
+            icon: {
+              name: "icon-logo",
+              width: 48,
+              height: 37,
+            },
+            isIndex: currentUrl === "index.html",
+          })
+
+        p Пример вызова логотипа с ссылкой и без неё одинаковый:
+        pre
+          .
+            +logo({
+              icon: {
+                name: "icon-logo",
+                width: 48,
+                height: 37,
+              },
+              isIndex: currentUrl === "index.html",
+            })
+
+      section(id="buttons")
+        h2 Buttons
+        ul(style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px;")
+          li
+            div(style="padding: 10px;")
+              +btn({
+                text: "Забронировать",
+                classMods: ["primary"],
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Забронировать",
+                  classMods: ["primary"],
+                })
+
+          li
+            div(style="background-color: #006BE0; padding: 10px;")
+              +btn({
+                text: "Забронировать"
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Забронировать",
+                })
+
+          li
+            div(style="padding: 10px;")
+              +btn({
+                text: "Забронировать",
+                classMods: ["secondary"],
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Забронировать",
+                  classMods: ["secondary"],
+                })
+
+          li
+            div(style="background-color: #006BE0; padding: 10px;")
+              +btn({
+                text: "Забронировать",
+                classMods: ["secondary-white"],
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Забронировать",
+                  classMods: ["secondary-white"],
+                })
+
+          li
+            div(style="padding: 10px;")
+              +btn({
+                text: "Добавить в&nbsp;сравнение",
+                classMods: ["secondary"],
+                icon: {
+                  name: "icon-comparison",
+                  width: "24",
+                  height: "24",
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Добавить в&nbsp;сравнение",
+                  classMods: ["secondary"],
+                  icon: {
+                    name: "icon-comparison",
+                    width: "24",
+                    height: "24",
+                  },
+                })
+
+          li
+            div(style="padding: 10px;")
+              +btn({
+                classMods: [
+                  "size-s",
+                  "primary"
+                ],
+                icon: {
+                  name: "icon-comparison",
+                  width: "24",
+                  height: "24",
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  classMods: [
+                    "size-s",
+                    "primary"
+                  ],
+                  icon: {
+                    name: "icon-comparison",
+                    width: "24",
+                    height: "24",
+                  },
+                })
+
+          li
+            div(style="background-color: #006BE0; padding: 10px;")
+              +btn({
+                classMods: ["size-s"],
+                icon: {
+                  name: "icon-comparison",
+                  width: "24",
+                  height: "24",
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  classMods: ["size-s"],
+                  icon: {
+                    name: "icon-comparison",
+                    width: "24",
+                    height: "24",
+                  },
+                })
+
+          li
+            div(style="padding: 10px;")
+              +btn({
+                classMods: [
+                  "size-s",
+                  "secondary",
+                  "active-gradient"
+                ],
+                icon: {
+                  name: "icon-comparison",
+                  width: "24",
+                  height: "24",
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  classMods: [
+                    "size-s",
+                    "secondary",
+                    "active-gradient"
+                  ],
+                  icon: {
+                    name: "icon-comparison",
+                    width: "24",
+                    height: "24",
+                  },
+                })
+
+          li
+            div(style="background-color: #006BE0; padding: 10px;")
+              +btn({
+                classMods: [
+                  "size-s",
+                  "secondary-white"
+                ],
+                icon: {
+                  name: "icon-comparison",
+                  width: "24",
+                  height: "24",
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  classMods: [
+                    "size-s",
+                    "secondary-white"
+                  ],
+                  icon: {
+                    name: "icon-comparison",
+                    width: "24",
+                    height: "24",
+                  },
+                })
+
+          li
+            div(style="background-color: #006BE0; padding: 10px;")
+              +btn({
+                text: "Button disabled",
+              })(disabled)
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Button disabled",
+                })(disabled)
+
+          li
+            div(style="background-color: #006BE0; padding: 10px;")
+              +btn({
+                text: "Button with &lt;a&gt; tag disabled",
+              }).disabled(tabindex="-1")
+            p Пример вызова
+            pre
+              .
+                +btn({
+                  text: "Button with &lt;a&gt; tag disabled",
+                }).disabled(tabindex="-1")
+
+      section(id="links")
+        h2 Links
+        p
+          b
+            | Параметры шрифта в неактивном состоянии (family, weight, size, line-height, color) наследуются от родителя <br>
+            | или задаются по классу родителя как .parent__link или .parent .link
+
+        h3 Monochrome links
+        ul(style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px;")
+          li
+            div(style="font-size: 12px;")
+              +link({
+                text: "Link",
+                href: "#",
+              })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link",
+                  href: "#",
+                })
+
+          li
+            div(style="font-size: 12px;")
+              +link({
+                text: "Link --opacity-90",
+                href: "#",
+                classMods: ["opacity-90"],
+              })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link --opacity-90",
+                  href: "#",
+                  classMods: ["opacity-90"],
+                })
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif;")
+              +link({
+                text: "Link --underlined",
+                href: "#",
+                classMods: ["underlined"],
+              })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link --underlined",
+                  href: "#",
+                  classMods: ["underlined"],
+                })
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif; background-color: #006be0;")
+              +link({
+                text: "Link --white --underlined",
+                href: "#",
+                classMods: ["white", "underlined"],
+              })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link --white --underlined",
+                  href: "#",
+                  classMods: ["white", "underlined"],
+                })
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif; background-color: #006be0;")
+              +link({
+                text: "Link --white disabled",
+                href: "#",
+                classMods: ["white"],
+              }).disabled(tabindex="-1")
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link --white disabled",
+                  href: "#",
+                  classMods: ["white"],
+                }).disabled(tabindex="-1")
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif; background-color: #006be0;")
+              +link({
+                text: "Link --white with &lt;button&gt; tag disabled",
+                classMods: ["white"],
+              })(disabled)
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link --white with &lt;button&gt; tag disabled",
+                  classMods: ["white"],
+                })(disabled)
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif;")
+              +link({
+                text: "Link with icon",
+                href: "#",
+                icon: {
+                  name: "icon-search",
+                  width: 24,
+                  height: 24,
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link with icon",
+                  href: "#",
+                  icon: {
+                    name: "icon-search",
+                    width: 24,
+                    height: 24,
+                  },
+                })
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif;")
+              +link({
+                text: "Link with icon --underlined",
+                href: "#",
+                classMods: ["underlined"],
+                icon: {
+                  name: "icon-comparison",
+                  width: 24,
+                  height: 24,
+                },
+              })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link with icon --underlined",
+                  href: "#",
+                  classMods: ["underlined"],
+                  icon: {
+                    name: "icon-comparison",
+                    width: 24,
+                    height: 24,
+                  },
+                })
+
+          li
+            div(style="font-family: 'Oswald', 'Arial', sans-serif; font-size: 20px; line-height: 1.4")
+            +link({
+              text: "Link with right icon --dodger-blue",
+              classMods: ["dodger-blue"],
+              href: "#",
+              icon: {
+                name: "icon-forward",
+                width: 24,
+                height: 24,
+                isRight: true,
+              },
+            })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link with right icon --dodger-blue",
+                  classMods: ["dodger-blue"],
+                  href: "#",
+                  icon: {
+                    name: "icon-forward",
+                    width: 24,
+                    height: 24,
+                    isRight: true,
+                  },
+                })
+
+          li
+            +link({
+              text: "Link with &lt;button&gt; tag",
+            })
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link with &lt;button&gt; tag",
+                })
+
+          li
+            +link({
+              text: "Link disabled",
+              href: "#",
+            }).disabled(tabindex="-1")
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link disabled",
+                  href: "#",
+                }).disabled(tabindex="-1")
+
+          li
+            +link({
+              text: "Link with &lt;button&gt; tag disabled",
+            })(disabled)
+            p Пример вызова
+            pre
+              .
+                +link({
+                  text: "Link with &lt;button&gt; tag disabled",
+                })(disabled)
+
+        h3 Gradient links
+        p
+          b
+            | Если используется иконка, то она должна быть представлена в спрайтах
+            | в двух вариантах (https://skr.sh/sIslQUIKerQ): для дефолтного состояния с fill/stroke currentColor
+            | и для активного состояния с градиентом. Варианты градиента есть в файлике icon-gradient.svg.
+            | Градиент иконке добавляется через якорную ссылку: fill/stroke="url(#icon-gradient-3)"
+
+        ul(style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));")
+          li(style="font-family: 'Oswald', 'Arial', sans-serif; font-size: 20px")
+            +gradient-link({
+              text: "Gradient link --dodger-blue",
+              classMods: ["dodger-blue"],
+            })
+            p Пример вызова
+            pre
+              .
+                +gradient-link({
+                  text: "Gradient link --dodger-blue",
+                  classMods: ["dodger-blue"],
+                })
+          li(style="font-family: 'Oswald', 'Arial', sans-serif; font-size: 20px")
+            +gradient-link({
+              text: "Gradient link with icon",
+              icon: {
+                name: "icon-comparison",
+                width: "24",
+                height: "24",
+              },
+            })
+            p Пример вызова
+            pre
+              .
+                +gradient-link({
+                  text: "Gradient link with icon",
+                  icon: {
+                    name: "icon-comparison",
+                    width: "24",
+                    height: "24",
+                  },
+                })
+
+          li(style="font-family: 'Oswald', 'Arial', sans-serif; font-size: 20px")
+            p
+              |Из-за особенностей градиента цвет подчёркивания (text-decoration-color) как у обычных ссылок не наследуется,
+              |его необходимо задать вручную в gradient-link.scss https://skr.sh/sIT7CNGQILK
+            +gradient-link({
+              text: "Gradient link --mischka --underlined",
+              classMods: ["mischka", "underlined"],
+            })
+            p Пример вызова
+            pre
+              .
+                +gradient-link({
+                  text: "Gradient link --mischka --underlined",
+                  classMods: ["mischka", "underlined"],
+                })
+
+      section(id="switch")
+        h2 Switch (переключатель)
+        +switch({
+          label: "Показать только отличия",
+          isChecked: true,
+        })
+        p Пример вызова
+          pre
+            .
+              +switch({
+                label: "Показать только отличия",
+                isChecked: true,
+              })
+
+      section(id="form-elements")
+        h2 Form elements
+        div(data-form-validate, data-callback="base")
+          form(method="post")
+            h2 Custom-input
+            +custom-input(
+              {
+                inputPlaceholder: 'Анастасия',
+                inputType: 'text',
+                inputId: 'field-name',
+                inputName: 'field-name',
+                inputValue: 'Анастасия',
+              }
+            )
+            p Как использовать:
+            code
+              pre
+                .
+                  +custom-input(
+                    {
+                      inputPlaceholder: 'Анастасия',
+                      inputType: 'text',
+                      inputId: 'field-name',
+                      inputName: 'field-name',
+                      inputValue: 'Анастасия', //- необязательное поле
+                    }
+                  )
+            +custom-input(
+              {
+                inputPlaceholder: 'Анастасия',
+                inputType: 'text',
+                inputId: 'field-name',
+                inputName: 'field-name',
+                inputValue: 'Анастасия',
+              }
+            ).is-valid
+            p Как использовать:
+            code
+              pre
+                .
+                  +custom-input(
+                    {
+                      inputPlaceholder: 'Анастасия',
+                      inputType: 'text',
+                      inputId: 'field-name',
+                      inputName: 'field-name',
+                      inputValue: 'Анастасия', //- необязательное поле
+                    }
+                  )#[strong .is-valid]
+            +custom-input(
+              {
+                inputPlaceholder: 'Анастасия',
+                inputType: 'text',
+                inputId: 'field-name',
+                inputName: 'field-name',
+              }
+            ).is-invalid
+            p Как использовать:
+            code
+              pre
+                .
+                  +custom-input(
+                    {
+                      inputPlaceholder: 'Анастасия',
+                      inputType: 'text',
+                      inputId: 'field-name',
+                      inputName: 'field-name',
+                    }
+                  )#[strong .is-invalid]
+            //- h2.subtitle Инпуты
+            //- p Input
+            //- +custom-input({
+            //-   inputLabel: "Введите ваше имя",
+            //-   inputName: "user-name-1",
+            //- })
+            //- hr
+            //- p Input
+            //- +custom-input({
+            //-   inputType: "number",
+            //-   inputLabel: "Введите номер паспорта",
+            //-   inputName: "user-passport",
+            //- })
+            //- hr
+            //- p Input
+            //- +custom-input({
+            //-   inputType: "email",
+            //-   inputLabel: "Введите ваш email",
+            //-   inputName: "user-phone",
+            //- })
+            //- hr
+            //- p Input
+            //- +custom-input({
+            //-   inputType: "tel",
+            //-   inputLabel: "Введите ваш телефон",
+            //-   inputName: "user-phone"
+            //-   })
+            //- p Input
+            //- +custom-input({inputLabel: "Введите 10 символов", inputName: "user-field", inputMinLength: "10"})
+            //- hr
+            p Textarea
+            +custom-textarea({
+              inputLabel: "Расскажите о себе",
+              inputName: "user-info"
+            })
+            hr
+            h2.subtitle Чекбоксы
+            p Чекбокс
+            div
+              +custom-toggle({
+                inputLabel: "Чекбокс",
+                inputName: "user-agreement",
+                inputValue: "user-agreement-1",
+                inputChecked: false
+              }).custom-toggle--checkbox
+
+            p Радиокнопка
+            div
+              +custom-toggle({
+                inputLabel: "Радиокнопка",
+                inputName: "user-agreement",
+                inputValue: "user-agreement-1",
+                inputChecked: false
+              }).custom-toggle--radio
+            hr
+            h2.subtitle Селекты
+            p Селект без формы поиска
+            div(style="width: 246px;")
+              +custom-select({
+                optionsList: [
+                  {text: "Тип 1", value: "type-1"},
+                  {text: "Тип 2", value: "type-2"},
+                  {text: "Тип 3", value: "type-3"},
+                  {text: "Тип 4", value: "type-4"},
+                ],
+                placeholder: "Тип магазина",
+                buttonAriaLabel: "Выберите тип магазина",
+              })("data-select", data-validate-type="select", data-name="some-name", data-id="select-ex-1")
+            hr
+
+            p Селект с формой поиска
+            div(style="width: 246px;")
+              +custom-select({
+                optionsList: [
+                  {text: "Брянская обл.", value: "bryansk-region"},
+                  {text: "Пермская обл.", value: "perm-region"},
+                  {text: "Московская обл.", value: "moscow-region"},
+                  {text: "Калининградская обл.", value: "kaliningrad-region"},
+                  {text: "Ярославская обл.", value: "yaroslavl-region"},
+                ],
+                placeholder: "Регион",
+                buttonAriaLabel: "Выберите регион",
+                icon: {
+                  name: "icon-toggle-arrow",
+                  width: 24,
+                  height: 24,
+                },
+                search: {
+                  inputLabel: "Поиск",
+                  inputId: "region-search",
+                  inputName: "region-search",
+                  classMods: ["size-s", "hidden-label"],
+                },
+              })("data-select", data-validate-type="select", data-name="some-name", data-id="select-ex-2")
+            hr
+
+            +btn({text: "Сбросить форму", type: "reset"})
+            +btn({text: "Отправить форму", type: "submit"})
+            hr
+
+            h2.subtitle Рэндж-слайдер (ползунок)
+            +custom-range(
+              {
+                title: "мощность, вт",
+                min: 0,
+                max: 30,
+                step: 1,
+                handle: 30,
+            })
+
+      section(id="accordion")
+        h2 Accordion
+        .wrap(style="max-width: 790px")
+          .accordion(data-accordion="parent", data-single)
+            +accordionItem(
+              {
+                title: 'Монтаж и пусконаладочные работы',
+                description: 'Правильный выбор места установки и&nbsp;квалифицированное выполнение работ по&nbsp;подключению ИБП позволяет исключить большинство проблем при эксплуатации и&nbsp;обеспечить высокую надежность функционирования системы.',
+                path: '#',
+                isActive: true,
+              }
+            )
+            +accordionItem(
+              {
+                title: 'Техническое обслуживание и сервис',
+                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eaque consequatur perspiciatis impedit ab aperiam neque corrupti nisi deleniti optio enim provident molestiae, quidem sint laboriosam reiciendis accusantium iusto distinctio!',
+                path: '#'
+              }
+            )
+            +accordionItem(
+              {
+                title: 'Разработка под заказ',
+                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eaque consequatur perspiciatis impedit ab aperiam neque corrupti nisi deleniti optio enim provident molestiae, quidem sint laboriosam reiciendis accusantium iusto distinctio!',
+                path: '#'
+              }
+            )
+            +accordionItem(
+              {
+                title: 'Испытательный центр',
+                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eaque consequatur perspiciatis impedit ab aperiam neque corrupti nisi deleniti optio enim provident molestiae, quidem sint laboriosam reiciendis accusantium iusto distinctio!',
+                path: '#'
+              }
+            )
+
+
+      section(id="socials")
+        h2 Socials
+        +socials({
+          list: [
+            {
+              path: "#",
+              ariaLabel: "instagram",
+              icon: "instagram"
+            },
+            {
+              path: "#",
+              ariaLabel: "youtube",
+              icon: "youtube"
+            },
+            {
+              path: "#",
+              ariaLabel: "telegram",
+              icon: "telegram",
+            },
+            {
+              path: "#",
+              ariaLabel: "Вконтакте",
+              icon: "vk",
+            },
+          ],
+        })
+        p Вставить блок .socials можно, написав такую конструкцию:
+        pre
+          .
+            +socials({
+              list: [
+                {
+                  path: "#",
+                  ariaLabel: "instagram",
+                  icon: "instagram"
+                },
+                {
+                  path: "#",
+                  ariaLabel: "youtube",
+                  icon: "youtube"
+                },
+                {
+                  path: "#",
+                  ariaLabel: "telegram",
+                  icon: "telegram",
+                },
+                {
+                  path: "#",
+                  ariaLabel: "Вконтакте",
+                  icon: "vk",
+                },
+              ],
+            })
+
+      section(id="search-components")
+        h2 Search components
+        h3 Search input
+        +search-input({
+          inputLabel: "Поиск",
+          inputId: "search-ex1",
+          inputName: "search",
+        })
+        p Строка поиска
+        p Пример вызова
+        pre
+          .
+            +search-input({
+              inputLabel: "Поиск",
+              inputId: "search-ex1",
+              inputName: "search",
+            })
+        +search-input({
+          inputLabel: "Поиск",
+          inputId: "search-ex2",
+          inputName: "search",
+          classMods: ["size-s"],
+        })
+        p Строка поиска --size-s
+        p Пример вызова
+        pre
+          .
+            +search-input({
+              inputLabel: "Поиск",
+              inputId: "search-ex2",
+              inputName: "search",
+              classMods: ["size-s"],
+            })
+        +search-input({
+          inputLabel: "Поиск",
+          inputId: "search-ex2",
+          inputName: "search",
+          classMods: ["hidden-label"],
+        })
+        p Строка поиска со скрытым label в т.ч. на tablet-mobile
+        p Пример вызова
+        pre
+          .
+            +search-input({
+              inputLabel: "Поиск",
+              inputId: "search-ex2",
+              inputName: "search",
+              classMods: ["hidden-label"],
+            })
+        h3 Search form
+        +search-form({
+          input: {
+            inputLabel: "Поиск",
+            inputId: "search-ex3",
+            inputName: "search",
+          },
+          btn: {
+            text: "Найти",
+            classMods: ["primary"],
+          },
+        })
+        p Пример вызова
+        pre
+          .
+            +search-form({
+              input: {
+                inputLabel: "Поиск",
+                inputId: "search-ex3",
+                inputName: "search",
+              },
+              btn: {
+                text: "Найти",
+                classMods: ["primary"],
+              },
+            })
+
+        h3 Site search
+        div.site-search-container(style="width: 80%; min-height: 60px; display: grid; align-items: center; ")
+          +site-search({
+            link: {
+              text: "Поиск",
+            },
+            form: {
+              form: {
+                inputLabel: "Поиск",
+                inputId: "search-ex4",
+                inputName: "search",
+              },
+              btn: {
+                text: "Найти",
+                classMods: ["primary"],
+              },
+            },
+          })
+        p Пример вызова
+        pre
+          .
+            +site-search({
+              link: {
+                text: "Поиск",
+              },
+              form: {
+                form: {
+                  inputLabel: "Поиск",
+                  inputId: "search-ex4",
+                  inputName: "search",
+                },
+                btn: {
+                  text: "Найти",
+                  classMods: ["primary"],
+                },
+              },
+            })
+
+      section#form
+        h2 Form
+        +form()
+        p Как использовать:
+        code
+          pre +form()
+
+      section(id="banner")
+        h2 Banner
+        h3 если нужно, чтобы ширина компонента на desktop была как в макете, добавляем в вызов layoutWidth: "layout"
+        +banner({
+          title: "Универсальный серверный ИБП",
+          image: {
+            path: "content",
+            image: "ibp",
+            format: "png",
+            width: 320,
+            height: 325,
+            altText: "Универсальный серверный ИБП.",
+          },
+          btn: {
+            text: "#",
+            href: "catalog.html",
+            classMods: ["primary"],
+          },
+        })
+        p Пример вызова на всю ширину родителя на desktop (по умолчанию)
+        pre
+          .
+            +banner({
+              title: "Универсальный серверный ИБП",
+              picture: {
+                path: "content",
+                image: "ibp",
+                format: "png",
+                width: 320,
+                height: 325,
+                altText: "Универсальный серверный ИБП.",
+              },
+              btn: {
+                text: "Перейти в&nbsp;каталог",
+                href: "#",
+                classMods: ["primary"],
+              },
+            })
+        p Пример вызова на ширину родителя как в макете на desktop
+        pre
+          .
+            +banner({
+              title: "Универсальный серверный ИБП",
+              picture: {
+                path: "content",
+                image: "ibp",
+                format: "png",
+                width: 320,
+                height: 325,
+                altText: "Универсальный серверный ИБП.",
+              },
+              btn: {
+                text: "Перейти в&nbsp;каталог",
+                href: "#",
+                classMods: ["primary"],
+              },
+              layoutWidth: "layout",
+            })
+
+      section(id="product-card")
+        h2.ui-title Product-card
+        .wrap(style="max-width: 380px")
+          +product-card({
+            tags: [
+              {
+                text: "топ продаж",
+                mod: "bg-green",
+              },
+              {
+                text: "реестр роспромторга",
+              },
+            ],
+            btns: true,
+            image: "product-1",
+            width: 220,
+            height: 220,
+            title: "СИПБ1КА.10-11",
+            text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            table: [
+                {
+                  name: "Мощность",
+                  text: "1000&nbsp;вт",
+                },
+                {
+                  name: "Входное напряжение",
+                  text: "300&nbsp;в",
+                },
+                {
+                  name: "Вес",
+                  text: "13.8&nbsp;кг",
+                },
+                {
+                  name: "Габариты",
+                  text: "440 х 460 х 86.5 мм",
+                },
+              ]
+            })
+
+        p Пример вызова
+        pre
+          .
+            +product-card({
+              tags: [
+                {
+                  text: "топ продаж",
+                  mod: "bg-green",
+                },
+                {
+                  text: "реестр роспромторга",
+                },
+              ],
+              btns: true,
+              image: "product-1",
+              width: 220,
+              hight: 220,
+              title: "СИПБ1КА.10-11",
+              text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+              table: [
+                {
+                  name: "Мощность",
+                  text: "1000&nbsp;вт",
+                },
+                {
+                  name: "Входное напряжение",
+                  text: "300&nbsp;в",
+                },
+                {
+                  name: "Вес",
+                  text: "13.8&nbsp;кг",
+                },
+                {
+                  name: "Габариты",
+                  text: "440 х 460 х 86.5 мм",
+                },
+              ]
+            })
+
+        h3 Product-card горизонтальная
+        .wrap( style="max-width: 1180px")
+          .list-horiz
+            +product-card({
+                tags: [
+                  {
+                    text: "топ продаж",
+                    mod: "bg-green",
+                  },
+                  {
+                    text: "реестр роспромторга",
+                  },
+                ],
+                btns: true,
+                image: "product-1",
+                width: 220,
+                hight: 220,
+                title: "СИПБ1КА.10-11",
+                text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+                table: [
+                {
+                  name: "Мощность",
+                  text: "1000&nbsp;вт",
+                },
+                {
+                  name: "Входное напряжение",
+                  text: "300&nbsp;в",
+                },
+                {
+                  name: "Вес",
+                  text: "13.8&nbsp;кг",
+                },
+                {
+                  name: "Габариты",
+                  text: "440 х 460 х 86.5 мм",
+                },
+              ]
+              })
+
+        p Пример вызова
+        pre
+          .
+            .list-horiz // контейнер для горизонтального отображения карточек
+              +product-card({
+                  tags: [
+                    {
+                      text: "топ продаж",
+                      mod: "bg-green",
+                    },
+                    {
+                      text: "реестр роспромторга",
+                    },
+                  ],
+                  btns: true,
+                  image: "product-1",
+                  width: 220,
+                  hight: 220,
+                  title: "СИПБ1КА.10-11",
+                  text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+                  table: [
+                  {
+                    name: "Мощность",
+                    text: "1000&nbsp;вт",
+                  },
+                  {
+                    name: "Входное напряжение",
+                    text: "300&nbsp;в",
+                  },
+                  {
+                    name: "Вес",
+                    text: "13.8&nbsp;кг",
+                  },
+                  {
+                    name: "Габариты",
+                    text: "440 х 460 х 86.5 мм",
+                  },
+                ]
+                })
+
+        h3 Product-card минимальная (блок сравнения)
+        .wrap(style="width: 280px")
+          +product-card({
+            compare: true,
+            btns: true,
+            image: "product-1",
+            width: 220,
+            hight: 220,
+            title: "СИПБ1КА.10-11",
+            text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            }).product-card--min
+
+        p Пример вызова
+        pre
+          .
+            product-card({
+              compare: true,
+              image: "product-1",
+              width: 220,
+              hight: 220,
+              title: "СИПБ1КА.10-11",
+              text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+            }).product-card--min
+
+      section(id="category-card")
+        h2 Category-card
+        .category-card-wrap(style="max-width: 380px")
+          +categoryCard(
+            {
+              iconName: 'icon-factory',
+              text: 'Промышленность'
+            }
+          )
+
+          +categoryCard(
+            {
+              text: 'Смотреть все ИБП ',
+              isAll: true,
+            }
+          )
+
+        p Добавление карточки категории
+        pre
+          .
+            +categoryCard(
+              { text: "Текст",
+                path: "Ссылка",
+                imgUrl: "Путь к картинке",
+              })
+
+      section(id="tabs")
+        h2 Tabs
+        +tabs({
+          controlBtns: [
+            "СИПБ RT 1~3 кВА",
+            "СИПБ 1~3 кВА",
+            "СИПБ RT 6~20 кВА",
+            "СИПБ 6~20 кВА",
+            "СИП380А 10~500 кВА",
+            "СИП380А МД 10~1560 кВА",
+            "СИП380Б 10~800 кВА",
+          ],
+        })
+          .tabs__element(data-tabs='element')
+            +upsCard
+          .tabs__element(data-tabs='element')
+            +upsCard
+          .tabs__element(data-tabs='element')
+            +product-card({
+              tags: [
+                {
+                  text: "топ продаж",
+                  mod: "bg-green",
+                },
+                {
+                  text: "реестр роспромторга",
+                },
+              ],
+              btns: true,
+              image: "product-1",
+              width: 220,
+              hight: 220,
+              title: "СИПБ1КА.10-11",
+              text: "ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+              table: [
+                {
+                  name: "Мощность",
+                  text: "1000&nbsp;вт",
+                },
+                {
+                  name: "Входное напряжение",
+                  text: "300&nbsp;в",
+                },
+                {
+                  name: "Вес",
+                  text: "13.8&nbsp;кг",
+                },
+                {
+                  name: "Габариты",
+                  text: "440 х 460 х 86.5 мм",
+                },
+              ]
+            })
+          .tabs__element(data-tabs='element')
+            +marquee(marqueeList)
+          .tabs__element(data-tabs='element')
+            +custom-input({
+              inputLabel: "Введите ваше имя",
+              inputName: "user-name-1",
+            })(data-validate-type="text", data-limitation="name", data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-required)
+          .tabs__element(data-tabs='element')
+            +btn({text: "Сбросить форму", type: "reset"})
+            +btn({text: "Отправить форму", type: "submit"})
+          .tabs__element(data-tabs='element')
+            +banner({
+              title: "Универсальный серверный ИБП",
+              image: {
+                path: "content",
+                image: "ibp",
+                format: "png",
+                width: 320,
+                height: 325,
+                altText: "Универсальный серверный ИБП.",
+              },
+              btn: {
+                text: "Перейти в каталог",
+                href: "catalog.html",
+                classMods: ["primary"],
+              },
+            })
+        p Пример вызова
+        pre
+          .
+            +tabs({
+              controlBtns: [
+                "СИПБ RT 1~3 кВА",
+                "СИПБ 1~3 кВА",
+                "СИПБ RT 6~20 кВА",
+                "СИПБ 6~20 кВА",
+                "СИП380А 10~500 кВА",
+                "СИП380А МД 10~1560 кВА",
+                "СИП380Б 10~800 кВА",
+              ],
+            })
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+            .tabs__element.content-tab-element(data-tabs='element')
+              +upsCard
+
+
+      section(id="breadcrumbs")
+        h2 Breadcrumbs
+        +breadcrumbs([{
+          text: 'Главная',
+          href: '#'
+        }, {
+          text: 'Каталог',
+          href: '#'
+        }, {
+          text: 'Инверторы и блоки питания',
+          href: '#'
+        }])
+
+        p Пример вызова
+          code
+            pre
+              .
+                +breadcrumbs([{
+                  text: 'Главная',
+                  href: '#'
+                }, {
+                  text: 'Каталог',
+                  href: '#'
+                }, {
+                  text: 'Инверторы и блоки питания',
+                  href: '#'
+                }])
+
+      section(id="page-section")
+        h2 Page-section
+        h3 Только заголовок
+        +page-section(
+          {section: "section",
+            level: "h2",
+            title: "О компании",
+            text: [
+              "«Связь инжиниринг» — российский лидер в разработке и производстве систем бесперебойного питания и другой преобразовательной техники. С 2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+              "Сильная инженерная команда и постоянное обновление технологий позволяют нам выпускать кастомизированные комплексные решения."
+            ]
+          }
+        ).page-section--no-pt
+
+        p Пример вызова
+          code
+            pre
+              .
+                +page-section(
+                  {section: "section",
+                    level: "h2",
+                    title: "О компании",
+                    text: [
+                      "«Связь инжиниринг» — российский лидер в разработке и производстве систем бесперебойного питания и другой преобразовательной техники. С 2011 года компания предоставляет комплексные решения для объектов любой сложности.",
+                      "Сильная инженерная команда и постоянное обновление технологий позволяют нам выпускать кастомизированные комплексные решения."
+                    ]
+                  }
+                )
+
+        h3 Заголовок + текст
+        +page-section(
+          { section: "section",
+            level: "h2",
+            title: "Поможем подобрать ИБП, который подойдет именно вам",
+            textTitleBlock: [
+              "От правильного выбора системы бесперебойного питания зависит дальнейшая надежная работа защищаемого оборудования и окупаемость вложений в ИБП.",
+            ],
+            mod: "text",
+          }
+        ).page-section--no-pt
+
+        p Пример вызова
+          code
+            pre
+              .
+                +page-section(
+                  { section: "section",
+                    level: "h2",
+                    title: "Поможем подобрать ИБП, который подойдет именно вам",
+                    textTitleBlock: "От правильного выбора системы бесперебойного питания зависит дальнейшая надежная работа защищаемого оборудования и окупаемость вложений в ИБП.",
+                    mod: "text",
+                  }
+                )
+
+      section(id="marquee")
+        h2 Marquee
+        +marquee(marqueeList)
+
+        p Пример вызова
+          code
+            pre
+              .
+                +marquee([{
+                    image: "logo-cyek",
+                    width: 226,
+                    height: 93,
+                  },
+                  {
+                    name: "icon-rostelecom",
+                    width: 342,
+                    height: 87,
+                  },
+                  {
+                    name: "icon-vtb",
+                    width: 195,
+                    height: 70,
+                  },
+                  {
+                    name: "icon-transneft",
+                    width: 102,
+                    height: 87,
+                  },
+                  {
+                    name: "icon-rzd",
+                    width: 440,
+                    height: 70,
+                  },
+                  {
+                    name: "icon-rtrs",
+                    width: 235,
+                    height: 70,
+                  },
+                  {
+                    image: "logo-rosneft",
+                    width: 225,
+                    height: 116,
+                  },
+                  {
+                    name: "icon-metro",
+                    width: 93,
+                    height: 64,
+                  },
+                  {
+                    name: "icon-lukoil",
+                    width: 253,
+                    height: 82,
+                  },
+                  {
+                    name: "icon-gaz",
+                    width: 187,
+                    height: 92,
+                  },
+                  {
+                    name: "icon-gazprombank",
+                    width: 349,
+                    height: 74,
+                  },
+                  {
+                    image: "logo-alfa",
+                    width: 270,
+                    height: 82,
+                  },
+                  {
+                    name: "icon-ros",
+                    width: 255,
+                    height: 74,
+                  },
+                  {
+                    image: "logo-rushydro",
+                    width: 216,
+                    height: 74,
+                  }])
+
+      section(id="tags")
+        h2 Tags
+        +tags([
+          {
+            text: "топ продаж",
+            mod: "bg-green",
+          },
+          {
+            text: "реестр роспромторга",
+          },
+          {
+            text: "есть в наличии",
+            mod: "icon",
+            icon: {
+              name: "icon-check",
+              width: 16,
+              height: 16,
+            },
+          },
+        ])
+
+        p Пример вызова
+          code
+            pre
+              .
+                +tags([
+                  {
+                    text: "топ продаж",
+                    mod: "bg-green",
+                  },
+                  {
+                    text: "реестр роспромторга",
+                  },
+                  {
+                    text: "есть в наличии",
+                    mod: "icon",
+                    icon: {
+                      name: "icon-check",
+                      width: 16,
+                      height: 16,
+                    },
+                  },
+                ])
+
+      section(id="controls")
+        h2 Controls
+        +controls()
+        p Пример вызова
+        code
+          pre +controls()
+
+      section(id="filter")
+        h2 Фильтры
+        .filter
+          form(data-accordion="parent")
+            .filter__wrap
+              +filter-item(
+                {
+                  title: "Область применения",
+                  list: [
+                  "Промышленность",
+                  "Телеком и связь",
+                  "IT",
+                  "Медицина",
+                  "Банк",
+                  "Аэропорт",
+                  "Офис"
+                ],
+                isActive: true,
+                }
+              )
+              +filter-item(
+                {
+                  title: "Используется для",
+                  list: [
+                    "ЦОДа",
+                    "Сервера",
+                    "Томографа",
+                    "Станка",
+                    "Насоса",
+                    "Другое"
+                  ],
+                    isActive: true,
+                }
+              )
+              +custom-range(
+                {
+                  title: "Mощность, вт",
+                  min: 0,
+                  max: 35,
+                  step: 1,
+                  handle: 30,
+                }
+              )
+            .filter__more(data-accordion="parent")
+              .filter__more-wrap(data-accordion="element")
+                .filter__more-content(data-accordion="content")
+                  +filter-item(
+                    {
+                      title: "Тип ИБП",
+                      list: [
+                        "Off-line",
+                        "line-interactive",
+                        "on-line"
+                      ],
+                        isActive: true,
+                    }
+                  )
+                +link(
+              {
+                text: "Дополнительные фильтры",
+                icon: {
+                  name: "control-left",
+                  width: 16,
+                  height: 16,
+                }
+              }
+              ).filter__link(data-accordion="button")
+
+        p Пример вызова - добавляет поле фильтра.
+
+        code
+          pre
+              .
+                +filter-item(
+                  { title: "Название",
+                    list: [
+                      option1,
+                      option2,
+                    ],
+                    isActive: true // поле открыто
+                  }
+                )
+
+      section(id="grid-columns")
+        h2 Grid-columns
+        h3 Список с 4мя колонками, используем модификатор col-4 , если с 1023 нужны 2 колонки, если с 1023 нужны 3 колонки, то модификатор не нужен
+        +grid-columns({mod: "content", content: categoryCards, gridMod: "cards"}).grid-columns--col-4
+        p Пример вызова
+        code
+          pre +grid-columns({mod: "content", content: data, gridMod: "cards"}).grid-columns--col-4
+
+        h3 Список с 2мя колонками, модификатор col-2
+        +grid-columns({mod: "content",
+              content:[
+            {
+              iconName: "icon-airplane",
+              text: "Аэропорт"
+            },
+            {
+              iconName: "icon-gearsix",
+              text: "Другое"
+            }
+        ], gridMod: "cards"}).grid-columns--col-2
+        p Пример вызова
+        code
+          pre +grid-columns({mod: "content", content: data, gridMod: "cards"}).grid-columns--col-2
+
+      section(id="slider")
+        h2 Слайдер
+        h3 если нужно, чтобы слайды были на всю длину и ширину родителя, добавляем в вызов объекта imgMod: "cover"
+        .wrap(style="max-width: 740px")
+          +slider({
+            content: {
+              pagination: true,
+              slides: [
+                {
+                  image: "slide-1",
+                  width: 268,
+                  height: 450,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-2",
+                  width: 268,
+                  height: 450,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-3",
+                  width: 473,
+                  height: 142,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-1",
+                  width: 268,
+                  height: 450,
+                  format: "png",
+                  altText: "товар",
+                },
+                {
+                  image: "slide-3",
+                  width: 473,
+                  height: 142,
+                  format: "png",
+                  altText: "товар",
+                },
+              ],
+            },
+            contentThumb: [
+              {
+                image: "thumb-1",
+                width: 46,
+                height: 80,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-2",
+                width: 38,
+                height: 80,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-3",
+                width: 100,
+                height: 30,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-4",
+                width: 46,
+                height: 80,
+                format: "png",
+                altText: "товар",
+              },
+              {
+                image: "thumb-5",
+                width: 100,
+                height: 30,
+                format: "png",
+                altText: "товар",
+              },
+            ],
+          })
+
+        p Пример вызова c object-fit: contain (по умолчанию)
+        code
+          pre  +slider({content: productSlider, contentThumb: listThumb})
+
+        p Пример вызова c object-fit: cover
+        code
+          pre  +slider({content: productSlider, contentThumb: listThumb, imgMod: "cover"})
+
+      section(id="pagination")
+        h2 Pagination
+        h3 Отрисовывается только на desktop-разрешении
+        +pagination({count: 42})
+        p Пример вызова
+        code
+          pre +pagination({count: 42})
+
+      section(id="info-card")
+        h2 Info-card
+        +info-card({data: "150", text: "дилеров"})
+        p Пример вызова
+        code
+          pre +info-card({data: "150", text: "дилеров"})
+
+      section#card-header
+        h2 Card header
+        +product-about(
+          {
+            code: 'АПСМ.435241.026-01',
+            heading: 'СИПБ1КА.10-11 Rack/Tower',
+            text: 'Онлайн ИБП СИПБ2КА.10-11 двойного преобразования 2&nbsp;кВт для 19-ти дюймовой стойки высотой 2U&nbsp;с&nbsp;встроенными аккумуляторами',
+          }
+        )
+        p Пример вызова (если нет #[strong артикула], можно не писать)
+          code
+            pre
+              .
+                +product-information-about(
+                  {
+                    code: 'АПСМ.435241.026-01',
+                    heading: 'СИПБ1КА.10-11 Rack/Tower',
+                    text: 'Онлайн ИБП СИПБ2КА.10-11 двойного преобразования 2&nbsp;кВт для 19-ти дюймовой стойки высотой 2U&nbsp;с  &nbsp;встроенными аккумуляторами',
+                  }
+                )
+      section#product-table
+        h2 Product table
+        +product-table([
+          {
+            name: 'Серия',
+            text: 'СИПБ 1-3 кВА Rack/Tower',
+          },
+          {
+            name: 'Технология',
+            text: 'Online ИБП',
+          },
+          {
+            name: 'Мощность',
+            text: '1000 вт',
+          },
+          {
+            name: 'Входное напряжение',
+            text: '300 в',
+          },
+          {
+            name: 'Вес',
+            text: '24.5 кг',
+          },
+          {
+            name: 'Габаритные размеры',
+            text: '440 х 600 х 86.5 мм',
+          },
+        ])
+        p Пример вызова
+          code
+            pre
+              .
+                +product-table([
+                  {
+                    name: 'Серия',
+                    text: 'СИПБ 1-3 кВА Rack/Tower',
+                  },
+                ])
+        p Если нужен модификатор к элементу списка, просто добавляйте в объект #[strong mod: 'название вашего модификатора']
+
+      section#product-about
+        h2 о продукте
+        +product-about(
+          {
+            heading: 'Выставка «Энергетика Урала» в Уфе',
+            text: 'Здесь несколько слов оо&nbsp;проекте. Российский лидер в&nbsp;разработке и производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.',
+          }
+        )
+        p пример использования
+          code
+            pre
+              .
+                +product-about(
+                  {
+                    heading: 'Выставка «Энергетика Урала» в Уфе',
+                    text: 'Здесь несколько слов оо&nbsp;проекте. Российский лидер в&nbsp;разработке и производстве систем бесперебойного питания и&nbsp;другой преобразовательной техники. С&nbsp;2011 года компания предоставляет комплексные решения для объектов любой сложности.',
+                  }
+                )
+
+      section(id="info")
+        h2 Информациооный блок
+        h3 блок с текстом
+        +info({name: "Наименование", text: "ООО «Связь инжиниринг»"})
+
+        h3 блок с ссылкой
+        +info({name: "Адрес", href: "#", text: "115404, Россия, г. Москва, ул. 6-я Радиальная, д. 9"})
+
+        p Пример вызова
+          code
+            pre +info({name: "Наименование", text: "ООО «Связь инжиниринг»"})
+            pre +info({name: "Адрес", href: "#", text: "115404, Россия, г. Москва, ул. 6-я Радиальная, д. 9"})
+
+      section(id="text-content")
+        h2 Text-content: оформление контентых областей
+
+        .text-content
+          h3 Заголовок h3
+          h4 Заголовок h4
+          h5 Заголовок h5
+          h6 Заголовок h6
+          p Параграф
+          ul
+            li Пункт списка
+            li Пункт списка
+
+        p Пример использования
+          pre
+            .
+              .text-content
+                h3 Заголовок h3
+                h4 Заголовок h4
+                h5 Заголовок h5
+                h6 Заголовок h6
+                p Параграф
+                ul
+                  li Пункт списка
+                  li Пункт списка
+
+      section(id="product-features-table")
+        h2 Product-features-table
+        +product-features-table({
+          list: [
+            {
+              title: "Входные характеристики ИБП",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+            {
+              title: "Выходные характеристики ИБП",
+              features: [
+                {
+                  name: "Номинальное входное напряжение",
+                  value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                },
+                {
+                  name: "Номинальный диапазон напряжений",
+                  value: "110 ~ 300&nbsp;В",
+                },
+                {
+                  name: "Диапазон входной частоты",
+                  value: "40 ~ 70&nbsp;Гц",
+                },
+                {
+                  name: "Номинальный входной ток",
+                  value: "10,5 ампер",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "СИПБ2КА.10-11",
+                },
+                {
+                  name: "Входной коэффициент мощности",
+                  value: "&ge; 0,99",
+                },
+                {
+                  name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                  value: "&le; 5%",
+                },
+                {
+                  name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                  value: "Настраивается через ЖК-дисплей",
+                },
+              ],
+            },
+          ],
+        })
+
+        p Пример вызова
+        pre
+          .
+            +product-features-table({
+              list: [
+                {
+                  title: "Входные характеристики ИБП",
+                  features: [
+                    {
+                      name: "Номинальное входное напряжение",
+                      value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                    },
+                    {
+                      name: "Номинальный диапазон напряжений",
+                      value: "110 ~ 300&nbsp;В",
+                    },
+                    {
+                      name: "Диапазон входной частоты",
+                      value: "40 ~ 70&nbsp;Гц",
+                    },
+                    {
+                      name: "Номинальный входной ток",
+                      value: "10,5 ампер",
+                    },
+                    {
+                      name: "Входной коэффициент мощности",
+                      value: "СИПБ2КА.10-11",
+                    },
+                    {
+                      name: "Входной коэффициент мощности",
+                      value: "&ge; 0,99",
+                    },
+                    {
+                      name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                      value: "&le; 5%",
+                    },
+                    {
+                      name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                      value: "Настраивается через ЖК-дисплей",
+                    },
+                  ],
+                },
+                {
+                  title: "Выходные характеристики ИБП",
+                  features: [
+                    {
+                      name: "Номинальное входное напряжение",
+                      value: "230&nbsp;В (настраивается 200, 208, 220, 240&nbsp;В)",
+                    },
+                    {
+                      name: "Номинальный диапазон напряжений",
+                      value: "110 ~ 300&nbsp;В",
+                    },
+                    {
+                      name: "Диапазон входной частоты",
+                      value: "40 ~ 70&nbsp;Гц",
+                    },
+                    {
+                      name: "Номинальный входной ток",
+                      value: "10,5 ампер",
+                    },
+                    {
+                      name: "Входной коэффициент мощности",
+                      value: "СИПБ2КА.10-11",
+                    },
+                    {
+                      name: "Входной коэффициент мощности",
+                      value: "&ge; 0,99",
+                    },
+                    {
+                      name: "Коэффициент нелинейных искажений на&nbsp;входе",
+                      value: "&le; 5%",
+                    },
+                    {
+                      name: "Диапазон напряжений в&nbsp;экономичном режиме",
+                      value: "Настраивается через ЖК-дисплей",
+                    },
+                  ],
+                },
+              ],
+            })
+
+      section(id="documentation-card")
+        h2 Documentation-card
+        +documentation-card({
+          cardMod: ["size-user"],
+          text: "Инструкция по эксплуатации",
+          volume: "4,2 мб",
+          icon: "doc",
+          width: 26,
+          height: 16,
+          textDownload: "Скачать",
+          hrefDownload: "#",
+        })
+
+        p Пример вызова для карточек списка "Руководства пользователей"
+
+          pre
+            .
+              +documentation-card({
+                cardMod: ["size-user"],
+                text: "Инструкция по эксплуатации",
+                volume: "4,2 мб",
+                icon: "doc",
+                width: 26,
+                height: 16,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+              })
+
+        +documentation-card({
+          cardMod: ["size-soft"],
+          text: "Утилита сетевого питания 2",
+          operatingSystem: "Windows",
+          icon: "soft",
+          width: 24,
+          height: 24,
+          textDownload: "Скачать",
+          hrefDownload: "#",
+          textMore: "Узнать больше",
+          hrefMore: "#",
+        })
+
+        p Пример вызова для карточек списка "Загрузка програмного обеспечения"
+          pre
+            .
+              +documentation-card({
+                cardMod: ["size-soft"],
+                text: "Утилита сетевого питания 2",
+                operatingSystem: "Windows",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textDownload: "Скачать",
+                hrefDownload: "#",
+                textMore: "Узнать больше",
+                hrefMore: "#",
+              })
+
+        +documentation-card({
+          cardMod: ["size-patent"],
+          text: "ISO 9001:2008 сертификат системы менеджмента качества",
+          icon: "soft",
+          width: 24,
+          height: 24,
+          textSeemMore: "Смотреть подробнее",
+          hrefSeemMore: "#",
+        })
+
+        p Пример вызова для карточек из раздела "Сертификаты и патенты"
+          pre
+            .
+              +documentation-card({
+                cardMod: ["size-patent"],
+                text: "ISO 9001:2008 сертификат системы менеджмента качества",
+                icon: "soft",
+                width: 24,
+                height: 24,
+                textSeemMore: "Смотреть подробнее",
+                hrefSeemMore: "#",
+              })
+
+      section(id="project-card")
+        h2 Карточка проекта на странице Реализованные проекты
+        +project-card(
+          {
+            title: 'Выставка «Энергетика Урала» в Уфе',
+            text: 'Здесь несколько слов оо проекте. Российский лидер в разработке и производстве систем бесперебойного питания и другой преобразовательной техники. С 2011 года компания предоставляет комплексные решения для объектов любой сложности.',
+            date: '24 октября 2023',
+            image: 'ural'
+          }
+        )
+
+      section(id="promo-card")
+        h2 Промо-карточка на странице "Рекламные материалы"
+        +promo-card({
+          title: 'Презентация',
+          description: 'Подробнее о&nbsp;нас, наши заказчики и&nbsp;партнеры, основные направления деятельности, производство электроники и&nbsp;многое другое',
+          layout: ['presentation'],
+          icon: {
+            name: 'icon-presentation',
+            width: 258,
+            height: 268,
+          }
+        })
+
+  script
+    include ../../js/inline/ui-kit.js
+
+
+block modals
+  +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
+    +modal-success({
+        logo: {
+          icon: {
+          name: "logo",
+          width: 230,
+          height: 36,
+          },
+          isIndex: currentUrl === "index.html",
+        },
+        title: "Заявка успешно отправлена",
+        content: "Наш менеджер свяжется с&nbsp;вами в&nbsp;ближайшее время",
+      })
+
+  +modal("modal--request-quote modal--no-scale modal--fit-content")(data-modal="request-quote")
+    +request-quote({
+      logo: {
+        icon: {
+        name: "logo",
+        width: 230,
+        height: 36,
+        },
+        isIndex: currentUrl === "index.html",
+      },
+      title: "Запросить коммерческое предложение",
+      subTitle: "СИПБ1КА.10-11 Онлайн ИБП двойного преобразования полной мощностью 1000&nbsp;ВА",
+      image: "product-1",
+      width: 220,
+      hight: 220,
+      code: "АПСМ.435241.026-01",
+      table: [
+        {
+          name: "Мощность",
+          text: "1000 вт",
+        },
+        {
+          name: "Входное напряжение",
+          text: "300 в",
+        },
+        {
+          name: "Вес",
+          text: "13.8 кг",
+        },
+        {
+          name: "Габариты",
+          text: "440 х 460 х 86.5 мм",
+        },
+      ],
+      countMod: "counter",
+      countText: "Указать количество, шт.",
+      formTitle: "Контактные данные для&nbsp;обратной связи",
+      formInputName: {
+        inputPlaceholder: "Ваше имя",
+        inputType: "text",
+        inputId: "request-name",
+        inputName: "frequest-name",
+      },
+      formInputPhone: {
+        inputPlaceholder: "Номер телефона",
+        inputType: "tel",
+        inputId: "request-number",
+        inputName: 'request-number',
+      },
+      formInputEmail: {
+        inputPlaceholder: "E-mail",
+        inputType: "email",
+        inputId: "request-e-mail",
+        inputName: "request-e-mail",
+      },
+      formInputFile: {
+        inputPlaceholder: "Прикрепить файл",
+        inputType: "file",
+        inputId: "request-file",
+        inputName: "request-file",
+        inputHidden: "visually-hidden",
+        inputLabel: "Прикрепить файл",
+        fileName: "clip",
+        fileWidth: 24,
+        fileHeight: 24,
+      },
+      formInputInfo: {
+        inputPlaceholder: "Здесь можно оставить комментарий к заявке",
+        inputName: "request-info",
+      },
+    }
+  )

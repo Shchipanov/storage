@@ -1,0 +1,227 @@
+.patent-slider {
+  --box-shadow-margin: #{size(64px)};
+
+  &.swiper {
+    margin-top: calc(var(--box-shadow-margin) * -1);
+    margin-right: calc(var(--container-offset) * -1);
+    margin-bottom: calc(var(--box-shadow-margin) * -1);
+    margin-left: calc(var(--container-offset) * -1);
+    padding-top: var(--box-shadow-margin); // для box-shadow карточек
+    padding-right: var(--container-offset);
+    padding-bottom: var(--box-shadow-margin); // для box-shadow карточек
+    padding-left: var(--container-offset);
+
+    @include vp-767 {
+      padding-bottom: size(32px);
+    }
+  }
+
+  .slider-pagination {
+    display: none;
+
+    @include vp-1023 {
+      display: flex;
+      justify-content: center;
+      margin-top: size(32px);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-row-gap: size(20px);
+    grid-column-gap: size(20px);
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      grid-row-gap: size(16px);
+    }
+  }
+
+  &__slide {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: size(20px);
+    margin-right: var(--container-offset);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      grid-row-gap: size(16px);
+      grid-column-gap: 0;
+    }
+
+    &--col-4 {
+      grid-template-columns: repeat(4, 1fr);
+      grid-row-gap: size(20px);
+
+      @include vp-1023 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include vp-767 {
+        grid-template-columns: 1fr;
+      }
+
+      .patent-slider__cards {
+        grid-area: 2 / 1 / 2 / 5;
+        grid-template-columns: 1fr;
+        grid-column-gap: size(20px);
+
+        @include vp-1023 {
+          grid-area: 3 / 1 / 3 / 3;
+        }
+
+        @include vp-767 {
+          grid-template-columns: 1fr;
+          grid-area: 5 / 1 / 5 / 2;
+        }
+      }
+
+      .patent-slider__cards--col-2 {
+        grid-area: 2 / 1 / 2 / 5;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include vp-1023 {
+          min-height: size(126px);
+        }
+      }
+    }
+
+    &--col-3 {
+      grid-template-columns: size(780px) size(380px) size(380px);
+      grid-row-gap: size(20px);
+
+      @include vp-1023 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include vp-767 {
+        grid-template-columns: 1fr;
+      }
+
+      .patent-card--big {
+        @include vp-1023 {
+          grid-area: 1 / 1 / 1 / 3;
+        }
+
+        @include vp-767 {
+          grid-area: 1 / 1 / 1 / 2;
+        }
+
+        .patent-card__img {
+          width: size(290px);
+          height: size(410px);
+
+          @include vp-1919 {
+            width: size(320px);
+            height: size(450px);
+          }
+
+          @include vp-1023 {
+            width: size(256px);
+            height: size(410px);
+          }
+
+          @include vp-767 {
+            height: size(250px);
+          }
+        }
+      }
+
+      .patent-card__img {
+        width: size(320px);
+        height: size(450px);
+
+        @include vp-1023 {
+          width: size(156px);
+          height: size(250px);
+        }
+
+        @include vp-767 {
+          width: size(178px);
+        }
+      }
+    }
+
+    &--row-mix {
+      grid-template-columns: size(780px) size(380px) size(380px);
+      grid-row-gap: size(20px);
+
+      @include vp-1023 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include vp-767 {
+        grid-template-columns: 1fr;
+      }
+
+      .patent-card--big {
+        grid-area: 1 / 1 / 3 / 2;
+        grid-column-gap: size(20px);
+
+        @include vp-1023 {
+          grid-area: 2 / 1 / 2 / 2;
+        }
+
+        @include vp-767 {
+          grid-template-columns: 1fr;
+          grid-area: 3 / 1 / 3 / 2;
+        }
+      }
+
+      .patent-slider__cards {
+        grid-area: 2 / 2 / 2 / 4;
+        grid-template-columns: 1fr;
+        grid-column-gap: size(20px);
+
+        @include vp-1023 {
+          grid-template-columns: 1fr;
+          grid-area: 2 / 2 / 2 / 3;
+        }
+
+        @include vp-767 {
+          grid-area: 4 / 1 / 4 / 2;
+        }
+      }
+    }
+
+    &--col-2 {
+      grid-row-gap: size(20px);
+
+      .patent-card--big:first-child {
+        @include vp-1023 {
+          grid-area: 1 / 1 / 1 / 3;
+        }
+
+        .patent-card__img {
+          @include vp-1023 {
+            width: size(256px);
+            height: size(410px);
+          }
+
+          @include vp-767 {
+            width: size(178px);
+            height: size(250px);
+          }
+        }
+      }
+
+      .patent-slider__cards {
+        grid-area: 2 / 1 / 2 / 3;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include vp-1023 {
+          grid-template-columns: 1fr;
+          grid-area: 2 / 2 / 2 / 3;
+        }
+
+        @include vp-767 {
+          grid-area: 3 / 1 / 3 / 2;
+        }
+      }
+    }
+  }
+}

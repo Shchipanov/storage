@@ -1,0 +1,31 @@
+mixin main-nav(data = {})
+  - const {list} = data
+
+  nav.main-nav(data-main-nav="parent", data-accordion="parent", data-destroy="(max-width: 1439px)")&attributes(attributes)
+    ul.main-nav__list
+      each item in list
+        if item.link.hasSublinks
+          -
+              const defaultToggle = {
+                dataSet: "main-nav",
+                icon: {
+                  name: "icon-arrow",
+                  width: 24,
+                  height: 24,
+                },
+                text: item.link.text,
+              }
+          - const toggle = item.toggle || defaultToggle
+          - const data = item.link.hasSublinks ? "item" : false
+
+          li.main-nav__item(data-main-nav=data, data-accordion="element")
+
+            span(data-main-nav="link").link.main-nav__link!=item.link.text
+            +toggle(toggle)(data-accordion="button")
+
+            .main-nav__content-wrapper.no-scrollbar(data-main-nav="content", data-accordion="content")
+              +nav-board(item.content)(data-main-nav="content-board", data-scroll-lock-fill-gap)
+
+        else
+          li.main-nav__item
+            +link(item.link).main-nav__link

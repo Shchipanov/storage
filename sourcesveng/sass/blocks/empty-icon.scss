@@ -1,0 +1,14 @@
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: size(26px);
+  border-radius: size(10px);
+  flex-shrink: 0;
+  background: $color-solitude;
+
+  & svg {
+    width: size(48px);
+    height: size(48px);
+  }
+}

@@ -1,0 +1,38 @@
+-
+  const missionCards = [
+    {
+      iconName: "icon-users",
+      text: "Профессиональная команда инженеров"
+    },
+    {
+      iconName: "icon-circles",
+      text: "Предоставляем комплексный подход"
+    },
+    {
+      iconName: "icon-shield",
+      text: "Входим в реестр Минпромторга"
+    },
+    {
+      iconName: "icon-factory",
+      text: "Развиваем свое производство"
+    },
+  ]
+
+
+mixin our-mission()
+  +page-section(
+          { section: "section",
+            pageGrid: true,
+            modGrid: "col-2"
+          }
+    ).our-mission
+
+    +column()
+      h2.title.title--h1 Наша миссия
+
+    +column()
+      .page-section__heading
+        h3.title.title--h2 Стать отраслевым лидером на рынке силовой электроники, преобразовательной техники
+        .text-content
+          p От&nbsp;системы бесперебойного питания для офиса до&nbsp;полномасштабной инфраструктуры для центра обработки данных&nbsp;&mdash; наши решения помогут вашему бизнесу стать более эффективным и&nbsp;надежным.
+      +grid-columns({mod: "content", content: missionCards, gridMod: "cards"}).grid-columns--col-2.our-mission__list

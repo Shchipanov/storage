@@ -1,0 +1,114 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$color-default-black: #000000;
+$color-default-white: #ffffff;
+$color-transparent: rgba(255, 255, 255, 0);
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+$color-black: #0a0a0a;
+$color-black-russian: #1d2028;
+$color-black-russian27: #1e2127;
+$color-vulcan: #373b45;
+$color-navy-blue: #006be0;
+$color-navy-blue-2: #0047ff;
+$color-dodger-blue: #007aff;
+$color-mischka: #a2a7b6;
+$color-pattens-blue: #d1deeb;
+$color-solitude: #f1f2f4;
+$color-snow: #fcfcfc;
+$color-apple: #65c94f;
+$color-ship-cove: #838b9e;
+$color-solitude-2: #eeeff2;
+$color-dodger-blue-2: #3395ff;
+$color-light-sky-blue: #99caff;
+$color-royal-blue: #4088dd;
+$color-echo-blue: #b5b9c5;
+$color-malachite: #03d757;
+$color-mischka-2: #a1a2a7;
+$color-black-marlin: #3a3a41;
+$color-link-water: #ccced7;
+$color-apple2: #54c33c;
+$color-alizarin: #e82b33;
+$color-international-orange: #fd5811;
+$color-solitude-3: #d9e9fc;
+$color-storm-gray: #676f84;
+$color-rose-white: #ffede6;
+$cornflower-blue: #5c82e3;
+$color-black-pearl: #0b1c28;
+
+// Gradient
+
+$black-to-right: linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 0.75) 0%,
+  rgba(0, 0, 0, 0) 75%
+);
+$navy-to-dodger: radial-gradient(
+  142.5% 718.06% at 78.64% 114.17%,
+  $color-navy-blue-2 0%,
+  $color-dodger-blue 100%
+);
+
+// Shadow
+$shadow: 0 16px 64px rgba($color-black-marlin, 0.09),
+  0 2px 32px rgba($color-black-marlin, 0.06),
+  0 0 24px rgba($color-black-marlin, 0.04);
+$shadow-2: 0 16px 64px rgba($color-black-marlin, 0.04),
+  0 2px 32px rgba($color-black-marlin, 0.03),
+  0 0 24px rgba($color-black-marlin, 0.02);
+$shadow-cornflower-blue: 0 16px 36px rgba($cornflower-blue, 0.5);
+$shadow-black-marlin: 0 16px 64px rgba($color-black-marlin, 0.09),
+  0 2px 32px rgba($color-black-marlin, 0.06),
+  0 0 24px rgba($color-black-marlin, 0.04);
+$shadow-black-marlin2: 0 16px 64px rgba($color-black-marlin, 0.04),
+  0 2px 32px rgba($color-black-marlin, 0.03),
+  0 0 24px rgba($color-black-marlin, 0.02);
+$shadow-black-pearl: 0 0 15px rgba($color-black-pearl, 0.1);
+
+// Typography
+// ---------------------------------
+
+// переменная используемая в html для подключения скейлинга
+$fz-default: 16px;
+
+// у некоторых шрифтов в ios возникают проблемы с символом рубля
+// https://www.artlebedev.ru/kovodstvo/sections/159/#13
+$ff-rouble: "Rouble", "Arial", sans-serif;
+
+$ff-manrope: "Manrope", "Arial", sans-serif;
+$ff-oswald: "Oswald", "Arial", sans-serif;
+
+// Animation
+// ---------------------------------
+
+$tf-default: ease;
+$trans-default: 0.3s $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+
+$trans-600: 0.6s $tf-default;
+$trans-900: 0.9s $tf-default;
+
+// Viewports
+// ---------------------------------
+
+$vp-320: 320px;
+$vp-375: 375px;
+$vp-768: 768px;
+$vp-1024: 1024px;
+$vp-1100: 1100px;
+$vp-1280: 1280px;
+$vp-1440: 1440px;
+$vp-1920: 1920px;
+
+// Retina
+// ---------------------------------
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;

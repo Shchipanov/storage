@@ -1,0 +1,122 @@
+.custom-range {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  padding-bottom: size(30px);
+  padding-right: size(20px);
+
+  .title {
+    cursor: default;
+    margin-bottom: size(6px);
+  }
+}
+
+.custom-range__scale {
+  height: 2px;
+  border: none;
+  width: 95%;
+
+  @include vp-1023 {
+    width: 98%;
+  }
+
+  @include vp-767 {
+    width: 95%;
+  }
+
+  @include vp-374 {
+    width: 95%;
+  }
+
+  .noUi-handle {
+    width: size(20px);
+    height: size(20px);
+    background-color: $color-dodger-blue;
+    border-radius: 50%;
+    box-shadow: none;
+    top: size(-8px);
+    right: size(-17px);
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.custom-range__scale .noUi-handle::after {
+  display: none;
+}
+
+.custom-range__scale .noUi-handle::before {
+  display: none;
+}
+
+.custom-range__scale .noUi-connects {
+  background-color: $color-echo-blue;
+}
+
+.custom-range__scale .noUi-connect {
+  background-color: $color-dodger-blue;
+}
+
+.custom-range__value {
+  border: none;
+  font-family: $ff-manrope;
+  font-style: normal;
+  font-weight: 400;
+  font-size: size(16px);
+  line-height: size(20px);
+  color: $color-mischka;
+  display: block;
+  padding: size(12px) size(10px) size(10px) size(1px);
+  cursor: pointer;
+  width: 50%;
+  background-color: $color-default-white;
+  text-align: left;
+
+  @include vp-1023 {
+    background-color: $color-transparent;
+  }
+
+  @include hover-focus {
+    border: none;
+    outline: none;
+  }
+
+  &--upper {
+    text-align: right;
+    padding-right: 0;
+  }
+}
+
+.custom-range__field {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  padding-right: 0;
+  padding-bottom: size(9px);
+  padding-top: size(18px);
+  padding-left: size(2px);
+
+  @include vp-1099 {
+    width: 96%;
+  }
+
+  @include vp-1023 {
+    width: 100%;
+  }
+
+  @include vp-767 {
+    padding-top: size(16px);
+  }
+}
+
+.custom-range__field::after {
+  content: " ";
+  width: size(24px);
+  height: 1px;
+  position: absolute;
+  top: 58%;
+  left: 52%;
+  background-color: $color-mischka;
+  transform: translate(-50%, -50%);
+}

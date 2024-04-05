@@ -1,0 +1,65 @@
+.marquee {
+  overflow: hidden;
+
+  &__line {
+    position: relative;
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  &__item {
+    width: size(250px);
+    height: size(100px);
+    margin: 0 size(64px) 0 0;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    will-change: transform;
+
+    @include vp-1023 {
+      height: size(89px);
+    }
+
+    @include vp-767 {
+      width: size(150px);
+      height: size(59px);
+      margin-right: size(26px);
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  [data-animation] {
+    transform-origin: center center;
+  }
+}
+
+.marquee-block {
+  color: $color-black-russian27;
+
+  user-select: none;
+}

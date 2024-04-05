@@ -1,0 +1,276 @@
+.promo-card {
+  position: relative;
+  min-height: size(464px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: size(20px);
+  background-color: $color-solitude;
+  border-radius: 18px;
+  transition: background-color $trans-default;
+
+  @include vp-1279 {
+    min-height: size(552px);
+  }
+
+  @include vp-767 {
+    min-height: size(430px);
+  }
+
+  .title {
+    margin-bottom: size(40px);
+  }
+
+  .grid-columns__item--switchboard & {
+    justify-content: initial;
+    min-height: size(264px);
+
+    @include vp-1279 {
+      min-height: size(552px);
+    }
+
+    @include vp-767 {
+      min-height: size(430px);
+    }
+
+    .title {
+      margin-bottom: size(20px);
+
+      @include vp-1279 {
+        margin-bottom: size(40px);
+      }
+    }
+  }
+
+  .grid-columns__item--presentation & {
+    min-height: size(664px);
+
+    @include vp-1279 {
+      min-height: size(552px);
+    }
+
+    @include vp-767 {
+      min-height: size(430px);
+    }
+
+    .title {
+      margin-bottom: size(130px);
+
+      @include vp-1279 {
+        margin-bottom: size(40px);
+      }
+    }
+  }
+
+  @include hover-focus {
+    background-color: $color-solitude-3;
+
+    .promo-card__link-wrapper {
+      opacity: 1;
+
+      @include vp-1279 {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.promo-card__icon {
+  width: fit-content;
+  margin-bottom: size(20px);
+
+  svg {
+    display: block;
+  }
+
+  @include vp-767 {
+    margin-bottom: 0;
+  }
+
+  .grid-columns__item--presentation & {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include vp-1279 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    svg {
+      width: size(258px);
+      height: size(268px);
+
+      @include vp-1279 {
+        width: size(128px);
+        height: size(128px);
+      }
+
+      @include vp-767 {
+        width: size(112px);
+        height: size(112px);
+      }
+    }
+  }
+
+  .grid-columns__item--switchboard & {
+    position: absolute;
+    right: size(20px);
+    bottom: size(20px);
+    margin-bottom: 0;
+
+    @include vp-1279 {
+      position: initial;
+      margin-bottom: size(20px);
+    }
+
+    @include vp-767 {
+      margin-bottom: 0;
+    }
+
+    svg {
+      width: size(259px);
+      height: size(74px);
+
+      @include vp-374 {
+        width: size(249px);
+      }
+    }
+  }
+
+  .grid-columns__item--brochures & {
+    svg {
+      width: size(112px);
+      height: size(112px);
+    }
+  }
+
+  .grid-columns__item--ups & {
+    svg {
+      width: size(128px);
+      height: size(104px);
+    }
+  }
+
+  .grid-columns__item--climate & {
+    svg {
+      width: size(84px);
+      height: size(128px);
+    }
+  }
+
+  .grid-columns__item--chip-factory & {
+    svg {
+      width: size(114px);
+      height: size(114px);
+    }
+  }
+}
+
+.promo-card__description {
+  font-size: size(20px);
+  line-height: size(32px);
+  margin-bottom: 0;
+  margin-top: size(20px);
+  color: $color-black-russian27;
+
+  &--with-email .link__text {
+    color: $color-navy-blue;
+  }
+
+  &--with-email,
+  .grid-columns__item--presentation & {
+    margin-top: auto;
+
+    @include vp-767 {
+      margin-top: size(65px);
+    }
+  }
+
+  @include vp-1279 {
+    margin-bottom: size(25px);
+    margin-top: auto;
+
+    br {
+      display: none;
+    }
+
+    &--with-email {
+      margin-bottom: size(56px);
+    }
+  }
+
+  @include vp-767 {
+    margin-top: size(60px);
+
+    &--with-email {
+      margin-bottom: 0;
+      margin-top: auto;
+    }
+  }
+
+  .grid-columns__item--switchboard & {
+    max-width: size(430px);
+    margin: 0;
+
+    @include vp-1279 {
+      max-width: initial;
+      margin-top: auto;
+      margin-bottom: size(30px);
+    }
+
+    @include vp-767 {
+      margin-top: size(60px);
+    }
+  }
+
+  .grid-columns__item--chip-factory & {
+    @include vp-767 {
+      margin-top: size(74px);
+    }
+  }
+
+  .grid-columns__item--brochures & {
+    @include vp-1279 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.promo-card__link-wrapper {
+  display: flex;
+  align-items: center;
+  transition: opacity $trans-default;
+  opacity: 0;
+  margin-top: auto;
+
+  .gradient-link {
+    font-family: $ff-oswald;
+    font-size: size(20px);
+    line-height: size(28px);
+    margin-right: size(12px);
+  }
+
+  .grid-columns__item--presentation &,
+  .grid-columns__item--switchboard & {
+    position: absolute;
+    top: size(28px);
+    right: size(20px);
+  }
+
+  @include vp-1279 {
+    opacity: 1;
+    order: 1;
+    margin-top: 0;
+
+    .grid-columns__item--presentation &,
+    .grid-columns__item--switchboard & {
+      position: initial;
+    }
+  }
+}
+
+.promo-card__doc-size {
+  font-size: size(14px);
+  line-height: size(22px);
+  color: $color-storm-gray;
+}

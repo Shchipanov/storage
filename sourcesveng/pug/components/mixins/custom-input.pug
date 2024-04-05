@@ -1,0 +1,26 @@
+mixin custom-input(options = {})
+  - const inputLabel = options.inputLabel ? options.inputLabel : false
+  - const inputPlaceholder = options.inputPlaceholder ? options.inputPlaceholder : false
+  - const inputType = options.inputType ? options.inputType : "text"
+  - const inputId = options.inputId ? options.inputId : false
+  - const inputName = options.inputName ? options.inputName : false
+  - const inputValue = options.inputValue ? options.inputValue : false
+  - const inputMinLength = options.inputMinLength ? options.inputMinLength : false
+  - const inputMaxLength = options.inputMaxLength ? options.inputMaxLength : false
+  - const inputAccept = options.inputAccept ? options.inputAccept : false
+  - const inputHidden = options.inputHidden ? options.inputHidden : false
+  - const fileName = options.fileName ? options.fileName : false
+  - const fileWidth = options.fileWidth ? options.fileWidth : false
+  - const fileHeight = options.fileHeight ? options.fileHeight : false
+
+  .custom-input&attributes(attributes)
+    label
+      if inputLabel
+        span.custom-input__label!=inputLabel
+          if inputHidden
+            +icon(fileName, fileWidth, fileHeight)
+      span.custom-input__container
+        input(type=inputType, id=inputId, name=inputName, value=inputValue, minlength=inputMinLength, maxlength=inputMaxLength, placeholder=inputPlaceholder, accept=inputAccept, class=inputHidden)
+        span.custom-input__indicator
+        span.custom-input__error Text error
+        span.custom-input__error.custom-input__error--empty-field Это поле обязательно для заполнения

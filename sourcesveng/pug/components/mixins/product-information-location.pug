@@ -1,0 +1,55 @@
+mixin product-information-location()
+  section.product-information-location
+    h3.title.title--h3.product-information-location__heading Поиск местного дистрибьютора продукции «Связь Инжиниринг» рядом с&nbsp;вами
+    .product-information-location__form
+      form(action="#", method="post")
+        +custom-select({
+          optionsList: [
+            {text: "Тип 1", value: "type-1"},
+            {text: "Тип 2", value: "type-2"},
+            {text: "Тип 3", value: "type-3"},
+            {text: "Тип 4", value: "type-4"},
+          ],
+          placeholder: "Тип магазина",
+          buttonAriaLabel: "Выберите тип магазина",
+        })("data-select", data-validate-type="select", data-name="shop", data-id="shop")
+        +custom-select({
+          optionsList: [
+            {text: "Брянская обл.", value: "bryansk-region"},
+            {text: "Пермская обл.", value: "perm-region"},
+            {text: "Московская обл.", value: "moscow-region"},
+            {text: "Калининградская обл.", value: "kaliningrad-region"},
+            {text: "Ярославская обл.", value: "yaroslavl-region"},
+          ],
+          placeholder: "Регион",
+          buttonAriaLabel: "Выберите регион",
+          search: {
+            inputLabel: "Поиск",
+            inputId: "region-search",
+            inputName: "region-search",
+            classMods: ["size-s", "hidden-label"],
+          },
+        })("data-select", data-validate-type="select", data-name="region", data-id="region")
+        +custom-select({
+          optionsList: [
+            {text: "Москва", value: "moscow"},
+            {text: "Балашиха", value: "balashikha"},
+            {text: "Подольск", value: "Podolsk"},
+            {text: "Химки", value: "khimki"},
+            {text: "Зеленоград", value: "zelenograd"},
+          ],
+          placeholder: "Город",
+          buttonAriaLabel: "Выберите город",
+          search: {
+            inputLabel: "Поиск",
+            inputId: "city-search",
+            inputName: "city-search",
+            classMods: ["size-s", "hidden-label"],
+          },
+        })("data-select", data-validate-type="select", data-name="region", data-id="city")
+        +gradient-link({
+          text: "Найти дистрибьютора",
+          type: "submit",
+          classMods: ["dodger-blue"],
+        }).product-information-location__submit
+    +search-distributor()

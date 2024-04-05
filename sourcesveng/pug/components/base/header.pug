@@ -1,0 +1,313 @@
+mixin header(headerMods, currentUrl)
+  -
+    const header = {
+      logo: {
+        icon: {
+          name: "logo",
+          width: 233,
+          height: 40,
+        },
+        isIndex: currentUrl === "index.html",
+      },
+      nav: {
+        list: [
+          {
+            link: {
+              text: "Каталог",
+              href: "catalog.html",
+              hasSublinks: true,
+            },
+            content: {
+              section: {
+                div: "div",
+                realLevel: "p",
+                level: "h5",
+                titleMod: "uppercase",
+                mod: "mb-size-xs",
+                title: "Поможем подобрать ИБП для",
+              },
+              cards: {
+                list: {
+                  mod: "content",
+                  gridMod: "cards",
+                  content: [
+                    {
+                      iconName: "icon-factory",
+                      text: "Промышленность",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-desktoptower",
+                      text: "Телеком и связь",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-harddrives",
+                      text: "IT",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-firstaid",
+                      text: "Медицина",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-laptop",
+                      text: "Офис",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-bank",
+                      text: "Банк",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-airplane",
+                      text: "Аэропорт",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      text: "Смотреть все ИБП",
+                      path: "catalog.html",
+                      isAll: true,
+                      classMods: ["size-s"],
+                      layout: ["span-2"],
+                    },
+                  ],
+                },
+              },
+              banner: {
+                title: "Универсальный серверный ИБП",
+                image: {
+                  path: "content",
+                  image: "ibp",
+                  format: "png",
+                  width: 320,
+                  height: 325,
+                  altText: "Универсальный серверный ИБП.",
+                },
+                btn: {
+                  text: "Перейти в&nbsp;каталог",
+                  href: "catalog.html",
+                  classMods: ["primary"],
+                },
+              },
+            },
+          },
+          {
+            link: {
+              text: "Услуги",
+              href: "#",
+              hasSublinks: true,
+            },
+            content: {
+              section: {
+                div: "div",
+                level: "h5",
+                realLevel: "p",
+                titleMod: "uppercase",
+                mod: "mb-size-xs",
+                title: "Мы предлагаем",
+              },
+              cards: {
+                columns: "col-2",
+                list: {
+                  mod: "content",
+                  gridMod: "cards",
+                  content: [
+                    {
+                      iconName: "icon-mounting",
+                      text: "Монтаж и&nbsp;пусконаладка",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-service",
+                      text: "Техобслуживание и&nbsp;сервис",
+                      classMods: ["size-s"],
+                    },
+                  ],
+                },
+              },
+              banner: {
+                title: "Универсальный серверный ИБП",
+                image: {
+                  path: "content",
+                  image: "ibp",
+                  format: "png",
+                  width: 320,
+                  height: 325,
+                  altText: "Универсальный серверный ИБП.",
+                },
+                btn: {
+                  text: "Перейти в&nbsp;каталог",
+                  href: "catalog.html",
+                  classMods: ["primary"],
+                },
+              },
+              contacts: {
+                title: "У&nbsp;вас есть вопросы? Свяжитесь&nbsp;с&nbsp;нами!",
+                list: [
+                  {
+                    text: "info@sipower.com",
+                    href: "mailto:info@sipower.com",
+                  },
+                  {
+                    text: "+7 (495) 518-92-99",
+                    href: "tel:+74955189299",
+                    classMods: ["snow"],
+                  },
+                  {
+                    text: "+7 (800) 350-90-96",
+                    href: "tel:88003509096",
+                    classMods: ["snow"],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            link: {
+              text: "Компания",
+              href: "#",
+              hasSublinks: true,
+            },
+            content: {
+              section: {
+                div: "div",
+                level: "h5",
+                realLevel: "p",
+                titleMod: "uppercase",
+                mod: "mb-size-xs",
+                title: "О&nbsp;нас",
+              },
+              cards: {
+                list: {
+                  mod: "content",
+                  gridMod: "cards",
+                  content: [
+                    {
+                      iconName: "icon-contacts",
+                      text: "Контакты",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-projects",
+                      text: "Реализованные проекты",
+                      classMods: ["size-s"],
+                      path: "сompleted-projects.html",
+                    },
+                    {
+                      iconName: "icon-company-details",
+                      text: "Реквизиты компании",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-news",
+                      text: "Новости",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-partners",
+                      text: "Клиенты и&nbsp;партнеры",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-images",
+                      text: "Патенты и&nbsp;изображения",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-certificates",
+                      text: "Сертификаты",
+                      classMods: ["size-s"],
+                    },
+                    {
+                      iconName: "icon-marketing",
+                      text: "Маркетинговые материалы",
+                      classMods: ["size-s"],
+                    },
+                  ],
+                } ,
+              },
+              banner: {
+                title: "Универсальный серверный ИБП",
+                image: {
+                  path: "content",
+                  image: "ibp",
+                  format: "png",
+                  width: 320,
+                  height: 325,
+                  altText: "Универсальный серверный ИБП.",
+                },
+                btn: {
+                  text: "Перейти в&nbsp;каталог",
+                  href: "catalog.html",
+                  classMods: ["primary"],
+                },
+              },
+            },
+          },
+          {
+            link: {
+              href: "#",
+              text: "Разработка проекта",
+            },
+          },
+        ],
+      },
+      siteSearch: {
+        link: {
+          text: "Поиск",
+        },
+        form: {
+          input: {
+            inputLabel: "Поиск",
+            inputId: "site-search",
+            inputName: "site-search",
+          },
+          btn: {
+            text: "Найти",
+            classMods: ["primary"],
+          },
+        },
+      },
+      userLinks: {
+        links: [
+          {
+            href: "compare.html",
+            text: "Сравнение",
+            icon: {
+              name: "icon-comparison",
+              width: 24,
+              height: 24,
+            },
+          },
+          {
+            text: "Заказать звонок",
+            icon: {
+              name: "icon-phone",
+              width: 24,
+              height: 24,
+            },
+            isGradient: true,
+          },
+        ],
+      },
+      btn: {
+        text: "Задать вопрос",
+        classMods: ["primary"],
+      },
+      burger: {
+        dataSet: "header",
+      },
+    }
+
+  header.header.no-scrollbar(class=headerMods, data-header="parent", data-scroll-lock-fill-gap)
+    .header__container.container(data-header="container")
+      .header__background(data-header="background")
+      +logo(header.logo)(data-header-logo).header__logo
+      +main-nav(header.nav)(data-header="main-nav")
+      +site-search(header.siteSearch)
+      +user-links(header.userLinks)(data-header="user-links")
+      +btn(header.btn)(data-header-btn).header__btn
+      +burger(header.burger).header__burger

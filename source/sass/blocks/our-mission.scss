@@ -1,0 +1,51 @@
+.our-mission {
+  user-select: none;
+
+  .title--h1 {
+    color: $color-black-russian27;
+
+    @include vp-1023 {
+      margin-bottom: size(44px);
+    }
+
+    @include vp-767 {
+      margin-bottom: size(33px);
+    }
+  }
+
+  .title--h2 {
+    margin-bottom: size(44px);
+    color: $color-black-russian27;
+  }
+
+  .page-section__heading {
+    @include vp-767 {
+      margin-bottom: size(48px);
+    }
+  }
+
+  &__list {
+    grid-auto-flow: column dense;
+    grid-template: repeat(2, 1fr) / minmax(size(200px), size(380px)) minmax(size(200px), size(380px));
+
+    @include vp-1023 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include vp-767 {
+      grid-auto-flow: row;
+    }
+  }
+
+  .category-card {
+    height: 100%;
+
+    @include vp-1439 {
+      padding-top: size(32px);
+    }
+
+    @include vp-767 {
+      padding: size(22px) size(32px);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+mixin footer()
+  -
+    const footer = {
+      socials: {
+        list: [
+          {
+            path: "#",
+            ariaLabel: "youtube",
+            icon: "youtube",
+          },
+          {
+            path: "#",
+            ariaLabel: "telegram",
+            icon: "telegram",
+          },
+          {
+            path: "#",
+            ariaLabel: "Вконтакте",
+            icon: "vk",
+          },
+        ],
+      },
+    }
+
+  footer.footer
+    .footer__wrapper.container
+      +footer-navigation()
+      +form().footer__form
+      +socials(footer.socials).footer__socials
+      +copyright()
+      .footer__row
+        +logo({
+          icon: {
+            name: "icon-logo",
+            width: 48,
+            height: 37,
+          },
+          isIndex: currentUrl === "index.html",
+        }).footer__logo
+        +messengers()
